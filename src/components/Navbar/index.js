@@ -1,0 +1,93 @@
+import React, { useState, useEffect } from 'react'
+import { Link } from 'gatsby'
+import logo from '../../img/logo-inverted.svg'
+import useScroll from '../../hooks/useScroll'
+import GitHubIcon from '../GitHubIcon'
+import './index.scss'
+
+const Navbar = () => {
+
+  const [active, setActive] = useState(false)
+  const [transparent, setTransparent] = useState(true)
+  const [activeClass, setActiveClass] = useState('')
+  const [transparentClass, setTransparentClass] = useState('is-transparent')
+  const [shrinkedClass, setShrinkedClass] = useState('')
+  const [hiddenClass, setHiddenClass] = useState('')
+  const [scrollTresholds, scrollingDown] = useScroll({
+    shrink: 120,
+    hide: 700
+  })
+
+  useEffect(() => {
+    active ? setActiveClass('is-active') : setActiveClass('')
+  }, [active])
+
+  useEffect(() => {
+    transparent
+      ? setTransparentClass('is-transparent')
+      : setTransparentClass('')
+  }, [transparent])
+
+  useEffect(() => {
+    if (scrollTresholds.shrink) {
+      setShrinkedClass('is-shrinked')
+      setTransparent(false)
+    } else {
+      setShrinkedClass('')
+      setTransparent(true)
+    }
+    scrollTresholds.hide && scrollingDown
+      ? setHiddenClass('is-minimized')
+      : setHiddenClass('')
+  }, [scrollTresholds, scrollingDown])
+
+  return (
+    <nav
+      className={`navbar ${transparentClass} ${shrinkedClass} ${hiddenClass}`}
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item" title="Logo">
+            <img className="navbar-logo" src={logo} alt="devosku" />
+          </Link>
+          <h1 className="navbar-site-name">DevOsku</h1>
+          <div
+            className={`navbar-burger burger ${activeClass}`}
+            onClick={() => {
+              setActive(!active)
+              setTransparent(!transparent)
+            }}
+          >
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+        <div
+          id="navMenu"
+          className={`navbar-menu ${activeClass}`}
+        >
+          <div className="navbar-end has-text-centered">
+            <Link className="navbar-item" to="/about">
+              About
+            </Link>
+            <Link className="navbar-item" to="/projects">
+              Projects
+            </Link>
+            <Link className="navbar-item" to="/blog">
+              Blog
+            </Link>
+            <Link className="navbar-item" to="/contact">
+              Contact
+            </Link>
+            <GitHubIcon href="https://github.com/morko" invert={transparent} />
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar

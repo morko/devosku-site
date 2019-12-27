@@ -1,0 +1,51 @@
+@import "../../scss/colors";
+
+.navbar {
+  box-shadow: none !important;
+  transition: all 1s;
+  height: 8rem !important;
+  position: fixed !important;
+  width: 100%;
+
+  .container {
+    height: 100%;
+    align-items: center !important;
+  }
+
+  &-menu {
+    box-shadow: none !important;
+  }
+
+  &-brand {
+    padding: 0 1rem;
+  }
+
+  &-item {
+    color: $primary !important;
+    text-transform: uppercase;
+  }
+
+  &-logo {
+    height: 120px;
+    padding: 0 1rem;
+  }
+
+  &-site-name {
+    line-height: 3.25rem;
+    font-size: 1.5rem;
+  }
+
+  &.is-shrinked {
+    height: 1.5rem !important;
+  }
+
+  &.is-minimized {
+    transform: translateY(-100%);
+  }
+
+  &.is-transparent {
+    .navbar-item {
+      color: $primary-invert !important;
+    }
+  }
+}
