@@ -7,6 +7,8 @@ import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import PageHeadline from '../components/PageHeadline'
 
+import image from '../img/myface1.png'
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -86,7 +88,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
+        image={image}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}

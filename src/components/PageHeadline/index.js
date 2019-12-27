@@ -9,7 +9,7 @@ export default function PageHeadline({ title, subheading, image }) {
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
+        }), linear-gradient(90deg, rgba(222,255,222,1) 0%, rgba(0,0,0,1) 100%)`,
       }}
     >
       <div className="page-headline-title-container">
