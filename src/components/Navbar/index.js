@@ -1,45 +1,44 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
-import logo from '../../img/logo-inverted.svg'
-import useScroll from '../../hooks/useScroll'
-import GitHubIcon from '../GitHubIcon'
-import './index.scss'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
+import Logo from '../Logo';
+import useScroll from '../../hooks/useScroll';
+import GitHubIcon from '../GitHubIcon';
+import './index.scss';
 
 const Navbar = () => {
-
-  const [active, setActive] = useState(false)
-  const [transparent, setTransparent] = useState(true)
-  const [activeClass, setActiveClass] = useState('')
-  const [transparentClass, setTransparentClass] = useState('is-transparent')
-  const [shrinkedClass, setShrinkedClass] = useState('')
-  const [hiddenClass, setHiddenClass] = useState('')
+  const [active, setActive] = useState(false);
+  const [transparent, setTransparent] = useState(true);
+  const [activeClass, setActiveClass] = useState('');
+  const [transparentClass, setTransparentClass] = useState('is-transparent');
+  const [shrinkedClass, setShrinkedClass] = useState('');
+  const [hiddenClass, setHiddenClass] = useState('');
   const [scrollTresholds, scrollingDown] = useScroll({
     shrink: 120,
     hide: 700
-  })
+  });
 
   useEffect(() => {
-    active ? setActiveClass('is-active') : setActiveClass('')
-  }, [active])
+    active ? setActiveClass('is-active') : setActiveClass('');
+  }, [active]);
 
   useEffect(() => {
     transparent
       ? setTransparentClass('is-transparent')
-      : setTransparentClass('')
-  }, [transparent])
+      : setTransparentClass('');
+  }, [transparent]);
 
   useEffect(() => {
     if (scrollTresholds.shrink) {
-      setShrinkedClass('is-shrinked')
-      setTransparent(false)
+      setShrinkedClass('is-shrinked');
+      setTransparent(false);
     } else {
-      setShrinkedClass('')
-      setTransparent(true)
+      setShrinkedClass('');
+      setTransparent(true);
     }
     scrollTresholds.hide && scrollingDown
       ? setHiddenClass('is-minimized')
-      : setHiddenClass('')
-  }, [scrollTresholds, scrollingDown])
+      : setHiddenClass('');
+  }, [scrollTresholds, scrollingDown]);
 
   return (
     <nav
@@ -50,14 +49,22 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item" title="Logo">
-            <img className="navbar-logo" src={logo} alt="devosku" />
+            <Logo color="#333" />
           </Link>
           <h1 className="navbar-site-name">DevOsku</h1>
           <div
             className={`navbar-burger burger ${activeClass}`}
+            role="button"
+            tabIndex={0}
             onClick={() => {
-              setActive(!active)
-              setTransparent(!transparent)
+              setActive(!active);
+              setTransparent(!transparent);
+            }}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                setActive(!active);
+                setTransparent(!transparent);
+              }
             }}
           >
             <span />
@@ -65,10 +72,7 @@ const Navbar = () => {
             <span />
           </div>
         </div>
-        <div
-          id="navMenu"
-          className={`navbar-menu ${activeClass}`}
-        >
+        <div id="navMenu" className={`navbar-menu ${activeClass}`}>
           <div className="navbar-end has-text-centered">
             <Link className="navbar-item" to="/about">
               About
@@ -87,7 +91,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

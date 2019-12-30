@@ -1,10 +1,17 @@
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #edee13;
-$kaldi-red-invert: #333;
+$white-color: #fcf5ed;
+$black-color: #414042;
+$dark-color: #402f2b;
+$light-color: #e6d5c3;
+$medium-color: #977978;
+$alert-color: #cb492a;
+$light-black-color: #706e72;
 
-$primary: $kaldi-red;
-$primary-invert: $kaldi-red-invert;
-$secondary: rgb(39, 17, 4);
-$body-color: #333;
-$black: #2b2523;
+:export {
+  whitecolor: $white-color;
+  blackcolor: $black-color;
+  darkcolor: $dark-color;
+  lightcolor: $light-color;
+  mediumcolor: $medium-color;
+  alertcolor: $alert-color;
+  lightblackcolor: $light-black-color;
+}

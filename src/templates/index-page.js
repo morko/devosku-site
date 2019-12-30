@@ -1,43 +1,67 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
-import PageHeadline from '../components/PageHeadline'
+import Layout from '../components/Layout';
+import Features from '../components/Features';
+import BlogRoll from '../components/BlogRoll';
+import PageHeadline from '../components/PageHeadline';
 
-import image from '../img/myface1.png'
+function createBlurbs({ blurbs, color = '#333' }) {
+  let blurbElements = blurbs.map(blurb => {
+    let lines = blurb.lines.map(line => {
+      return <li key={line}>{line}</li>;
+    });
+    return (
+      <div className="page-headline__blurb" key={blurb.title}>
+        <h3
+          className=" has-text-weight-bold"
+          style={{ color, textTransform: 'uppercase' }}
+        >
+          {blurb.title}
+        </h3>
+        <ul className=" has-text-weight-bold" style={{ color }}>
+          {lines}
+        </ul>
+      </div>
+    );
+  });
+  return blurbElements;
+}
 
 export const IndexPageTemplate = ({
   image,
   title,
-  heading,
-  subheading,
+  leftBlurbs,
+  rightBlurbs,
   mainpitch,
   description,
-  intro,
+  intro
 }) => (
   <div>
-    <PageHeadline title={title} subheading={subheading} image={image} />
+    <PageHeadline image={image}>
+      <div className="container" style={{ height: '60%' }}>
+        <div className="columns">
+          <div className="column">
+            {createBlurbs({ blurbs: leftBlurbs, color: '#333' })}
+          </div>
+          <div className="column is-half"></div>
+          <div className="column">
+            {createBlurbs({ blurbs: rightBlurbs, color: '#DDD' })}
+          </div>
+        </div>
+      </div>
+    </PageHeadline>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
                 <div className="columns">
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
+                      {title}
                     </h3>
                     <p>{description}</p>
                   </div>
@@ -68,53 +92,53 @@ export const IndexPageTemplate = ({
       </div>
     </section>
   </div>
-)
+);
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
+  leftBlurbs: PropTypes.object,
+  rightAd: PropTypes.object,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
-}
+    blurbs: PropTypes.array
+  })
+};
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
       <IndexPageTemplate
-        image={image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
+        image={frontmatter.image}
+        leftBlurbs={frontmatter.leftBlurbs}
+        rightBlurbs={frontmatter.rightBlurbs}
         intro={frontmatter.intro}
       />
     </Layout>
-  )
-}
+  );
+};
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+      frontmatter: PropTypes.object
+    })
+  })
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
+        description
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
@@ -122,28 +146,33 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
-        mainpitch {
+        leftBlurbs {
           title
-          description
+          lines
         }
-        description
+        rightBlurbs {
+          title
+          lines
+        }
         intro {
+          heading
+          description
           blurbs {
             image {
               childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
+                fluid(maxWidth: 512, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
             text
           }
+        }
+        main {
           heading
           description
         }
       }
     }
   }
-`
+`;
