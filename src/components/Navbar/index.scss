@@ -1,4 +1,5 @@
 @import "../../scss/colors";
+@import "../../scss/typography";
 
 .navbar {
   box-shadow: none !important;
@@ -21,17 +22,14 @@
   }
 
   &-item {
-    color: $primary !important;
+    color: $black-color !important;
     text-transform: uppercase;
   }
 
-  &-logo {
-    height: 120px;
-    padding: 0 1rem;
-  }
-
   &-site-name {
-    line-height: 3.25rem;
+    font-family: $primary-font;
+    font-weight: bold;
+    text-transform: uppercase;
     font-size: 1.5rem;
   }
 
@@ -45,7 +43,7 @@
 
   &.is-transparent {
     .navbar-item {
-      color: $primary-invert !important;
+      color: $white-color !important;
     }
   }
 }

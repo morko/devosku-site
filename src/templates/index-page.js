@@ -5,7 +5,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
-import PageHeadline from '../components/PageHeadline';
+import PageHero from '../components/PageHero';
 
 function createBlurbs({ blurbs, color = '#333' }) {
   let blurbElements = blurbs.map(blurb => {
@@ -39,7 +39,7 @@ export const IndexPageTemplate = ({
   intro
 }) => (
   <div>
-    <PageHeadline image={image}>
+    <PageHero image={image}>
       <div className="container" style={{ height: '60%' }}>
         <div className="columns">
           <div className="column">
@@ -51,7 +51,7 @@ export const IndexPageTemplate = ({
           </div>
         </div>
       </div>
-    </PageHeadline>
+    </PageHero>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">

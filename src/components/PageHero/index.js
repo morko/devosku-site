@@ -1,9 +1,10 @@
 import React from 'react'
+import HeroAnimation from './HeroAnimation'
 
-export default function PageHeadline({image, children}) {
+export default function PageHero({image, children}) {
   return (
     <div
-      className="page-headline full-width-image margin-top-0"
+      className="page-hero full-width-image margin-top-0"
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
@@ -14,6 +15,7 @@ export default function PageHeadline({image, children}) {
       }}
     >
       {children}
+      <HeroAnimation />
 
     </div>
   )

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Logo from '../Logo';
 import useScroll from '../../hooks/useScroll';
 import GitHubIcon from '../GitHubIcon';
+import colors from '../../scss/_colors.scss';
 import './index.scss';
 
 const Navbar = () => {
@@ -48,10 +49,10 @@ const Navbar = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item" title="Logo">
-            <Logo color="#333" />
+          <Link to="/" className="navbar-item navbar-logo" title="Logo">
+            <Logo color={colors.brandPrimaryColor} />
           </Link>
-          <h1 className="navbar-site-name">DevOsku</h1>
+          <h1 className="navbar-item navbar-site-name">DevOsku</h1>
           <div
             className={`navbar-burger burger ${activeClass}`}
             role="button"

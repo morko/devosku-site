@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
-import PageHeadline from '../components/PageHeadline';
+import PageHero from '../components/PageHero';
 
 export const AboutPageTemplate = ({
   title,
@@ -15,13 +15,13 @@ export const AboutPageTemplate = ({
 
   return (
     <>
-      <PageHeadline image={image}>
+      <PageHero image={image}>
         <div className="container" style={{ height: '60%' }}>
           <div className="columns">
             <div className="column is-full has-text-centered">{title}</div>
           </div>
         </div>
-      </PageHeadline>
+      </PageHero>
       <section className="section section--gradient">
         <div className="container">
           <div className="columns">
