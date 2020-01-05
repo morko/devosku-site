@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
-import colors from "../../scss/_colors.scss";
-import "./index.scss";
+import React, { useRef, useEffect, useState } from 'react';
+import colors from '../../scss/_colors.scss';
+import './index.scss';
 
 function sub(v1, v2) {
   return {
@@ -16,76 +16,75 @@ function mag(v) {
 function setMag(v, newMag) {
   let oldMag = mag(v);
   return {
-    x: (v.x * newMag) / oldMag,
-    y: (v.y * newMag) / oldMag
+    x: v.x * (newMag / oldMag),
+    y: v.y * (newMag / oldMag)
   };
 }
 
-function constrain(n, low, high) {
-  return Math.max(Math.min(n, high), low);
-};
-
-function map(n, start1, stop1, start2, stop2, withinBounds) {
-  const newval = ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
-  if (!withinBounds) {
-    return newval;
+function limit(v, max) {
+  const m = mag(v);
+  if (m > max) {
+    return setMag(v, max);
   }
-  if (start2 < stop2) {
-    return constrain(newval, start2, stop2);
-  } else {
-    return constrain(newval, stop2, start2);
-  }
+  return v;
 }
 
-function limit(v, max) {
-  const mSq = magSq(v);
-  if (mSq > max * max) {
-    div(v, Math.sqrt(mSq))
-      .mult(max);
+function createParticles(amount, width, height) {
+  let ps = [];
+  for (let i = 0; i < amount; i++) {
+    ps.push(
+      new Vehicle({ x: Math.random() * width, y: Math.random() * height })
+    );
   }
-  return this;
-};
+  return ps;
+}
 
 class Vehicle {
   constructor(position) {
     this.spawnPosition = position;
-    this.position = this.spawnPosition;
+    this.position = { ...this.spawnPosition };
     this.velocity = { x: 1, y: 1 };
     this.maxSpeed = 10;
+    this.maxForce = 0.5;
+    this.acceleration = { x: 0, y: 0 };
+    this.respawnDist = 10;
+  }
+
+  applyForce(force) {
+    this.acceleration.x = force.x;
+    this.acceleration.y = force.y;
   }
 
   update(mousePos) {
-    // let steer = {
-    //   x: mousePos.x - this.position.x,
-    //   y: mousePos.y - this.position.y
-    // };
-    // steer = setMag(steer, 0.5);
-    // this.velocity.x += steer.x;
-    // this.velocity.y += steer.y;
-    let steer = this.arrive(mousePos);
-    this.velocity.x += steer.x;
-    this.velocity.y += steer.y;
+    this.seek(mousePos);
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+    this.velocity.x += this.acceleration.x;
+    this.velocity.y += this.acceleration.y;
+    this.acceleration.x = 0;
+    this.acceleration.y = 0;
+    if (mag(sub(mousePos, this.position)) < this.respawnDist) {
+      this.position = { ...this.spawnPosition };
+      this.velocity.x = 0;
+      this.velocity.y = 0;
+      return;
+    }
   }
 
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.position.x, this.position.y, 5, 0, Math.PI * 2);
-    ctx.fillStyle = colors.brandPrimaryColor;
+    ctx.fillStyle = colors.brandSecondaryColor;
     ctx.fill();
   }
 
-  arrive = function(target) {
+  seek = function(target) {
     let desired = sub(target, this.position);
     let d = mag(desired);
     let speed = this.maxSpeed;
-    if (d < 100) {
-      speed = map(d, 0, 100, 0, this.maxSpeed);
-    }
     desired = setMag(desired, speed);
-    let steer = sub(desired, this.velocity);
-    return steer;
+    let steer = limit(sub(desired, this.velocity), this.maxForce);
+    this.applyForce(steer);
   };
 }
 
@@ -101,19 +100,20 @@ export default function HeroAnimation() {
       canvasRef.current.height = window.innerHeight;
     }
 
-    window.addEventListener("resize", resizeCanvas, false);
+    window.addEventListener('resize', resizeCanvas, false);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas, false);
+      window.removeEventListener('resize', resizeCanvas, false);
     };
   }, [canvasRef]);
 
   useEffect(() => {
-    const particles = [new Vehicle({ x: 10, y: 10 })];
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    const particles = createParticles(20, canvas.width, canvas.height);
+    const ctx = canvas.getContext('2d');
     let mousePosition = { x: canvas.width / 2, y: canvas.height / 2 };
     function animationLoop(ctx) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(p => {
         p.update(mousePosition);
         p.draw(ctx);
@@ -137,14 +137,13 @@ export default function HeroAnimation() {
           y: e.clientY - rect.top
         };
       }
-      console.log(mousePosition);
     }
     requestAnimationFrame(() => animationLoop(ctx));
-    window.addEventListener("mousemove", setMousePosition);
+    window.addEventListener('mousemove', setMousePosition);
 
     return () => {
       setAnimating(false);
-      window.removeEventListener("mousemove", setMousePosition);
+      window.removeEventListener('mousemove', setMousePosition);
     };
   }, [canvasRef, animating]);
 
