@@ -14,8 +14,8 @@ export default function PageHero({image, children}) {
         height: '100vh'
       }}
     >
-      {children}
       <HeroAnimation />
+      {children}
 
     </div>
   )
