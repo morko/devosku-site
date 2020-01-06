@@ -9,20 +9,15 @@ import PageHero from '../components/PageHero';
 
 function createBlurbs({ blurbs, color = '#333' }) {
   let blurbElements = blurbs.map(blurb => {
-    let lines = blurb.lines.map(line => {
-      return <li key={line}>{line}</li>;
-    });
     return (
-      <div className="page-headline__blurb" key={blurb.title}>
+      <div className="blurb" key={blurb.title}>
         <h3
           className=" has-text-weight-bold"
           style={{ color, textTransform: 'uppercase' }}
         >
           {blurb.title}
         </h3>
-        <ul className=" has-text-weight-bold" style={{ color }}>
-          {lines}
-        </ul>
+        <div className="blurb__text" dangerouslySetInnerHTML={{ __html: blurb.text }} />
       </div>
     );
   });
@@ -32,10 +27,10 @@ function createBlurbs({ blurbs, color = '#333' }) {
 export const IndexPageTemplate = ({
   image,
   title,
-  leftBlurbs,
-  rightBlurbs,
-  mainpitch,
   description,
+  blurbs,
+  headline,
+  mainpitch,
   intro
 }) => (
   <div>
@@ -43,11 +38,12 @@ export const IndexPageTemplate = ({
       <div className="container" style={{ height: '60%' }}>
         <div className="columns">
           <div className="column">
-            {createBlurbs({ blurbs: leftBlurbs, color: '#333' })}
+            {createBlurbs({ blurbs, color: '#333' })}
           </div>
           <div className="column is-half"></div>
           <div className="column">
-            {createBlurbs({ blurbs: rightBlurbs, color: '#DDD' })}
+            <h1>{headline.title}</h1>
+            <h3>{headline.subtitle}</h3>
           </div>
         </div>
       </div>
@@ -97,10 +93,10 @@ export const IndexPageTemplate = ({
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  leftBlurbs: PropTypes.object,
-  rightAd: PropTypes.object,
-  mainpitch: PropTypes.object,
   description: PropTypes.string,
+  blurbs: PropTypes.array,
+  headline: PropTypes.object,
+  mainpitch: PropTypes.object,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
   })
@@ -112,11 +108,12 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
+        image={frontmatter.image}
         title={frontmatter.title}
         description={frontmatter.description}
-        image={frontmatter.image}
-        leftBlurbs={frontmatter.leftBlurbs}
-        rightBlurbs={frontmatter.rightBlurbs}
+        blurbs={frontmatter.blurbs}
+        headline={frontmatter.headline}
+        mainpitch={frontmatter.mainpitch}
         intro={frontmatter.intro}
       />
     </Layout>
@@ -137,8 +134,6 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        description
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
@@ -146,13 +141,11 @@ export const pageQuery = graphql`
             }
           }
         }
-        leftBlurbs {
+        title
+        description
+        blurbs {
           title
-          lines
-        }
-        rightBlurbs {
-          title
-          lines
+          text
         }
         intro {
           heading
@@ -168,9 +161,13 @@ export const pageQuery = graphql`
             text
           }
         }
-        main {
-          heading
-          description
+        headline {
+          title
+          subtitle
+        }
+        mainpitch {
+          title
+          text
         }
       }
     }

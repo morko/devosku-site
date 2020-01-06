@@ -48,11 +48,11 @@ const Navbar = () => {
       aria-label="main-navigation"
     >
       <div className="container">
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item navbar-logo" title="Logo">
-            <Logo color={colors.brandPrimaryColor} />
+        <div className="navbar-brand navbar-item">
+          <Link to="/" className="navbar-logo" title="Logo">
+            <Logo />
           </Link>
-          <h1 className="navbar-item navbar-site-name">DevOsku</h1>
+          <h1 className="navbar-site-name">DevOsku</h1>
           <div
             className={`navbar-burger burger ${activeClass}`}
             role="button"
