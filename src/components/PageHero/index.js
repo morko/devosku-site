@@ -1,5 +1,4 @@
 import React from 'react'
-import HeroAnimation from './HeroAnimation'
 
 export default function PageHero({image, children}) {
   return (
@@ -14,7 +13,6 @@ export default function PageHero({image, children}) {
         height: '100vh'
       }}
     >
-      <HeroAnimation />
       {children}
 
     </div>
