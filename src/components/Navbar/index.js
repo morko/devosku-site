@@ -1,44 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
-import Logo from '../Logo';
-import useScroll from '../../hooks/useScroll';
-import GitHubIcon from '../GitHubIcon';
-import colors from '../../scss/_colors.scss';
-import './index.scss';
+import React, { useState, useEffect } from "react";
+import { Link } from "gatsby";
+import Logo from "../Logo";
+import useScroll from "../../hooks/useScroll";
+import GitHubIcon from "../GitHubIcon";
+import "./index.scss";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [transparent, setTransparent] = useState(true);
-  const [activeClass, setActiveClass] = useState('');
-  const [transparentClass, setTransparentClass] = useState('is-transparent');
-  const [shrinkedClass, setShrinkedClass] = useState('');
-  const [hiddenClass, setHiddenClass] = useState('');
+  const [activeClass, setActiveClass] = useState("");
+  const [transparentClass, setTransparentClass] = useState("is-transparent");
+  const [shrinkedClass, setShrinkedClass] = useState("");
+  const [hiddenClass, setHiddenClass] = useState("");
   const [scrollTresholds, scrollingDown] = useScroll({
     shrink: 120,
     hide: 700
   });
 
   useEffect(() => {
-    active ? setActiveClass('is-active') : setActiveClass('');
+    active ? setActiveClass("is-active") : setActiveClass("");
   }, [active]);
 
   useEffect(() => {
     transparent
-      ? setTransparentClass('is-transparent')
-      : setTransparentClass('');
+      ? setTransparentClass("is-transparent")
+      : setTransparentClass("");
   }, [transparent]);
 
   useEffect(() => {
     if (scrollTresholds.shrink) {
-      setShrinkedClass('is-shrinked');
+      setShrinkedClass("is-shrinked");
       setTransparent(false);
     } else {
-      setShrinkedClass('');
+      setShrinkedClass("");
       setTransparent(true);
     }
     scrollTresholds.hide && scrollingDown
-      ? setHiddenClass('is-minimized')
-      : setHiddenClass('');
+      ? setHiddenClass("is-minimized")
+      : setHiddenClass("");
   }, [scrollTresholds, scrollingDown]);
 
   return (
@@ -48,30 +47,33 @@ const Navbar = () => {
       aria-label="main-navigation"
     >
       <div className="container">
-        <div className="navbar-brand navbar-item">
-          <Link to="/" className="navbar-logo" title="Logo">
-            <Logo />
-          </Link>
-          <h1 className="navbar-site-name">DevOsku</h1>
-          <div
-            className={`navbar-burger burger ${activeClass}`}
-            role="button"
-            tabIndex={0}
-            onClick={() => {
+        <Link to="/" className="navbar-home-link" title="Home">
+          <div className="navbar-brand navbar-item">
+            <Logo className="logo"/>
+            <h1 className="site-name">
+              <span className="left">Dev</span>
+              <span className="right">Osku</span>
+            </h1>
+          </div>
+        </Link>
+        <div
+          className={`navbar-burger burger ${activeClass}`}
+          role="button"
+          tabIndex={0}
+          onClick={() => {
+            setActive(!active);
+            setTransparent(!transparent);
+          }}
+          onKeyDown={e => {
+            if (e.key === "Enter") {
               setActive(!active);
               setTransparent(!transparent);
-            }}
-            onKeyDown={e => {
-              if (e.key === 'Enter') {
-                setActive(!active);
-                setTransparent(!transparent);
-              }
-            }}
-          >
-            <span />
-            <span />
-            <span />
-          </div>
+            }
+          }}
+        >
+          <span />
+          <span />
+          <span />
         </div>
         <div id="navMenu" className={`navbar-menu ${activeClass}`}>
           <div className="navbar-end has-text-centered">

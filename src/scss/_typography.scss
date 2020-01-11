@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
 
-$primary-font: 'Montserrat';
-$secondary-font: 'Open Sans';
+$primary-font: Montserrat, Verdana, Geneva, sans-serif;
+$secondary-font: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
 :export {
   primaryFont: $primary-font;
-  secondaryFong: $secondary-font;
+  secondaryFont: $secondary-font;
 }

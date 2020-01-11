@@ -1,16 +1,18 @@
-$brand-primary-color: #ffba5a;
-$brand-secondary-color: #c0ffb3;
-$medium-color: #52de97;
-$alert-color: #2c7873;
-$white-color: #fcf5ed;
-$black-color: #414042;
-$dark-color: #402f2b;
-$light-color: #e6d5c3;
+$primary-color: #F58A07;
+$secondary-color: #8A6552;
+$tertiary-color: #52de97;
+$highlight-color: #FFFFB3;
+$alert-color: #EF3E36;
+$white-color: #ffffff;
+$black-color: #000000;
+$dark-color: #222222;
+$light-color: #e2e2e2;
 
 :export {
-  brandPrimaryColor: $brand-primary-color;
-  brandSecondaryColor: $brand-secondary-color;
-  mediumColor: $medium-color;
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  tertiaryColor: $tertiary-color;
+  highlightColor: $highlight-color;
   alertColor: $alert-color;
   whiteColor: $white-color;
   blackColor: $black-color;

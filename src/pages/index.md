@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-image: /img/home-jumbotron.jpg
+image: /img/home-jumbotron.png
 title: DevOsku - Web Development
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
