@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik|Karla&display=swap');
 
-$primary-font: Montserrat, Verdana, Geneva, sans-serif;
-$secondary-font: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+$primary-font: Rubik, Verdana, Geneva, sans-serif;
+$secondary-font: Karla, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
 :export {
   primaryFont: $primary-font;
   secondaryFont: $secondary-font;
+}
+
+// bulma customizations
+$body-family: $secondary-font;
+
+h1, h2 {
+  font-family: $primary-font;
 }

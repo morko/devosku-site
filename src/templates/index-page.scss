@@ -1,0 +1,101 @@
+@import "../scss/typography";
+
+.page-hero {
+  background: rgb(51, 51, 51);
+  background: linear-gradient(
+    160deg,
+    rgba(51, 51, 51, 1) 70%,
+    rgba(225, 187, 108, 1) 71%
+  );
+
+  img {
+    position: absolute !important;
+    top: 40vh;
+    left: 50vw;
+    width: 300px;
+  }
+
+  .contact-btn {
+    position: absolute !important;
+    bottom: 100px;
+    right: 100px;
+  }
+}
+.hero-wrapper {
+  padding-top: 128px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  h1 {
+    font-size: 4rem !important;
+  }
+
+  h2 {
+    font-size: 3rem !important;
+  }
+  h3 {
+    font-size: 2.5rem !important;
+  }
+  .hero-title,
+  .hero-subtitle,
+  .hero-featured-services,
+  .hero-featured-technologies {
+    animation-timing-function: ease;
+    animation-direction: forwards;
+  }
+
+  .hero-title {
+    animation-name: firstFadeIn;
+    animation-duration: 1s;
+  }
+
+  .hero-subtitle {
+    animation-name: secondFadeIn;
+    animation-duration: 2s;
+  }
+
+  .hero-featured-services {
+    animation-name: secondFadeIn;
+    animation-duration: 4s;
+  }
+
+  .hero-featured-technologies {
+    animation-name: secondFadeIn;
+    animation-duration: 6s;
+  }
+}
+
+@keyframes firstFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes secondFadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes thirdFadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

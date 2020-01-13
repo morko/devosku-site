@@ -1,17 +1,19 @@
 import React from "react";
 
 import "./index.scss";
-export default function PageHero({ image, children }) {
+export default function PageHero({ className, image, children }) {
   return (
-    <div
-      className="page-hero full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`
-      }}
+    <header
+      className={`page-hero ${className}`}
+      style={
+        image && {
+          backgroundImage: `url(${
+            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+          })`
+        }
+      }
     >
       {children}
-    </div>
+    </header>
   );
 }

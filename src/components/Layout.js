@@ -1,15 +1,17 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+
+import '../scss/layout.scss'
+
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import '../scss/layout.sass'
 import useSiteMetadata from '../hooks/useSiteMetaData'
 import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -49,9 +51,9 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+      <main>{children}</main>
       <Footer />
-    </div>
+    </>
   )
 }
 

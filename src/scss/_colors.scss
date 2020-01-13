@@ -1,21 +1,26 @@
-$primary-color: #F58A07;
-$secondary-color: #8A6552;
-$tertiary-color: #52de97;
-$highlight-color: #FFFFB3;
-$alert-color: #EF3E36;
-$white-color: #ffffff;
-$black-color: #000000;
-$dark-color: #222222;
-$light-color: #e2e2e2;
+$color1: #d49100;
+$color2: #e1bb6c;
+$color3: #f4e5c6;
+$color4: #74d5f0;
+$color5: #03838b;
+$light-color: #fdf9f2;
+$dark-color: #333333;
+$alert-color: #c5401f;
 
 :export {
-  primaryColor: $primary-color;
-  secondaryColor: $secondary-color;
-  tertiaryColor: $tertiary-color;
-  highlightColor: $highlight-color;
-  alertColor: $alert-color;
-  whiteColor: $white-color;
-  blackColor: $black-color;
+  color1: $color1;
+  color2: $color2;
+  color3: $color3;
+  color4: $color4;
+  color5: $color5;
+  lightColor: $light-color;
   darkColor: $dark-color;
-  lighCcolor: $light-color;
 }
+
+// change bulma colors
+$scheme-main: $dark-color;
+$background: $dark-color;
+$primary: $color1;
+$link: $color1;
+$dark: $dark-color;
+$text: $light-color;

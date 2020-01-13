@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Logo({ color1 = '#f58a07', color2 = '#8a6552', className = 'Logo'}) {
+export default function Logo({ color1 = '#e1bb6c', color2 = '#d49100', className = 'Logo'}) {
   return (
     <svg className={className} version="1.1" width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <g>

@@ -1,28 +1,29 @@
 @import "../../scss/colors";
 @import "../../scss/typography";
 
+// bulma customizations
+//$navbar-height: 128px;
+$navbar-item-color: $color3;
+
 .navbar {
   $self: &;
   box-shadow: none !important;
   transition: all 1s;
   height: 128px !important;
-  position: fixed !important;
-  width: 100%;
 
-  .container {
-    height: 100%;
-    align-items: center !important;
-  }
-
-  &-menu {
-    box-shadow: none !important;
+  &-item {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    text-transform: uppercase;
+    line-height: 0.8;
   }
 
   &-brand {
-    padding: 0 !important;
-    height: 64px;
-    display: flex;
-    align-items: baseline !important;
+
+    #{$self}-item {
+      margin: 0 !important;
+    }
 
     .logo {
       width: 64px;
@@ -31,45 +32,41 @@
 
     .site-name {
       font-family: $primary-font;
-      font-weight: bold;
+      font-weight: normal;
       text-transform: uppercase;
       font-size: 2rem;
-      line-height: 2rem;
-      padding-left: 1rem;
+      margin: 0;
 
       .left {
-        color: $primary-color;
+        color: $color1;
       }
       .right {
-        color: $secondary-color;
+        color: $color2;
       }
     }
-  }
-
-  &-item {
-    color: $black-color !important;
-    text-transform: uppercase;
   }
 
   &.is-shrinked {
     height: 64px !important;
 
-    #{ $self }-brand {
-      height: 64px;
-    }
-    #{ $self }-logo svg {
-      width: 32px;
-      height: 32px;
+    .logo {
+      width: 42px;
+      height: 42px;
     }
   }
 
   &.is-minimized {
     transform: translateY(-100%);
   }
+}
 
-  &.is-transparent {
-    .navbar-item {
-      color: $white-color !important;
-    }
-  }
+
+.menu-label {
+  font-size: 1em !important;
+  text-align: left;
+}
+
+.menu-list {
+  list-style: none !important;
+  text-align: left;
 }
