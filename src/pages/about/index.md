@@ -1,7 +1,7 @@
 ---
 templateKey: 'about-page'
 path: /about
-image: /img/jumbotron.png
+image: /img/jumbotron.jpg
 title: About our values
 ---
 

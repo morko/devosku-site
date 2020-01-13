@@ -44,39 +44,26 @@
   .hero-featured-technologies {
     animation-timing-function: ease;
     animation-direction: forwards;
+    animation-name: fadeIn;
   }
 
   .hero-title {
-    animation-name: firstFadeIn;
     animation-duration: 1s;
   }
 
   .hero-subtitle {
-    animation-name: secondFadeIn;
     animation-duration: 2s;
   }
 
   .hero-featured-services {
-    animation-name: secondFadeIn;
     animation-duration: 4s;
   }
 
   .hero-featured-technologies {
-    animation-name: secondFadeIn;
     animation-duration: 6s;
   }
 }
-
-@keyframes firstFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes secondFadeIn {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -88,14 +75,8 @@
   }
 }
 
-@keyframes thirdFadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+.featured-section {
+  .featured {
+    margin-bottom: 4rem;
   }
 }

@@ -8,8 +8,19 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 180px;
   font-weight: 400;
-  margin: -3rem -1.5rem 0 -1.5rem;
+  margin: -3rem -1.5rem 4rem -1.5rem;
   padding: 30px;
+
+  &.sh-small {
+    background-color: $dark-color;
+    height: 100px;
+    padding: 20;
+  }
+  &.sh-medium {
+    height: 180px;
+  }
+  &.sh-big {
+    height: 300px;
+  }
 }

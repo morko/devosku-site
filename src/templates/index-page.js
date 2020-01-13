@@ -15,7 +15,6 @@ import "./index-page.scss";
 import SectionHeader from "../components/SectionHeader";
 
 export const IndexPageTemplate = ({
-  image,
   title,
   description,
   headline,
@@ -57,10 +56,11 @@ export const IndexPageTemplate = ({
         CONTACT
       </Link>
     </PageHero>
-    <section className="section">
+
+    <section className="section featured-section">
       <SectionHeader>
         <img src={lightBulb}></img>
-        <h3
+        <h2
           className="is-size-2"
           dangerouslySetInnerHTML={{
             __html: textHighlight(intro.heading, darkHlColor)
@@ -68,35 +68,33 @@ export const IndexPageTemplate = ({
         />
       </SectionHeader>
       <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="columns">
-                  <div className="column is-12">
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/projects">
-                      See all projects
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
+        <Features className="featured" gridItems={intro.blurbs} />
+        <div className="columns">
+          <div className="column is-12 has-text-centered">
+            <Link className="btn" to="/projects">
+              See my projects
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="section latest-posts-section">
+      <SectionHeader style="small">
+        <h3
+          className="is-size-3"
+          dangerouslySetInnerHTML={{
+            __html: textHighlight('Latest Posts', hlColor)
+          }}
+        />
+      </SectionHeader>
+      <div className="container">
+        <div className="columns">
+          <div className="column is-12">
+            <BlogRoll />
+            <div className="column is-12 has-text-centered">
+              <Link className="btn" to="/blog">
+                Read more
+              </Link>
             </div>
           </div>
         </div>
@@ -159,6 +157,7 @@ export const pageQuery = graphql`
           heading
           description
           blurbs {
+            title
             image {
               childImageSharp {
                 fluid(maxWidth: 512, quality: 100) {

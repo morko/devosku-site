@@ -3,7 +3,10 @@ import "./index.scss";
 
 export default function SectionHeader({
   children,
-  className = "SectionHeader"
+  type = "normal",
+  className = ""
 }) {
-  return <header className={className}>{children}</header>;
+  return (
+    <header className={`SectionHeader sh-${type} ${className}`}>{children}</header>
+  );
 }

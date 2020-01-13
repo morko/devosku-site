@@ -1,0 +1,19 @@
+@import "../../scss/colors";
+
+footer.footer {
+  padding: 3rem 0rem 0rem;
+  background-color: transparent;
+}
+
+.social {
+  padding: 2em;
+}
+
+.social a {
+  padding: .5em .5em .3em .5em;
+  border-radius: 1em;
+  background-color: $light-color;
+  margin: .5em;
+  vertical-align: middle;
+  display: inline;
+}
