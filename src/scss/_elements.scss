@@ -1,0 +1,43 @@
+@import "./variables";
+
+.container {
+  margin-left: $container-margin;
+  margin-right: $container-margin;
+  max-width: 1440px;
+}
+
+.full-width-image-container {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 2em -50vw;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-width-image {
+  width: 100vw;
+  height: 400px;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px 10px;
+  font-size: 1rem;
+  background-color: $color5;
+  text-decoration: none;
+  font-weight: 700;
+  color: $light-color;
+  text-align: center;
+  transition: all 0.15s ease;
+}

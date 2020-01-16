@@ -1,29 +1,67 @@
-@import "../../scss/colors";
+@import "../../scss/variables";
+@import "../../scss/mixins";
 
-.featured-item-wrapper {
-  padding: 0 4rem;
+.features {
 
-  .featured-item {
-    background-color: $light-color;
-    color: $dark-color;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+  display: block;
+
+  .feature {
+    background-color: #3b3b3b;
+    color: #fff;
+    border-radius: 10px;
     min-height: 520px;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -5px 5px 10px rgba($color: #111, $alpha: 0.3);
 
     .title {
+      border-radius: 10px 10px 0 0;
+      width: 100%;
+      color: $light-color;
       background-color: $color5;
-      padding: 10px;
+      padding: 1.4rem;
+      text-align: center;
+
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+      }
     }
 
     .image {
-      width: 260px;
+      padding: 2rem;
+      width: 100%;
+      background-color: #444444;
       display: inline-block;
-      box-shadow: -5px 5px 10px rgba($color: #000000, $alpha: 0.3);
     }
 
     .text {
       padding: 2rem;
+      text-align: justify;
     }
+  }
+}
 
+@include breakpoint(sm) {
+  .features {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .feature {
+      max-width: 45%;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .features {
+    .feature {
+      max-width: 40%;
+    }
   }
 }

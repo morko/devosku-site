@@ -1,38 +1,24 @@
-import React from 'react'
+import React from "react";
 
-import Layout from '../../components/Layout'
-import BlogRoll from '../../components/BlogRoll'
+import Layout from "../../components/Layout";
+import BlogRoll from "../../components/BlogRoll";
+import PageHero, { HeroTitle } from "../../components/PageHero";
 
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <div
-          className="full-width-image-container"
-          style={{
-            backgroundImage: `url('/img/blog-index.jpg')`,
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}
-          >
+        <PageHero className="add-navbar-margin" image="/img/blog-index.jpg">
+          <HeroTitle>
             Latest Stories
-          </h1>
-        </div>
-        <section className="section">
+          </HeroTitle>
+        </PageHero>
+        <section>
           <div className="container">
-            <div className="content">
-              <BlogRoll />
-            </div>
+            <BlogRoll />
           </div>
         </section>
       </Layout>
-    )
+    );
   }
 }

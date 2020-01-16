@@ -1,68 +1,86 @@
-@import "../scss/typography";
+@import "../scss/variables";
+@import "../scss/mixins";
 
-.page-hero {
-  background: rgb(51, 51, 51);
-  background: linear-gradient(
-    160deg,
-    rgba(51, 51, 51, 1) 70%,
-    rgba(225, 187, 108, 1) 71%
-  );
+.index-page {
+  .page-hero {
+    background: rgb(51, 51, 51);
 
-  img {
-    position: absolute !important;
-    top: 40vh;
-    left: 50vw;
-    width: 300px;
+    img {
+      display: none;
+      position: absolute;
+      top: 40vh;
+      left: 50vw;
+      width: 300px;
+    }
+
+    .wrapper {
+      margin: 0 4rem 0 4rem;
+      padding-top: 6em;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: center;
+
+      h1 {
+        font-size: 3.6rem;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 0;
+      }
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 0;
+      }
+
+      .title,
+      .subtitle,
+      .featured-services,
+      .featured-technologies {
+        animation-timing-function: ease;
+        animation-direction: forwards;
+        animation-name: fadeIn;
+      }
+
+      .title {
+        animation-duration: 1s;
+      }
+
+      .subtitle {
+        animation-duration: 2s;
+      }
+
+      .featured-services {
+        animation-duration: 4s;
+      }
+
+      .featured-technologies {
+        animation-duration: 6s;
+      }
+      .contact {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        padding: 4rem;
+        bottom: 0;
+        left: 0;
+      }
+    }
   }
-
-  .contact-btn {
-    position: absolute !important;
-    bottom: 100px;
-    right: 100px;
+  .features-section {
+    text-align: center;
+    .section-header {
+      img {
+        width: 42px;
+      }
+    }
   }
 }
-.hero-wrapper {
-  padding-top: 128px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 
-  h1 {
-    font-size: 4rem !important;
-  }
-
-  h2 {
-    font-size: 3rem !important;
-  }
-  h3 {
-    font-size: 2.5rem !important;
-  }
-  .hero-title,
-  .hero-subtitle,
-  .hero-featured-services,
-  .hero-featured-technologies {
-    animation-timing-function: ease;
-    animation-direction: forwards;
-    animation-name: fadeIn;
-  }
-
-  .hero-title {
-    animation-duration: 1s;
-  }
-
-  .hero-subtitle {
-    animation-duration: 2s;
-  }
-
-  .hero-featured-services {
-    animation-duration: 4s;
-  }
-
-  .hero-featured-technologies {
-    animation-duration: 6s;
-  }
-}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -75,8 +93,32 @@
   }
 }
 
-.featured-section {
-  .featured {
-    margin-bottom: 4rem;
+@include breakpoint(sm) {
+  .index-page {
+    .page-hero {
+      background: linear-gradient(
+        130deg,
+        rgba(51, 51, 51, 1) 75%,
+        rgba(225, 187, 108, 1) 76%
+      );
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .index-page {
+    .page-hero {
+      background: linear-gradient(
+        150deg,
+        rgba(51, 51, 51, 1) 70%,
+        rgba(225, 187, 108, 1) 71%
+      );
+      img {
+        display: block;
+      }
+      .wrapper {
+        text-align: left;
+      }
+    }
   }
 }

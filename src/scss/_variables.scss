@@ -1,0 +1,44 @@
+// Colors
+
+$color1: #d49100;
+$color2: #e1bb6c;
+$color3: #f4e5c6;
+$color4: #74d5f0;
+$color5: #03838b;
+$light-color: #fdf9f2;
+$dark-color: #333333;
+$alert-color: #c5401f;
+
+// Fonts
+
+$primary-font: Rubik, Verdana, Geneva, sans-serif;
+$secondary-font: Karla, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+// Breakpoints
+$xs: 767px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+// Layout
+
+$container-margin: 4rem;
+$navbar-max-height: 5rem;
+
+// These exported variables can be used in React.
+
+:export {
+  color1: $color1;
+  color2: $color2;
+  color3: $color3;
+  color4: $color4;
+  color5: $color5;
+  lightColor: $light-color;
+  darkColor: $dark-color;
+  primaryFont: $primary-font;
+  secondaryFont: $secondary-font;
+  xs: $xs;
+  sm: $sm;
+  md: $md;
+  lg: $lg;
+}

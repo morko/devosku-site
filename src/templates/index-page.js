@@ -6,9 +6,13 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import PageHero from "../components/PageHero";
+import Container from "../components/Container";
 
 import lightBulb from "../img/lightbulb.svg";
-import { color4 as hlColor, color5 as darkHlColor } from "../scss/_colors.scss";
+import {
+  color4 as hlColor,
+  color5 as darkHlColor
+} from "../scss/_variables.scss";
 import { textHighlight } from "../utils";
 import programmerAtWork from "../img/programmer-at-work.svg";
 import "./index-page.scss";
@@ -22,18 +26,19 @@ export const IndexPageTemplate = ({
   featuredTechnologies,
   intro
 }) => (
-  <>
+  <div className="index-page">
     <PageHero>
-      <div className="container hero-wrapper">
+      <img src={programmerAtWork} alt="Programmer at Work" />
+      <Container className="wrapper">
         <div className="row">
           <h1
-            className="hero-title is-size-1"
+            className="title"
             dangerouslySetInnerHTML={{
               __html: textHighlight(headline.title, hlColor)
             }}
           />
           <h2
-            className="hero-subtitle is-size-2"
+            className="subtitle"
             dangerouslySetInnerHTML={{
               __html: textHighlight(headline.subtitle, hlColor)
             }}
@@ -41,66 +46,55 @@ export const IndexPageTemplate = ({
         </div>
         <div className="row">
           {featuredServices.map(i => (
-            <h3 className="hero-featured-services is-size-3">{i}</h3>
+            <h3 className="featured-services">{i}</h3>
           ))}
           <div className="column" />
         </div>
         <div className="row">
           {featuredTechnologies.map(i => (
-            <h3 className="hero-featured-technologies is-size-3">{i}</h3>
+            <h3 className="featured-technologies">{i}</h3>
           ))}
         </div>
-      </div>
-      <img src={programmerAtWork} alt="Programmer at Work" />
-      <Link className="btn contact-btn" to="/contact">
-        CONTACT
-      </Link>
+        <div className="contact">
+          <Link className="btn" to="/contact">
+            Contact
+          </Link>
+        </div>
+      </Container>
     </PageHero>
 
-    <section className="section featured-section">
+    <section className="features-section">
       <SectionHeader>
-        <img src={lightBulb}></img>
+        <img alt="light bulb" src={lightBulb}></img>
         <h2
-          className="is-size-2"
           dangerouslySetInnerHTML={{
             __html: textHighlight(intro.heading, darkHlColor)
           }}
         />
       </SectionHeader>
-      <div className="container">
-        <Features className="featured" gridItems={intro.blurbs} />
-        <div className="columns">
-          <div className="column is-12 has-text-centered">
-            <Link className="btn" to="/projects">
-              See my projects
-            </Link>
-          </div>
-        </div>
-      </div>
+      <Container>
+        <Features gridItems={intro.blurbs} />
+        <Link className="btn" to="/projects">
+          See my projects
+        </Link>
+      </Container>
     </section>
-    <section className="section latest-posts-section">
-      <SectionHeader style="small">
+    <section className="latest-posts-section">
+      <SectionHeader type="small">
         <h3
-          className="is-size-3"
           dangerouslySetInnerHTML={{
-            __html: textHighlight('Latest Posts', hlColor)
+            __html: textHighlight("Latest [hl]Posts[/hl]", darkHlColor)
           }}
         />
       </SectionHeader>
-      <div className="container">
-        <div className="columns">
-          <div className="column is-12">
-            <BlogRoll />
-            <div className="column is-12 has-text-centered">
-              <Link className="btn" to="/blog">
-                Read more
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container>
+        <BlogRoll />
+        <Link className="btn" to="/blog">
+          Read more
+        </Link>
+      </Container>
     </section>
-  </>
+  </div>
 );
 
 IndexPageTemplate.propTypes = {

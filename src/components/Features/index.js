@@ -3,26 +3,24 @@ import PropTypes from "prop-types";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import "./index.scss";
 
-const FeatureGrid = ({ gridItems, className = "featured" }) => (
-  <div className={`columns margin-top-0 ${className}`}>
+const Features = ({ gridItems, className = "" }) => (
+  <div className={`features ${className}`}>
     {gridItems.map((item, i) => {
       return (
         <div
           key={item.text}
-          className="column is-half has-text-centered featured-item-wrapper"
+          className="feature"
         >
-          <div className="featured-item">
-            <div className="has-text-centered title">
-              <h1>{item.title}</h1>
-            </div>
+          <div className="title">
+            <h1>{item.title}</h1>
+          </div>
 
-            <div className="has-text-centered image" >
-              <PreviewCompatibleImage imageInfo={item} />
-            </div>
+          <div className="image" >
+            <PreviewCompatibleImage imageInfo={item} />
+          </div>
 
-            <div className="has-text-centered text">
-              <p>{item.text}</p>
-            </div>
+          <div className="text">
+            <p>{item.text}</p>
           </div>
         </div>
       );
@@ -30,7 +28,7 @@ const FeatureGrid = ({ gridItems, className = "featured" }) => (
   </div>
 );
 
-FeatureGrid.propTypes = {
+Features.propTypes = {
   gridItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.title,
@@ -40,4 +38,4 @@ FeatureGrid.propTypes = {
   )
 };
 
-export default FeatureGrid;
+export default Features;

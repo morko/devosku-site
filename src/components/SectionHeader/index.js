@@ -7,6 +7,6 @@ export default function SectionHeader({
   className = ""
 }) {
   return (
-    <header className={`SectionHeader sh-${type} ${className}`}>{children}</header>
+    <header className={`section-header sh-${type} ${className}`}>{children}</header>
   );
 }

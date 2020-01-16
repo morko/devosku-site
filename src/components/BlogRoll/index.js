@@ -10,55 +10,48 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <div className="columns">
+      <div className="BlogRoll">
         {posts &&
           posts.map(({ node: post }) => (
             <article
               key={post.id}
-              className={`columns blog-list-item ${
+              className={`blog-list-item ${
                 post.frontmatter.featuredpost ? "is-featured" : ""
               }`}
             >
-              <div className="column is-12">
-                <header className="columns">
-                  <p className="post-title">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                  </p>
-                  <p className="post-date">
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <div className="columns">
-                  <div className="column is-6">
-                    <p>
-                      {post.excerpt}
-                      <br />
-                      <br />
-                      <Link className="button" to={post.fields.slug}>
-                        Keep Reading →
-                      </Link>
-                    </p>
+              <header className="post-metadata">
+                <h4 className="post-title">
+                  <Link
+                    className="title has-text-primary is-size-4"
+                    to={post.fields.slug}
+                  >
+                    {post.frontmatter.title}
+                  </Link>
+                </h4>
+                <p className="post-date">
+                  <span className="subtitle is-size-5 is-block">
+                    {post.frontmatter.date}
+                  </span>
+                </p>
+              </header>
+              <div className="post-content">
+                {post.frontmatter.featuredimage ? (
+                  <div className="post-thumbnail">
+                    <PreviewCompatibleImage
+                      imageInfo={{
+                        image: post.frontmatter.featuredimage,
+                        alt: `Featured image thumbnail for post ${post.frontmatter.title}`
+                      }}
+                    />
                   </div>
-                  <div className="column is-6">
-                    {post.frontmatter.featuredimage ? (
-                      <div className="featured-thumbnail">
-                        <PreviewCompatibleImage
-                          imageInfo={{
-                            image: post.frontmatter.featuredimage,
-                            alt: `featured image thumbnail for post ${post.frontmatter.title}`
-                          }}
-                        />
-                      </div>
-                    ) : null}
-                  </div>
+                ) : null}
+                <div className="post-excerpt">
+                  <p>
+                    {post.excerpt}
+                  </p>
+                  <Link className="btn" to={post.fields.slug}>
+                    Keep Reading →
+                  </Link>
                 </div>
               </div>
             </article>
@@ -98,7 +91,7 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
+                    fluid(maxWidth: 400, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }

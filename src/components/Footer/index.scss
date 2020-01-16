@@ -1,19 +1,40 @@
-@import "../../scss/colors";
+@import "../../scss/variables";
 
-footer.footer {
+footer {
   padding: 3rem 0rem 0rem;
-  background-color: transparent;
-}
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5em;
 
-.social {
-  padding: 2em;
-}
+  .Logo {
+    max-height: 64px;
+    max-width: 64px;
+    margin-bottom: 3rem;
+  }
 
-.social a {
-  padding: .5em .5em .3em .5em;
-  border-radius: 1em;
-  background-color: $light-color;
-  margin: .5em;
-  vertical-align: middle;
-  display: inline;
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .menu2 {
+    text-align: right;
+  }
+
+  .social {
+    padding: 2em;
+  }
+
+  .social a {
+    padding: 0.5em 0.5em 0.3em 0.5em;
+    border-radius: 1em;
+    background-color: $light-color;
+    margin: 0.5em;
+    vertical-align: middle;
+    display: inline;
+  }
 }

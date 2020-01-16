@@ -1,7 +1,7 @@
-@import "./../../scss/colors";
-@import "./../../scss/typography";
+@import "./../../scss/variables";
+@import "./../../scss/variables";
 
-.SectionHeader {
+.section-header {
   background-color: $color3;
   color: $dark-color;
   display: flex;
@@ -9,8 +9,8 @@
   justify-content: space-evenly;
   align-items: center;
   font-weight: 400;
-  margin: -3rem -1.5rem 4rem -1.5rem;
   padding: 30px;
+  margin-bottom: 4rem;
 
   &.sh-small {
     background-color: $dark-color;
@@ -22,5 +22,8 @@
   }
   &.sh-big {
     height: 300px;
+  }
+  h1, h2, h3, h4 {
+    margin: 0;
   }
 }

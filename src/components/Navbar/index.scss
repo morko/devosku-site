@@ -1,41 +1,49 @@
-@import "../../scss/colors";
-@import "../../scss/typography";
-
-// bulma customizations
-//$navbar-height: 128px;
-$navbar-item-color: $color3;
+@import "../../scss/variables";
+@import "../../scss/mixins";
 
 .navbar {
-  $self: &;
-  box-shadow: none !important;
-  transition: all 1s;
-  height: 128px !important;
+  transition: height 1s, transform 0.5s;
+  z-index: 100;
+  box-shadow: none;
+  width: 100vw;
+  max-width: 100%;
+  height: $navbar-max-height;
+  position: fixed;
+  top: 0;
+  line-height: 0.7;
+  background-color: $dark-color;
 
-  &-item {
+  .container {
+    margin: 0 1rem 0 1rem;
+    height: 100%;
     display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    text-transform: uppercase;
-    line-height: 0.8;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
   }
 
-  &-brand {
-
-    #{$self}-item {
-      margin: 0 !important;
-    }
+  .brand {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 4px;
+    z-index: 99;
 
     .logo {
-      width: 64px;
-      height: 64px;
+      transition: width 1s, height 1s;
+      width: 3rem;
+      height: 3rem;
     }
-
-    .site-name {
+    .title {
+      transition: font-size 1s;
       font-family: $primary-font;
       font-weight: normal;
       text-transform: uppercase;
       font-size: 2rem;
-      margin: 0;
+      margin-top: auto;
+      margin-left: 3px;
+      margin: auto 0 0 3px;
 
       .left {
         color: $color1;
@@ -46,12 +54,83 @@ $navbar-item-color: $color3;
     }
   }
 
-  &.is-shrinked {
-    height: 64px !important;
+  .menu-button {
+    margin-left: auto;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: 0;
+    z-index: 99;
 
-    .logo {
-      width: 42px;
-      height: 42px;
+    span {
+      display: block;
+      width: 60%;
+      height: 2px;
+      background-color: #fdf9f2;
+      margin: 3px 0;
+      transition: all 0.2s;
+    }
+
+    &.is-active {
+      /* Rotate first bar */
+      span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5.5px, 5.5px);
+      }
+      /* Fade out the second bar */
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      /* Rotate last bar */
+      span:nth-child(3) {
+        transform: rotate(45deg) translate(-5.5px, -5.5px);
+      }
+    }
+  }
+
+  .menu {
+    font-family: $primary-font;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    background-color: $dark-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 5rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 98;
+    margin-left: -1rem;
+    transform: translateY(-100%);
+    transition: font-size 1s, transform 0.5s;
+
+    li {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: background-color 0.5s, color 0.5s;
+      text-align: center;
+      width: 100%;
+    }
+
+    li:hover {
+      background-color: $light-color;
+      color: $dark-color;
+    }
+
+    a {
+      padding: 5px 1rem 5px 1rem;
+    }
+
+    &.is-active {
+      transform: translateY(0%);
     }
   }
 
@@ -60,13 +139,56 @@ $navbar-item-color: $color3;
   }
 }
 
+@include breakpoint(sm) {
+  .navbar {
+    .brand {
+      margin-bottom: 5px;
+    }
+    .container {
+      margin-left: $container-margin;
+      margin-right: $container-margin;
+    }
+    .menu-button {
+      display: none;
+    }
+    .menu {
+      position: static;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      background-color: $dark-color;
+      flex-direction: row;
+      padding-top: 0;
+      transform: translateY(0%);
+      width: auto;
+      align-items: stretch;
 
-.menu-label {
-  font-size: 1em !important;
-  text-align: left;
-}
+      li {
+        width: auto;
+      }
+    }
+  }
 
-.menu-list {
-  list-style: none !important;
-  text-align: left;
+  &.is-shrinked {
+    height: 3rem;
+
+    .brand {
+      margin-top: auto;
+      margin-bottom: auto;
+      .logo {
+        width: 2rem;
+        height: 2rem;
+      }
+      .title {
+        font-size: 1.5rem;
+      }
+    }
+    .menu {
+      font-size: 1rem;
+      li {
+        justify-content: center;
+        padding-bottom: 0;
+      }
+    }
+  }
 }
