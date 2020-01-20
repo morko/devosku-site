@@ -12,7 +12,7 @@ import lightBulb from "../img/lightbulb.svg";
 import {
   color4 as hlColor,
   color5 as darkHlColor
-} from "../scss/_variables.scss";
+} from "../scss/_variables.module.scss";
 import { textHighlight } from "../utils";
 import programmerAtWork from "../img/programmer-at-work.svg";
 import "./index-page.scss";
