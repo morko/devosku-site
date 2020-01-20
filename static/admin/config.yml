@@ -45,9 +45,49 @@ collections:
               widget: "hidden",
               default: "index-page",
             }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: Image, name: image, widget: image }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Title of the Page", name: "title", widget: "string" }
+          - {
+              label: "Description of the Page",
+              name: "description",
+              widget: "string",
+            }
+          - {
+              label: "Headline",
+              name: "headline",
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Subtitle", name: "subtitle", widget: "string" },
+                ],
+            }
+          - { label: Featured Services, name: featuredServices, widget: list }
+          - {
+              label: Featured Technologies,
+              name: featuredTechnologies,
+              widget: list,
+            }
+          - {
+              label: "Intro",
+              name: "intro",
+              widget: "object",
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  { label: Description, name: description, widget: text },
+                  {
+                    label: Blurbs,
+                    name: blurbs,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Title, name: title, widget: text },
+                        { label: Image, name: image, widget: image },
+                        { label: Text, name: text, widget: text },
+                      ],
+                  },
+                ],
+            }
       - file: "src/pages/projects/index.md"
         label: "Projects Page"
         name: "projects"
