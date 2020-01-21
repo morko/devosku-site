@@ -2,73 +2,81 @@
 @import "../scss/mixins";
 
 .index-page {
-  .page-hero {
-    background: rgb(51, 51, 51);
-
-    img {
-      display: none;
-      position: absolute;
-      top: 40vh;
-      left: 50vw;
-      width: 300px;
-    }
-
-    .wrapper {
-      margin: 0 4rem 0 4rem;
-      padding-top: 6em;
-      height: 100vh;
+  .header-section {
+    .jumbotron-content {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       text-align: center;
-
       h1 {
         font-size: 3.6rem;
         margin-bottom: 0;
+        text-align: center;
       }
       h2 {
         font-size: 3rem;
         margin-bottom: 0;
+        text-align: center;
       }
-      h3 {
-        font-size: 2rem;
-        margin-bottom: 0;
-      }
+    }
 
-      .title,
-      .subtitle,
-      .featured-services,
-      .featured-technologies {
-        animation-timing-function: ease;
-        animation-direction: forwards;
-        animation-name: fadeIn;
-      }
+    .anim-wrap {
+      overflow: hidden;
+    }
 
-      .title {
-        animation-duration: 1s;
-      }
+    .title,
+    .subtitle {
+      animation-timing-function: ease;
+      animation-direction: forwards;
+    }
 
-      .subtitle {
-        animation-duration: 2s;
-      }
+    .title {
+      animation-name: slideUp;
+      animation-duration: 2s;
+    }
+    .subtitle {
+      animation-name: slideDown;
+      animation-duration: 3s;
+    }
+    .contact {
+      animation-name: fadeIn;
+      animation-duration: 4s;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      padding: 4rem;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  .teaser-section {
 
-      .featured-services {
-        animation-duration: 4s;
-      }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
 
-      .featured-technologies {
-        animation-duration: 6s;
-      }
-      .contact {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        width: 100%;
-        position: absolute;
-        padding: 4rem;
-        bottom: 0;
-        left: 0;
-      }
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .featured-services,
+    .featured-technologies {
+      animation-timing-function: ease;
+      animation-direction: forwards;
+      animation-name: fadeIn;
+    }
+    .featured-services {
+      animation-duration: 4s;
+    }
+
+    .featured-technologies {
+      animation-duration: 6s;
     }
   }
   .features-section {
@@ -93,26 +101,30 @@
   }
 }
 
-@include breakpoint(sm) {
-  .index-page {
-    .page-hero {
-      background: linear-gradient(
-        130deg,
-        rgba(51, 51, 51, 1) 75%,
-        rgba(225, 187, 108, 1) 76%
-      );
-    }
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }
 
 @include breakpoint(md) {
   .index-page {
-    .page-hero {
-      background: linear-gradient(
-        150deg,
-        rgba(51, 51, 51, 1) 70%,
-        rgba(225, 187, 108, 1) 71%
-      );
+    .jumbotron {
       img {
         display: block;
       }

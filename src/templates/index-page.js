@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
-import PageHero from "../components/PageHero";
+import Jumbotron from "../components/Jumbotron";
 import Container from "../components/Container";
 
 import lightBulb from "../img/lightbulb.svg";
@@ -14,7 +14,9 @@ import {
   color5 as darkHlColor
 } from "../scss/_variables.module.scss";
 import { textHighlight } from "../utils";
-import programmerAtWork from "../img/programmer-at-work.svg";
+import keyboard from "../img/keyboard.jpg";
+import compCables from "../img/comp-cables.jpg";
+import bottomCurve from "../img/bottom-curve.svg";
 import "./index-page.scss";
 import SectionHeader from "../components/SectionHeader";
 
@@ -27,16 +29,23 @@ export const IndexPageTemplate = ({
   intro
 }) => (
   <div className="index-page">
-    <PageHero>
-      <img src={programmerAtWork} alt="Programmer at Work" />
-      <Container className="wrapper">
-        <div className="row">
+    <Jumbotron
+      className="header-section"
+      image={keyboard}
+      backgroundOverlay="0.3"
+      overlayImage={bottomCurve}
+    >
+      <div className="row">
+        <div className="anim-wrap">
           <h1
             className="title"
             dangerouslySetInnerHTML={{
               __html: textHighlight(headline.title, hlColor)
             }}
           />
+        </div>
+        <hr />
+        <div className="anim-wrap">
           <h2
             className="subtitle"
             dangerouslySetInnerHTML={{
@@ -44,24 +53,29 @@ export const IndexPageTemplate = ({
             }}
           />
         </div>
-        <div className="row">
-          {featuredServices.map(i => (
-            <h3 className="featured-services">{i}</h3>
-          ))}
-          <div className="column" />
-        </div>
-        <div className="row">
-          {featuredTechnologies.map(i => (
-            <h3 className="featured-technologies">{i}</h3>
-          ))}
-        </div>
-        <div className="contact">
-          <Link className="btn" to="/contact">
-            Contact
-          </Link>
-        </div>
-      </Container>
-    </PageHero>
+      </div>
+      <div className="contact">
+        <Link className="btn" to="/contact">
+          Contact
+        </Link>
+      </div>
+    </Jumbotron>
+    <Jumbotron
+      className="teaser-section"
+      image={compCables}
+      backgroundOverlay="0.7"
+    >
+      <div className="row">
+        {featuredServices.map(i => (
+          <h2 className="featured-services">{i}</h2>
+        ))}
+      </div>
+      <div className="row">
+        {featuredTechnologies.map(i => (
+          <h3 className="featured-technologies">{i}</h3>
+        ))}
+      </div>
+    </Jumbotron>
 
     <section className="features-section">
       <SectionHeader>
@@ -74,9 +88,6 @@ export const IndexPageTemplate = ({
       </SectionHeader>
       <Container>
         <Features gridItems={intro.blurbs} />
-        <Link className="btn" to="/projects">
-          See my projects
-        </Link>
       </Container>
     </section>
     <section className="latest-posts-section">
@@ -112,7 +123,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
+    <Layout transparentNavbar={true}>
       <IndexPageTemplate
         title={frontmatter.title}
         description={frontmatter.description}

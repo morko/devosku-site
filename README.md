@@ -74,3 +74,11 @@ MacOS users might also encounter some errors, for more info check [node-gyp](htt
 ## Purgecss
 
 This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
+
+## Credits
+
+### Photos
+
+- Jouni Tyrisevä
+- Kvistholt Photography on Unsplash (comp-cables.jpg)
+- Anas Alshanti on Unsplash (keyboard.jpg)

@@ -27,18 +27,13 @@ export default function Footer() {
                 About
               </Link>
             </li>
-            <li>
-              <Link className="navbar-item" to="/products">
-                Projects
-              </Link>
-            </li>
           </ul>
         </section>
         <section className="menu2">
           <ul className="menu-list">
             <li>
               <Link className="navbar-item" to="/blog">
-                Latest Stories
+                Blog
               </Link>
             </li>
             <li>

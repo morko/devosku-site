@@ -58,7 +58,7 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout className="add-navbar-margin">
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}

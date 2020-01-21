@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
-import PageHero, { HeroTitle } from "../components/PageHero";
+import Jumbotron, { HeroTitle } from "../components/Jumbotron";
 
 export const ProjectPageTemplate = ({
   image,
@@ -16,9 +16,9 @@ export const ProjectPageTemplate = ({
   fullImage
 }) => (
   <div className="project-page">
-    <PageHero className="add-navbar-margin" image={image}>
+    <Jumbotron className="add-navbar-margin" image={image}>
       <HeroTitle>{title}</HeroTitle>
-    </PageHero>
+    </Jumbotron>
     <section>
       <div className="container">
         <h3>{heading}</h3>

@@ -1,17 +1,17 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import PageHero, { HeroTitle } from "../../components/PageHero";
+import Jumbotron, { HeroTitle } from "../../components/Jumbotron";
 import ContactForm from "../../components/ContactForm";
 import "./index.scss";
 
 export default function Contact() {
   return (
-    <Layout>
+    <Layout className="add-navbar-margin">
       <div className="contact-page">
-        <PageHero className="add-navbar-margin" type="full">
+        <Jumbotron type="full">
           <HeroTitle position="center">Waiting for your contact...</HeroTitle>
           <ContactForm />
-        </PageHero>
+        </Jumbotron>
         <section className="container">
         </section>
       </div>

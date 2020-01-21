@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
-import PageHero, { HeroTitle } from '../components/PageHero';
+import Jumbotron, { HeroTitle } from '../components/Jumbotron';
 
 export const AboutPageTemplate = ({
   title,
@@ -15,9 +15,9 @@ export const AboutPageTemplate = ({
 
   return (
     <div className="about-page">
-      <PageHero className="add-navbar-margin" image={image}>
+      <Jumbotron image={image}>
         <HeroTitle>{title}</HeroTitle>
-      </PageHero>
+      </Jumbotron>
       <section>
         <div className="container">
           <h2>
@@ -40,7 +40,7 @@ const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <Layout className="add-navbar-margin">
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

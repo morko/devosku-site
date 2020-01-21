@@ -1,0 +1,81 @@
+@import "../../scss/variables.module";
+
+.add-navbar-margin {
+  .jumbotron {
+    height: calc(100vh - #{$navbar-max-height}) !important;
+  }
+}
+.jumbotron {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  min-height: 100%;
+  background-color: $dark-color;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &.full {
+    height: 100vh;
+  }
+  &.medium {
+    height: 60vh;
+  }
+  &.small {
+    height: 40vh;
+  }
+  
+  .jumbotron-content {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .hero-title {
+      width: 50%;
+      padding: 2rem;
+      text-align: center;
+      color: $light-color;
+      background-color: $color1;
+      justify-self: space-around;
+      margin: 0 auto 0 auto;
+
+      &.top {
+        align-self: flex-start;
+      }
+      &.center {
+        align-self: center;
+      }
+      &.bottom {
+        align-self: flex-end;
+      }
+      h1 {
+        font-size: 2rem;
+        margin: auto 0;
+      }
+    }
+  }
+
+  .background-overlay {
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+}

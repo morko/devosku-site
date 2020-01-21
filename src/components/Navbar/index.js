@@ -5,10 +5,11 @@ import useScroll from "../../hooks/useScroll";
 import Container from "../Container";
 import "./index.scss";
 
-const Navbar = () => {
+const Navbar = ({ transparent = false }) => {
   const [active, setActive] = useState(false);
   const [activeCls, setActiveCls] = useState("");
   const [shrinkCls, setShrinkCls] = useState("");
+  const [topCls, setTopCls] = useState(transparent ? "is-transparent" : "");
   const [minCls, setMinCls] = useState("");
   const [scrollTresholds, scrollingDown] = useScroll({
     shrink: 120,
@@ -20,6 +21,13 @@ const Navbar = () => {
   }, [active]);
 
   useEffect(() => {
+    if (transparent) {
+      if (!scrollTresholds.shrink && !scrollTresholds.min) {
+        setTopCls("is-transparent");
+      } else {
+        setTopCls("");
+      }
+    }
     if (scrollTresholds.shrink) {
       setShrinkCls("is-shrinked");
     } else {
@@ -32,7 +40,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar ${shrinkCls} ${minCls}`}
+      className={`navbar ${topCls} ${shrinkCls} ${minCls}`}
       role="navigation"
       aria-label="Main"
     >
@@ -51,9 +59,6 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/projects">Projects</Link>
           </li>
           <li>
             <Link to="/blog">Blog</Link>
