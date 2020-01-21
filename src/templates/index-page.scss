@@ -65,18 +65,17 @@
       text-align: center;
     }
 
-    .featured-services,
-    .featured-technologies {
-      animation-timing-function: ease;
-      animation-direction: forwards;
-      animation-name: fadeIn;
+    .row {
+      overflow: hidden;
+      .anim-wrap {
+        transition: transform 1s ease;
+        transform: scaleY(0);
+      }
     }
-    .featured-services {
-      animation-duration: 4s;
-    }
-
-    .featured-technologies {
-      animation-duration: 6s;
+    .row.on-view {
+      .anim-wrap {
+        transform: scaleY(1);
+      }
     }
   }
   .features-section {

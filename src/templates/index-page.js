@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
@@ -19,6 +19,7 @@ import compCables from "../img/comp-cables.jpg";
 import bottomCurve from "../img/bottom-curve.svg";
 import "./index-page.scss";
 import SectionHeader from "../components/SectionHeader";
+import useElementOnViewport from "../hooks/useElementOnViewport";
 
 export const IndexPageTemplate = ({
   title,
@@ -27,86 +28,105 @@ export const IndexPageTemplate = ({
   featuredServices,
   featuredTechnologies,
   intro
-}) => (
-  <div className="index-page">
-    <Jumbotron
-      className="header-section"
-      image={keyboard}
-      backgroundOverlay="0.3"
-      overlayImage={bottomCurve}
-    >
-      <div className="row">
-        <div className="anim-wrap">
-          <h1
-            className="title"
-            dangerouslySetInnerHTML={{
-              __html: textHighlight(headline.title, hlColor)
-            }}
-          />
-        </div>
-        <hr />
-        <div className="anim-wrap">
-          <h2
-            className="subtitle"
-            dangerouslySetInnerHTML={{
-              __html: textHighlight(headline.subtitle, hlColor)
-            }}
-          />
-        </div>
-      </div>
-      <div className="contact">
-        <Link className="btn" to="/contact">
-          Contact
-        </Link>
-      </div>
-    </Jumbotron>
-    <Jumbotron
-      className="teaser-section"
-      image={compCables}
-      backgroundOverlay="0.7"
-    >
-      <div className="row">
-        {featuredServices.map(i => (
-          <h2 className="featured-services">{i}</h2>
-        ))}
-      </div>
-      <div className="row">
-        {featuredTechnologies.map(i => (
-          <h3 className="featured-technologies">{i}</h3>
-        ))}
-      </div>
-    </Jumbotron>
+}) => {
+  const servicesRef = useRef(null);
+  const technologiesRef = useRef(null);
+  const servicesOnView = useElementOnViewport(servicesRef);
+  const technologiesOnView = useElementOnViewport(technologiesRef);
 
-    <section className="features-section">
-      <SectionHeader>
-        <img alt="light bulb" src={lightBulb}></img>
-        <h2
-          dangerouslySetInnerHTML={{
-            __html: textHighlight(intro.heading, darkHlColor)
-          }}
-        />
-      </SectionHeader>
-      <Container>
-        <Features gridItems={intro.blurbs} />
-      </Container>
-    </section>
-    <section className="latest-posts-section">
-      <SectionHeader type="small">
-        <h3
-          dangerouslySetInnerHTML={{
-            __html: textHighlight("Latest [hl]Posts[/hl]", darkHlColor)
-          }}
-        />
-      </SectionHeader>
-      <Container>
-        <BlogRoll />
-        <Link className="btn" to="/blog">
-          Read more
-        </Link>
-      </Container>
-    </section>
-  </div>
-);
+  return (
+    <div className="index-page">
+      <Jumbotron
+        className="header-section"
+        image={keyboard}
+        backgroundOverlay="0.3"
+        overlayImage={bottomCurve}
+      >
+        <div className="row">
+          <div className="anim-wrap">
+            <h1
+              className="title"
+              dangerouslySetInnerHTML={{
+                __html: textHighlight(headline.title, hlColor)
+              }}
+            />
+          </div>
+          <hr />
+          <div className="anim-wrap">
+            <h2
+              className="subtitle"
+              dangerouslySetInnerHTML={{
+                __html: textHighlight(headline.subtitle, hlColor)
+              }}
+            />
+          </div>
+        </div>
+        <div className="contact">
+          <Link className="btn" to="/contact">
+            Contact
+          </Link>
+        </div>
+      </Jumbotron>
+      <Jumbotron
+        className="teaser-section"
+        image={compCables}
+        backgroundOverlay="0.7"
+      >
+        <div
+          ref={servicesRef}
+          className={`row featured-services ${servicesOnView ? "on-view" : ""}`}
+        >
+          <div className="anim-wrap">
+            {featuredServices.map(i => (
+              <h2>{i}</h2>
+            ))}
+          </div>
+        </div>
+        <div
+          ref={technologiesRef}
+          className={`row featured-technologies ${
+            technologiesOnView ? "on-view" : ""
+          }`}
+        >
+          <div className="anim-wrap">
+            {featuredTechnologies.map(i => (
+              <h3>{i}</h3>
+            ))}
+          </div>
+        </div>
+      </Jumbotron>
+
+      <section className="features-section">
+        <SectionHeader>
+          <img alt="light bulb" src={lightBulb}></img>
+          <h2
+            dangerouslySetInnerHTML={{
+              __html: textHighlight(intro.heading, darkHlColor)
+            }}
+          />
+        </SectionHeader>
+        <Container>
+          <Features gridItems={intro.blurbs} />
+        </Container>
+      </section>
+      <section className="latest-posts-section">
+        <SectionHeader type="small">
+          <h3
+            dangerouslySetInnerHTML={{
+              __html: textHighlight("Latest [hl]Posts[/hl]", darkHlColor)
+            }}
+          />
+        </SectionHeader>
+        <Container>
+          <BlogRoll />
+          <Link className="btn" to="/blog">
+            Read more
+          </Link>
+        </Container>
+      </section>
+    </div>
+  );
+};
 
 IndexPageTemplate.propTypes = {
   title: PropTypes.string,
