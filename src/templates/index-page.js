@@ -119,9 +119,6 @@ export const IndexPageTemplate = ({
         </SectionHeader>
         <Container>
           <BlogRoll />
-          <Link className="btn" to="/blog">
-            Read more
-          </Link>
         </Container>
       </section>
     </div>
