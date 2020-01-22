@@ -1,5 +1,5 @@
-@import "../../scss/variables.module";
-@import "../../scss/mixins";
+@import '../../scss/variables.module';
+@import '../../scss/mixins';
 
 .navbar {
   transition: height 1s, transform 0.5s;
@@ -145,8 +145,8 @@
       margin-bottom: 20px;
     }
     .container {
-      margin-left: $container-margin;
-      margin-right: $container-margin;
+      margin-left: $container-max-margin;
+      margin-right: $container-max-margin;
     }
     .menu-button {
       display: none;

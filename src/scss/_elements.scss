@@ -1,10 +1,4 @@
-@import "./variables.module";
-
-.container {
-  margin-left: $container-margin;
-  margin-right: $container-margin;
-  max-width: 1440px;
-}
+@import './variables.module';
 
 .full-width-image-container {
   width: 100vw;
