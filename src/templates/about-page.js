@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
-import Jumbotron, { HeroTitle } from '../components/Jumbotron'
+import Jumbotron, { JumboTitle } from '../components/Jumbotron'
 
 export const AboutPageTemplate = ({
   title,
@@ -16,7 +16,7 @@ export const AboutPageTemplate = ({
   return (
     <div className="about-page">
       <Jumbotron image={image}>
-        <HeroTitle>{title}</HeroTitle>
+        <JumboTitle>{title}</JumboTitle>
       </Jumbotron>
       <section>
         <div className="container">

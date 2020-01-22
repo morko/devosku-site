@@ -53,9 +53,9 @@ export default function Jumbotron({
  * @param {string} props.className - Additional class names.
  * @param {string} props.position - Possible options are top, center, bottom.
  */
-export function HeroTitle({ className = '', children, position = 'center' }) {
+export function JumboTitle({ className = '', children, position = 'center' }) {
   return (
-    <div className={`hero-title ${className} ${position}`}>
+    <div className={`jumbo-title ${className} ${position}`}>
       <h1>{children}</h1>
     </div>
   )

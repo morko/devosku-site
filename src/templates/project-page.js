@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import Jumbotron, { HeroTitle } from '../components/Jumbotron'
+import Jumbotron, { JumboTitle } from '../components/Jumbotron'
 
 export const ProjectPageTemplate = ({
   image,
@@ -17,7 +17,7 @@ export const ProjectPageTemplate = ({
 }) => (
   <div className="project-page">
     <Jumbotron className="add-navbar-margin" image={image}>
-      <HeroTitle>{title}</HeroTitle>
+      <JumboTitle>{title}</JumboTitle>
     </Jumbotron>
     <section>
       <div className="container">
