@@ -1,0 +1,15 @@
+.about-page {
+  .jumbotron {
+    margin-bottom: 4rem;
+
+    .jumbotron-content {
+      align-items: flex-end;
+    }
+    .jumbo-title {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    img {
+      max-width: 50%;
+    }
+  }
+}

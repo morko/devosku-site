@@ -2,7 +2,7 @@
 @import '../../scss/mixins';
 
 .add-navbar-margin {
-  .jumbotron {
+  .jumbotron.full {
     height: calc(100vh - #{$navbar-max-height}) !important;
   }
 }
@@ -38,7 +38,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 

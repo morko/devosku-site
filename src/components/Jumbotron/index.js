@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './index.scss'
+
 /**
  * Page hero or jumbotron.
  *

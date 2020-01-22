@@ -4,6 +4,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Jumbotron, { JumboTitle } from '../components/Jumbotron'
+import Container from '../components/Container'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import myFace from '../img/myface1.png'
+
+import './about-page.scss'
 
 export const AboutPageTemplate = ({
   title,
@@ -13,16 +18,27 @@ export const AboutPageTemplate = ({
 }) => {
   const PageContent = contentComponent || Content
 
+  console.log(myFace)
   return (
     <div className="about-page">
-      <Jumbotron image={image}>
+      <Jumbotron type="medium" image={image}>
         <JumboTitle>{title}</JumboTitle>
+        <PreviewCompatibleImage
+          imageInfo={{
+            alt: 'Photo of Oskari Pöntinen by Jouni Tyrisevä',
+            image: myFace,
+          }}
+        />
       </Jumbotron>
-      <section>
-        <div className="container">
-          <h2>{title}</h2>
+      <section className="me-section">
+        <Container>
           <PageContent className="content" content={content} />
-        </div>
+        </Container>
+      </section>
+      <section className="credit-section">
+        <Container>
+          <PageContent className="content" content={content} />
+        </Container>
       </section>
     </div>
   )
