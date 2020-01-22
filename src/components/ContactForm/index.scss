@@ -1,5 +1,8 @@
+@import '../../scss/mixins';
+
 .contact-form {
-  input, textarea {
+  input,
+  textarea {
     width: 100%;
     margin-bottom: 1rem;
   }
@@ -7,16 +10,29 @@
   .sender-info {
     width: 100%;
     div {
-      width: 50%;
+      width: 100%;
       display: inline-block;
     }
-
-    .name-field {
-      padding-right: 1rem;
+  }
+  .message-field {
+    textarea {
+      height: 8em;
     }
-    j
-    .email-field {
-      padding-left: 1rem;
+  }
+}
+
+@include breakpoint(sm) {
+  .contact-form {
+    .sender-info {
+      div {
+        width: 50%;
+      }
+      .name-field {
+        padding-right: 1rem;
+      }
+      .email-field {
+        padding-left: 1rem;
+      }
     }
   }
 }
