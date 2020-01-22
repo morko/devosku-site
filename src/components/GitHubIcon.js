@@ -5,7 +5,6 @@ import githubBlack from '../img/github-icon-black.svg'
 import githubWhite from '../img/github-icon-white.svg'
 
 export default function GitHubIcon({ invert, href }) {
-
   if (href) {
     return (
       <a

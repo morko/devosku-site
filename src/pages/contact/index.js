@@ -1,8 +1,8 @@
-import React from "react";
-import Layout from "../../components/Layout";
-import Jumbotron, { HeroTitle } from "../../components/Jumbotron";
-import ContactForm from "../../components/ContactForm";
-import "./index.scss";
+import React from 'react'
+import Layout from '../../components/Layout'
+import Jumbotron, { HeroTitle } from '../../components/Jumbotron'
+import ContactForm from '../../components/ContactForm'
+import './index.scss'
 
 export default function Contact() {
   return (
@@ -12,9 +12,8 @@ export default function Contact() {
           <HeroTitle position="center">Waiting for your contact...</HeroTitle>
           <ContactForm />
         </Jumbotron>
-        <section className="container">
-        </section>
+        <section className="container"></section>
       </div>
     </Layout>
-  );
+  )
 }

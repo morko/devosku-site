@@ -6,16 +6,16 @@
  */
 export function textHighlight(text, color) {
   if (!text || !color) {
-    return text;
+    return text
   }
-  const pattern = /\[hl\]([\s\S]+?)\[\/hl\]/g;
-  const match = text.match(pattern);
+  const pattern = /\[hl\]([\s\S]+?)\[\/hl\]/g
+  const match = text.match(pattern)
   if (!match || match.length < 1) {
-    return text;
+    return text
   }
   const hlText = text.replace(
     pattern,
     `<span style="color: ${color};">$1</span>`
-  );
-  return hlText;
+  )
+  return hlText
 }

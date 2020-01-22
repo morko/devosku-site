@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'devosku',
-    description: 'Professional and customer friendly full stack web development.',
+    description:
+      'Professional and customer friendly full stack web development.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

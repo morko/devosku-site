@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
-import Jumbotron, { HeroTitle } from '../components/Jumbotron';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
+import Jumbotron, { HeroTitle } from '../components/Jumbotron'
 
 export const AboutPageTemplate = ({
   title,
   image,
   content,
-  contentComponent
+  contentComponent,
 }) => {
-  const PageContent = contentComponent || Content;
+  const PageContent = contentComponent || Content
 
   return (
     <div className="about-page">
@@ -20,24 +20,22 @@ export const AboutPageTemplate = ({
       </Jumbotron>
       <section>
         <div className="container">
-          <h2>
-            {title}
-          </h2>
+          <h2>{title}</h2>
           <PageContent className="content" content={content} />
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
-  contentComponent: PropTypes.func
-};
+  contentComponent: PropTypes.func,
+}
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
   return (
     <Layout className="add-navbar-margin">
@@ -48,14 +46,14 @@ const AboutPage = ({ data }) => {
         content={post.html}
       />
     </Layout>
-  );
-};
+  )
+}
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired
-};
+  data: PropTypes.object.isRequired,
+}
 
-export default AboutPage;
+export default AboutPage
 
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
@@ -73,4 +71,4 @@ export const aboutPageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
+import throttle from 'lodash/throttle'
 
 function isElementOnViewport(el) {
-  const rect = el.getBoundingClientRect();
+  const rect = el.getBoundingClientRect()
   const viewportWidth =
-    window.innerWidth || document.documentElement.clientWidth;
+    window.innerWidth || document.documentElement.clientWidth
   const viewportHeight =
-    window.innerHeight || document.documentElement.clientHeight;
+    window.innerHeight || document.documentElement.clientHeight
 
   if (
     rect.top >= 0 &&
@@ -13,29 +14,30 @@ function isElementOnViewport(el) {
     rect.bottom <= viewportHeight &&
     rect.right <= viewportWidth
   ) {
-    return true;
+    return true
   }
-  return false;
+  return false
 }
 
 export default function useElementOnViewport(element) {
   const defaultState =
-    !element || !element.current ? false : isElementOnViewport(element.current);
-  const [isOnViewport, setIsOnViewport] = useState(defaultState);
+    !element || !element.current ? false : isElementOnViewport(element.current)
+  const [isOnViewport, setIsOnViewport] = useState(defaultState)
 
-  function checkElement() {
-    if (!element || !element.current) return;
-    if (isElementOnViewport(element.current)) {
-      setIsOnViewport(true);
-    } else {
-      setIsOnViewport(false);
-    }
-  }
   useEffect(() => {
-    window.addEventListener("scroll", checkElement);
+    function checkElement() {
+      if (!element || !element.current) return
+      if (isElementOnViewport(element.current)) {
+        setIsOnViewport(true)
+      } else {
+        setIsOnViewport(false)
+      }
+    }
+    const throttledCheckElement = throttle(checkElement, 200)
+    window.addEventListener('scroll', throttledCheckElement)
     return () => {
-      window.removeEventListener("scroll", checkElement);
-    };
-  }, [element]);
-  return isOnViewport;
+      window.removeEventListener('scroll', throttledCheckElement)
+    }
+  }, [element, setIsOnViewport])
+  return isOnViewport
 }

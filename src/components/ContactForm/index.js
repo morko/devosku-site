@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import { navigate } from "gatsby-link";
+import React, { useState } from 'react'
+import { navigate } from 'gatsby-link'
 
-import "./index.scss";
+import './index.scss'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 export default function ContactForm() {
-  let [fields, setFields] = useState({});
+  let [fields, setFields] = useState({})
 
   function handleChange(e) {
-    setFields({ ...fields, [e.target.name]: e.target.value });
+    setFields({ ...fields, [e.target.name]: e.target.value })
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
+    e.preventDefault()
+    const form = e.target
     const body = encode({
-      "form-name": form.getAttribute("name"),
-      ...fields
-    });
+      'form-name': form.getAttribute('name'),
+      ...fields,
+    })
 
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body
-      });
-      navigate(form.getAttribute("action"));
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      })
+      navigate(form.getAttribute('action'))
     } catch (error) {
-      alert(error);
+      alert(error)
     }
   }
   return (
@@ -50,42 +50,42 @@ export default function ContactForm() {
         <input type="hidden" name="form-name" value="contact" />
         <div hidden>
           <label>
-            Don’t fill this out:{" "}
+            Don’t fill this out:{' '}
             <input name="bot-field" onChange={handleChange} />
           </label>
         </div>
         <div className="sender-info">
           <div className="name-field">
-            <label htmlFor={"name"}>Your name</label>
+            <label htmlFor={'name'}>Your name</label>
             <input
               className="input"
-              type={"text"}
-              name={"name"}
+              type={'text'}
+              name={'name'}
               onChange={handleChange}
-              id={"name"}
+              id={'name'}
               required={true}
             />
           </div>
           <div className="email-field">
-            <label htmlFor={"email"}>Email</label>
+            <label htmlFor={'email'}>Email</label>
             <input
               className="input"
-              type={"email"}
-              name={"email"}
+              type={'email'}
+              name={'email'}
               onChange={handleChange}
-              id={"email"}
+              id={'email'}
               required={true}
             />
           </div>
         </div>
         <div className="message-field">
-          <label htmlFor={"message"}>Message</label>
+          <label htmlFor={'message'}>Message</label>
           <div className="control">
             <textarea
               className="textarea"
-              name={"message"}
+              name={'message'}
               onChange={handleChange}
-              id={"message"}
+              id={'message'}
               required={true}
             />
           </div>
@@ -95,5 +95,5 @@ export default function ContactForm() {
         </button>
       </form>
     </>
-  );
+  )
 }

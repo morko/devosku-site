@@ -1,25 +1,25 @@
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import React, { useRef } from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 
-import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
-import Jumbotron from "../components/Jumbotron";
-import Container from "../components/Container";
+import Layout from '../components/Layout'
+import Features from '../components/Features'
+import BlogRoll from '../components/BlogRoll'
+import Jumbotron from '../components/Jumbotron'
+import Container from '../components/Container'
 
-import lightBulb from "../img/lightbulb.svg";
+import lightBulb from '../img/lightbulb.svg'
 import {
   color4 as hlColor,
-  color5 as darkHlColor
-} from "../scss/_variables.module.scss";
-import { textHighlight } from "../utils";
-import keyboard from "../img/keyboard.jpg";
-import compCables from "../img/comp-cables.jpg";
-import bottomCurve from "../img/bottom-curve.svg";
-import "./index-page.scss";
-import SectionHeader from "../components/SectionHeader";
-import useElementOnViewport from "../hooks/useElementOnViewport";
+  color5 as darkHlColor,
+} from '../scss/_variables.module.scss'
+import { textHighlight } from '../utils'
+import keyboard from '../img/keyboard.jpg'
+import compCables from '../img/comp-cables.jpg'
+import bottomCurve from '../img/bottom-curve.svg'
+import './index-page.scss'
+import SectionHeader from '../components/SectionHeader'
+import useElementOnViewport from '../hooks/useElementOnViewport'
 
 export const IndexPageTemplate = ({
   title,
@@ -27,12 +27,12 @@ export const IndexPageTemplate = ({
   headline,
   featuredServices,
   featuredTechnologies,
-  intro
+  intro,
 }) => {
-  const servicesRef = useRef(null);
-  const technologiesRef = useRef(null);
-  const servicesOnView = useElementOnViewport(servicesRef);
-  const technologiesOnView = useElementOnViewport(technologiesRef);
+  const servicesRef = useRef(null)
+  const technologiesRef = useRef(null)
+  const servicesOnView = useElementOnViewport(servicesRef)
+  const technologiesOnView = useElementOnViewport(technologiesRef)
 
   return (
     <div className="index-page">
@@ -47,7 +47,7 @@ export const IndexPageTemplate = ({
             <h1
               className="title"
               dangerouslySetInnerHTML={{
-                __html: textHighlight(headline.title, hlColor)
+                __html: textHighlight(headline.title, hlColor),
               }}
             />
           </div>
@@ -56,7 +56,7 @@ export const IndexPageTemplate = ({
             <h2
               className="subtitle"
               dangerouslySetInnerHTML={{
-                __html: textHighlight(headline.subtitle, hlColor)
+                __html: textHighlight(headline.subtitle, hlColor),
               }}
             />
           </div>
@@ -74,7 +74,7 @@ export const IndexPageTemplate = ({
       >
         <div
           ref={servicesRef}
-          className={`row featured-services ${servicesOnView ? "on-view" : ""}`}
+          className={`row featured-services ${servicesOnView ? 'on-view' : ''}`}
         >
           <div className="anim-wrap">
             {featuredServices.map(i => (
@@ -85,7 +85,7 @@ export const IndexPageTemplate = ({
         <div
           ref={technologiesRef}
           className={`row featured-technologies ${
-            technologiesOnView ? "on-view" : ""
+            technologiesOnView ? 'on-view' : ''
           }`}
         >
           <div className="anim-wrap">
@@ -101,7 +101,7 @@ export const IndexPageTemplate = ({
           <img alt="light bulb" src={lightBulb}></img>
           <h2
             dangerouslySetInnerHTML={{
-              __html: textHighlight(intro.heading, darkHlColor)
+              __html: textHighlight(intro.heading, darkHlColor),
             }}
           />
         </SectionHeader>
@@ -113,7 +113,7 @@ export const IndexPageTemplate = ({
         <SectionHeader type="small">
           <h3
             dangerouslySetInnerHTML={{
-              __html: textHighlight("Latest [hl]Posts[/hl]", darkHlColor)
+              __html: textHighlight('Latest [hl]Posts[/hl]', darkHlColor),
             }}
           />
         </SectionHeader>
@@ -125,8 +125,8 @@ export const IndexPageTemplate = ({
         </Container>
       </section>
     </div>
-  );
-};
+  )
+}
 
 IndexPageTemplate.propTypes = {
   title: PropTypes.string,
@@ -135,12 +135,12 @@ IndexPageTemplate.propTypes = {
   featuredServices: PropTypes.array,
   featuredTechnologies: PropTypes.array,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
-};
+    blurbs: PropTypes.array,
+  }),
+}
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout transparentNavbar={true}>
@@ -153,18 +153,18 @@ const IndexPage = ({ data }) => {
         intro={frontmatter.intro}
       />
     </Layout>
-  );
-};
+  )
+}
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object
-    })
-  })
-};
+      frontmatter: PropTypes.object,
+    }),
+  }),
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -196,4 +196,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

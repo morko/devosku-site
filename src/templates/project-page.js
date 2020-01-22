@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Features from "../components/Features";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
-import Jumbotron, { HeroTitle } from "../components/Jumbotron";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Features from '../components/Features'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Jumbotron, { HeroTitle } from '../components/Jumbotron'
 
 export const ProjectPageTemplate = ({
   image,
@@ -13,7 +13,7 @@ export const ProjectPageTemplate = ({
   description,
   intro,
   main,
-  fullImage
+  fullImage,
 }) => (
   <div className="project-page">
     <Jumbotron className="add-navbar-margin" image={image}>
@@ -42,13 +42,13 @@ export const ProjectPageTemplate = ({
               fullImage.childImageSharp
                 ? fullImage.childImageSharp.fluid.src
                 : fullImage
-            })`
+            })`,
           }}
         />
       </div>
     </section>
   </div>
-);
+)
 
 ProjectPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -56,20 +56,20 @@ ProjectPageTemplate.propTypes = {
   heading: PropTypes.string,
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array
+    blurbs: PropTypes.array,
   }),
   main: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
     image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   }),
-  fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-};
+  fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+}
 
 const ProjectPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
@@ -83,18 +83,18 @@ const ProjectPage = ({ data }) => {
         fullImage={frontmatter.full_image}
       />
     </Layout>
-  );
-};
+  )
+}
 
 ProjectPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object
-    })
-  })
-};
+      frontmatter: PropTypes.object,
+    }),
+  }),
+}
 
-export default ProjectPage;
+export default ProjectPage
 
 export const projectPageQuery = graphql`
   query ProjectPage($id: String!) {
@@ -168,4 +168,4 @@ export const projectPageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql, StaticQuery } from "gatsby";
-import PreviewCompatibleImage from "../PreviewCompatibleImage";
-import "./index.scss";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql, StaticQuery } from 'gatsby'
+import PreviewCompatibleImage from '../PreviewCompatibleImage'
+import './index.scss'
 
 class BlogRoll extends React.Component {
   render() {
-    const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
+    const { data } = this.props
+    const { edges: posts } = data.allMarkdownRemark
 
     return (
       <div className="BlogRoll">
@@ -16,7 +16,7 @@ class BlogRoll extends React.Component {
             <article
               key={post.id}
               className={`blog-list-item ${
-                post.frontmatter.featuredpost ? "is-featured" : ""
+                post.frontmatter.featuredpost ? 'is-featured' : ''
               }`}
             >
               <header className="post-metadata">
@@ -40,15 +40,13 @@ class BlogRoll extends React.Component {
                     <PreviewCompatibleImage
                       imageInfo={{
                         image: post.frontmatter.featuredimage,
-                        alt: `Featured image thumbnail for post ${post.frontmatter.title}`
+                        alt: `Featured image thumbnail for post ${post.frontmatter.title}`,
                       }}
                     />
                   </div>
                 ) : null}
                 <div className="post-excerpt">
-                  <p>
-                    {post.excerpt}
-                  </p>
+                  <p>{post.excerpt}</p>
                   <Link className="btn" to={post.fields.slug}>
                     Keep Reading →
                   </Link>
@@ -57,17 +55,17 @@ class BlogRoll extends React.Component {
             </article>
           ))}
       </div>
-    );
+    )
   }
 }
 
 BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  })
-};
+      edges: PropTypes.array,
+    }),
+  }),
+}
 
 export default () => (
   <StaticQuery
@@ -104,4 +102,4 @@ export default () => (
     `}
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
-);
+)

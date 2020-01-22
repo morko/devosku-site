@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
-import Logo from "../Logo";
-import useScroll from "../../hooks/useScroll";
-import Container from "../Container";
-import "./index.scss";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'gatsby'
+import Logo from '../Logo'
+import useScroll from '../../hooks/useScroll'
+import Container from '../Container'
+import './index.scss'
 
 const Navbar = ({ transparent = false }) => {
-  const [active, setActive] = useState(false);
-  const [activeCls, setActiveCls] = useState("");
-  const [shrinkCls, setShrinkCls] = useState("");
-  const [topCls, setTopCls] = useState(transparent ? "is-transparent" : "");
-  const [minCls, setMinCls] = useState("");
+  const [active, setActive] = useState(false)
+  const [activeCls, setActiveCls] = useState('')
+  const [shrinkCls, setShrinkCls] = useState('')
+  const [topCls, setTopCls] = useState(transparent ? 'is-transparent' : '')
+  const [minCls, setMinCls] = useState('')
   const [scrollTresholds, scrollingDown] = useScroll({
     shrink: 120,
-    min: 700
-  });
+    min: 700,
+  })
 
   useEffect(() => {
-    active ? setActiveCls("is-active") : setActiveCls("");
-  }, [active]);
+    active ? setActiveCls('is-active') : setActiveCls('')
+  }, [active])
 
   useEffect(() => {
     if (transparent) {
       if (!scrollTresholds.shrink && !scrollTresholds.min) {
-        setTopCls("is-transparent");
+        setTopCls('is-transparent')
       } else {
-        setTopCls("");
+        setTopCls('')
       }
     }
     if (scrollTresholds.shrink) {
-      setShrinkCls("is-shrinked");
+      setShrinkCls('is-shrinked')
     } else {
-      setShrinkCls("");
+      setShrinkCls('')
     }
     scrollTresholds.min && scrollingDown
-      ? setMinCls("is-minimized")
-      : setMinCls("");
-  }, [scrollTresholds, scrollingDown]);
+      ? setMinCls('is-minimized')
+      : setMinCls('')
+  }, [scrollTresholds, scrollingDown, transparent])
 
   return (
     <nav
@@ -71,11 +71,11 @@ const Navbar = ({ transparent = false }) => {
           aria-label="Open menu"
           tabIndex={0}
           onClick={() => {
-            setActive(!active);
+            setActive(!active)
           }}
           onKeyDown={e => {
-            if (e.key === "Enter") {
-              setActive(!active);
+            if (e.key === 'Enter') {
+              setActive(!active)
             }
           }}
         >
@@ -85,7 +85,7 @@ const Navbar = ({ transparent = false }) => {
         </div>
       </Container>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

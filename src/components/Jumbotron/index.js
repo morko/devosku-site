@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import "./index.scss";
+import './index.scss'
 /**
  * Page hero or jumbotron.
  *
@@ -10,22 +10,22 @@ import "./index.scss";
  * @param {object | string} props.image - Background image.
  */
 export default function Jumbotron({
-  className = "",
-  type = "full",
+  className = '',
+  type = 'full',
   image,
   children,
   backgroundOverlay,
-  overlayImage
+  overlayImage,
 }) {
   const bgOverlayStyle = {
-    backgroundColor: `rgba(0,0,0,${backgroundOverlay})`
-  };
+    backgroundColor: `rgba(0,0,0,${backgroundOverlay})`,
+  }
   if (overlayImage) {
     bgOverlayStyle.backgroundImage = `url(${
       !!overlayImage.childImageSharp
         ? overlayImage.childImageSharp.fluid.src
         : overlayImage
-    })`;
+    })`
   }
   return (
     <section
@@ -34,7 +34,7 @@ export default function Jumbotron({
         image && {
           backgroundImage: `url(${
             !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`
+          })`,
         }
       }
     >
@@ -43,7 +43,7 @@ export default function Jumbotron({
       )}
       <div className="jumbotron-content">{children}</div>
     </section>
-  );
+  )
 }
 
 /**
@@ -53,10 +53,10 @@ export default function Jumbotron({
  * @param {string} props.className - Additional class names.
  * @param {string} props.position - Possible options are top, center, bottom.
  */
-export function HeroTitle({ className = "", children, position = "center" }) {
+export function HeroTitle({ className = '', children, position = 'center' }) {
   return (
     <div className={`hero-title ${className} ${position}`}>
       <h1>{children}</h1>
     </div>
-  );
+  )
 }

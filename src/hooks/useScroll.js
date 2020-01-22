@@ -1,58 +1,55 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react'
+import throttle from 'lodash/throttle'
 
 function useScroll(tresholds) {
   if (!tresholds || Object.keys(tresholds).length <= 0) {
-    throw new TypeError('invalid arguments');
+    throw new TypeError('invalid arguments')
   }
-  const [activeTresholds, setActiveTresholds] = useState({});
-  const [scrollingDown, setScrollingDown] = useState(true);
+  const [activeTresholds, setActiveTresholds] = useState({})
+  const [scrollingDown, setScrollingDown] = useState(true)
+  const tresholdsRef = useRef(tresholds)
 
   useEffect(() => {
-
+    const tresholds = tresholdsRef.current
     function updateActiveTresholds(scrollPosition) {
-      const newActiveTresholds = {};
+      const newActiveTresholds = {}
       Object.entries(tresholds).forEach(([key, treshold]) => {
         if (treshold <= scrollPosition) {
-          newActiveTresholds[key] = true;
+          newActiveTresholds[key] = true
         } else {
-          newActiveTresholds[key] = false;
+          newActiveTresholds[key] = false
         }
-      });
-      setActiveTresholds(newActiveTresholds);
+      })
+      setActiveTresholds(newActiveTresholds)
     }
 
     function updateScrollDirection(prevScrollPosition, scrollPosition) {
       if (prevScrollPosition < scrollPosition) {
-        setScrollingDown(true);
+        setScrollingDown(true)
       } else {
-        setScrollingDown(false);
+        setScrollingDown(false)
       }
     }
 
-    let lastScrollPosition = window.pageYOffset;
-    let prevScrollPosition = 0;
-    let ticking = false;
+    let lastScrollPosition = window.pageYOffset
+    let prevScrollPosition = 0
 
     function handleScroll() {
-      prevScrollPosition = lastScrollPosition;
-      lastScrollPosition = window.pageYOffset;
-      if (!ticking) {
-        window.requestAnimationFrame(function() {
-          updateScrollDirection(prevScrollPosition, lastScrollPosition);
-          updateActiveTresholds(lastScrollPosition);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      prevScrollPosition = lastScrollPosition
+      lastScrollPosition = window.pageYOffset
+      updateScrollDirection(prevScrollPosition, lastScrollPosition)
+      updateActiveTresholds(lastScrollPosition)
     }
-    window.addEventListener('scroll', handleScroll);
+
+    const throttledhandleScroll = throttle(handleScroll, 200)
+
+    window.addEventListener('scroll', throttledhandleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [tresholds]);
+      window.removeEventListener('scroll', throttledhandleScroll)
+    }
+  }, [tresholdsRef])
 
-  return [activeTresholds, scrollingDown];
-
+  return [activeTresholds, scrollingDown]
 }
 
-export default useScroll;
+export default useScroll
