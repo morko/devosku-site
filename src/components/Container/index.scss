@@ -7,13 +7,17 @@
   max-width: 1440px;
 }
 @include breakpoint(xs) {
-  margin-left: calc(#{$container-max-margin} / 2);
-  margin-right: calc(#{$container-max-margin} / 2);
+  .container {
+    margin-left: calc(#{$container-max-margin} / 2);
+    margin-right: calc(#{$container-max-margin} / 2);
+  }
 }
 
 @include breakpoint(sm) {
-  margin-left: $container-max-margin;
-  margin-right: $container-max-margin;
+  .container {
+    margin-left: $container-max-margin;
+    margin-right: $container-max-margin;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
