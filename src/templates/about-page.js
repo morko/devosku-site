@@ -18,10 +18,9 @@ export const AboutPageTemplate = ({
 }) => {
   const PageContent = contentComponent || Content
 
-  console.log(myFace)
   return (
     <div className="about-page">
-      <Jumbotron type="medium" image={image}>
+      <Jumbotron type="medium" image={image} backgroundOverlay="0.6">
         <JumboTitle>{title}</JumboTitle>
         <PreviewCompatibleImage
           imageInfo={{

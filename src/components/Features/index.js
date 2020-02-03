@@ -3,27 +3,34 @@ import PropTypes from 'prop-types'
 import PreviewCompatibleImage from '../PreviewCompatibleImage'
 import './index.scss'
 
-const Features = ({ gridItems, className = '' }) => (
-  <div className={`features ${className}`}>
-    {gridItems.map((item, i) => {
-      return (
-        <div key={item.text} className="feature">
-          <div className="title">
-            <h1>{item.title}</h1>
-          </div>
+const Features = ({ gridItems, className = '' }) => {
 
-          <div className="image">
-            <PreviewCompatibleImage imageInfo={item} />
-          </div>
 
-          <div className="text">
-            <p>{item.text}</p>
+  return (
+    <div className={`features ${className}`}>
+      {gridItems.map((item, i) => {
+        return (
+          <div key={item.text} className="feature">
+
+            <div className="overlay" />
+
+            <div className="title">
+              <h1>{item.title}</h1>
+            </div>
+
+            <div className="image">
+              <PreviewCompatibleImage imageInfo={item} />
+            </div>
+
+            <div className="text">
+              <p>{item.text}</p>
+            </div>
           </div>
-        </div>
-      )
-    })}
-  </div>
-)
+        )
+      })}
+    </div>
+  )
+}
 
 Features.propTypes = {
   gridItems: PropTypes.arrayOf(

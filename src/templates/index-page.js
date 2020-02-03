@@ -16,7 +16,6 @@ import {
 import { textHighlight } from '../utils'
 import keyboard from '../img/keyboard.jpg'
 import compCables from '../img/comp-cables.jpg'
-import bottomCurve from '../img/bottom-curve.svg'
 import './index-page.scss'
 import SectionHeader from '../components/SectionHeader'
 import useElementOnViewport from '../hooks/useElementOnViewport'
@@ -39,8 +38,8 @@ export const IndexPageTemplate = ({
       <Jumbotron
         className="header-section"
         image={keyboard}
-        backgroundOverlay="0.3"
-        overlayImage={bottomCurve}
+        backgroundOverlay="0.6"
+        showScroll={true}
       >
         <div className="row">
           <div className="anim-wrap">
@@ -67,6 +66,14 @@ export const IndexPageTemplate = ({
           </Link>
         </div>
       </Jumbotron>
+      <SectionHeader className="intro-heading">
+        <img alt="light bulb" src={lightBulb}></img>
+        <h2
+          dangerouslySetInnerHTML={{
+            __html: textHighlight(intro.heading, darkHlColor),
+          }}
+        />
+      </SectionHeader>
       <Jumbotron
         className="teaser-section"
         image={compCables}
@@ -97,14 +104,6 @@ export const IndexPageTemplate = ({
       </Jumbotron>
 
       <section className="features-section">
-        <SectionHeader>
-          <img alt="light bulb" src={lightBulb}></img>
-          <h2
-            dangerouslySetInnerHTML={{
-              __html: textHighlight(intro.heading, darkHlColor),
-            }}
-          />
-        </SectionHeader>
         <Container>
           <Features gridItems={intro.blurbs} />
         </Container>

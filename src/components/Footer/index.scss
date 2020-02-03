@@ -12,13 +12,14 @@ footer {
   .Logo {
     max-height: 64px;
     max-width: 64px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 2rem;
   }
 
   .menu1 {
@@ -33,7 +34,10 @@ footer {
   }
 
   .social {
-    padding: 2em;
+    font-size: 1.3rem;
+    padding: 1em;
+    margin-bottom: 2rem;
+    display: none;
   }
 
   .social a {
@@ -43,5 +47,22 @@ footer {
     margin: 0.5em;
     vertical-align: middle;
     display: inline;
+  }
+
+  .social a:hover {
+    background-color: $color1;
+  }
+
+  .social img {
+    width: 1em;
+    height: 1em;
+  }
+
+  .menu-list a {
+    transition: color 0.3s ease;
+  }
+
+  .menu-list a:hover {
+    color: $color1;
   }
 }

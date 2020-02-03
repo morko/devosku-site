@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import './index.scss'
 
@@ -17,7 +17,11 @@ export default function Jumbotron({
   children,
   backgroundOverlay,
   overlayImage,
+  showScroll,
 }) {
+
+  const scrollDownRef = useRef(null);
+
   const bgOverlayStyle = {
     backgroundColor: `rgba(0,0,0,${backgroundOverlay})`,
   }
@@ -28,6 +32,21 @@ export default function Jumbotron({
         : overlayImage
     })`
   }
+
+  function handleScrollDown(e) {
+    const pageYOffset = window.pageYOffset;
+    const parent = scrollDownRef.current.parentElement;
+    const nextElement = parent ? parent.nextSibling : null;
+    const rect = nextElement ? nextElement.getBoundingClientRect() : null;
+    if (rect) {
+      window.scroll({
+        left: 0,
+        top: rect.y + pageYOffset,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
     <section
       className={`jumbotron ${className} ${type}`}
@@ -43,6 +62,13 @@ export default function Jumbotron({
         <div style={bgOverlayStyle} className="background-overlay"></div>
       )}
       <div className="jumbotron-content">{children}</div>
+      {showScroll && (
+        <button className="scroll-down" ref={scrollDownRef} onClick={handleScrollDown}>
+          <span></span>
+          <span></span>
+          <span></span>Scroll Down
+        </button>
+      )}
     </section>
   )
 }

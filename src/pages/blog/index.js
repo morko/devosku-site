@@ -10,8 +10,8 @@ import './index.scss'
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
-      <div className="blog-page">
-        <Layout className="add-navbar-margin">
+      <Layout className="add-navbar-margin">
+        <div className="blog-page">
           <Jumbotron type="small" image="/img/blog-index.jpg">
             <JumboTitle>Latest Stories</JumboTitle>
           </Jumbotron>
@@ -20,8 +20,8 @@ export default class BlogIndexPage extends React.Component {
               <BlogRoll />
             </Container>
           </section>
-        </Layout>
-      </div>
+        </div>
+      </Layout>
     )
   }
 }

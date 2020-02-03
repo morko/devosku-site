@@ -1,8 +1,9 @@
 import React from 'react'
+import { color1 as c1, color2 as c2 } from '../scss/_variables.module.scss'
 
 export default function Logo({
-  color1 = '#e1bb6c',
-  color2 = '#d49100',
+  color1 = c2,
+  color2 = c1,
   className = 'Logo',
 }) {
   return (
