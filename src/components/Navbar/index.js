@@ -38,12 +38,30 @@ const Navbar = ({ transparent = false }) => {
       : setMinCls('')
   }, [scrollTresholds, scrollingDown, transparent])
 
+  function createMenuLinks() {
+    return (
+      <>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li>
+          <Link to="/blog">Blog</Link>
+        </li>
+      </>
+    )
+  }
+
   return (
     <nav
       className={`navbar ${topCls} ${shrinkCls} ${minCls}`}
       role="navigation"
       aria-label="Main"
     >
+      <ul className={`mobile-menu ${activeCls}`}>{createMenuLinks()}</ul>
+
       <Container>
         <Link className="brand" to="/" title="Home">
           <Logo className="logo" />
@@ -53,17 +71,7 @@ const Navbar = ({ transparent = false }) => {
           </h1>
         </Link>
 
-        <ul className={`menu ${activeCls}`}>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-        </ul>
+        <ul className={`menu ${activeCls}`}>{createMenuLinks()}</ul>
 
         <div
           className={`menu-button ${activeCls}`}
