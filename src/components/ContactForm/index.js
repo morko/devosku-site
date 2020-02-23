@@ -19,18 +19,19 @@ export default function ContactForm() {
   async function handleSubmit(e) {
     e.preventDefault()
     const form = e.target
-    const body = encode({
-      'form-name': form.getAttribute('name'),
+    const body = {
+      'subject': `Form | devosku.com | ${form.getAttribute('name')}`,
       ...fields,
-    })
+    };
 
     try {
-      await fetch('/', {
+      let response = await fetch('/.netlify/functions/sendmail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
+        body: JSON.stringify(fields),
       })
-      navigate(form.getAttribute('action'))
+      console.log(response)
+      //navigate(form.getAttribute('action'))
     } catch (error) {
       alert(error)
     }

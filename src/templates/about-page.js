@@ -6,7 +6,7 @@ import Content, { HTMLContent } from '../components/Content'
 import Jumbotron, { JumboTitle } from '../components/Jumbotron'
 import Container from '../components/Container'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import myFace from '../img/myface1.png'
+import myFace from '../img/myface2.png'
 
 import './about-page.scss'
 
