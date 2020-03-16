@@ -6,13 +6,13 @@ import Content, { HTMLContent } from '../components/Content'
 import Jumbotron, { JumboTitle } from '../components/Jumbotron'
 import Container from '../components/Container'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import myFace from '../img/myface2.png'
 
 import './about-page.scss'
 
 export const AboutPageTemplate = ({
   title,
-  image,
+  jumbotronBackgroundImage,
+  jumbotronImage,
   content,
   contentComponent,
 }) => {
@@ -20,12 +20,16 @@ export const AboutPageTemplate = ({
 
   return (
     <div className="about-page">
-      <Jumbotron type="medium" image={image} backgroundOverlay="0.6">
+      <Jumbotron
+        type="medium"
+        image={jumbotronBackgroundImage}
+        backgroundOverlay="0.6"
+      >
         <JumboTitle>{title}</JumboTitle>
         <PreviewCompatibleImage
           imageInfo={{
             alt: 'Photo of Oskari Pöntinen by Jouni Tyrisevä',
-            image: myFace,
+            image: jumbotronImage,
           }}
         />
       </Jumbotron>
@@ -57,7 +61,8 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        image={post.frontmatter.image}
+        jumbotronBackgroundImage={post.frontmatter.jumbotronBackgroundImage}
+        jumbotronImage={post.frontmatter.jumbotronImage}
         content={post.html}
       />
     </Layout>
@@ -76,9 +81,16 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
-        image {
+        jumbotronBackgroundImage {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        jumbotronImage {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
