@@ -27,6 +27,7 @@ export const IndexPageTemplate = ({
   featuredServices,
   featuredTechnologies,
   intro,
+  blurbs,
 }) => {
   const servicesRef = useRef(null)
   const technologiesRef = useRef(null)
@@ -105,7 +106,7 @@ export const IndexPageTemplate = ({
 
       <section className="features-section">
         <Container>
-          <Features gridItems={intro.blurbs} />
+          <Features gridItems={blurbs} />
         </Container>
       </section>
       <section className="latest-posts-section">
@@ -136,7 +137,7 @@ IndexPageTemplate.propTypes = {
 }
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, fields } = data.markdownRemark
 
   return (
     <Layout transparentNavbar={true}>
@@ -147,6 +148,7 @@ const IndexPage = ({ data }) => {
         featuredServices={frontmatter.featuredServices}
         featuredTechnologies={frontmatter.featuredTechnologies}
         intro={frontmatter.intro}
+        blurbs={fields.blurbs}
       />
     </Layout>
   )
@@ -177,17 +179,19 @@ export const pageQuery = graphql`
         intro {
           heading
           description
-          blurbs {
-            title
-            image {
-              childImageSharp {
-                fluid(maxWidth: 512, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+        }
+      }
+      fields {
+        blurbs {
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 512, quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
-            text
           }
+          text
         }
       }
     }

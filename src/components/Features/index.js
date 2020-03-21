@@ -4,14 +4,12 @@ import PreviewCompatibleImage from '../PreviewCompatibleImage'
 import './index.scss'
 
 const Features = ({ gridItems, className = '' }) => {
-
-
+  console.log(gridItems)
   return (
     <div className={`features ${className}`}>
       {gridItems.map((item, i) => {
         return (
           <div key={item.text} className="feature">
-
             <div className="overlay" />
 
             <div className="title">
@@ -22,9 +20,10 @@ const Features = ({ gridItems, className = '' }) => {
               <PreviewCompatibleImage imageInfo={item} />
             </div>
 
-            <div className="text">
-              <p>{item.text}</p>
-            </div>
+            <div
+              className="text"
+              dangerouslySetInnerHTML={{ __html: item.text }}
+            />
           </div>
         )
       })}
