@@ -81,6 +81,7 @@
     align-items: flex-start;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 
     .feature {
       max-width: 45%;
