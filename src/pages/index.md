@@ -14,9 +14,24 @@ featuredTechnologies:
   - Node.js
 intro:
   blurbs:
-    - image: /img/products-grid2.jpg
-      text: |
-        I  offer my expertise in web development for a reasonable prize.
+    - image: /img/chris-liverani-9cd8qogeniy-unsplash.jpg
+      text: >
+        Need help or education? I have long experience of Linux systems and web
+        development. We can arrange a virtual or physical meeting. I can help
+        you solve a problem and provide documentation about the steps I've taken
+        to solve it.
+
+
+        I can offer you consulting anything related to
+
+
+        - WordPress
+
+        - Linux
+
+        - React.js
+
+        - Node.js
       title: IT-consulting
     - image: /img/fikret-tozak-zk-ydz2ias-unsplash.jpg
       text: >
@@ -45,12 +60,10 @@ intro:
       title: WordPress
     - image: /img/blog-index.jpg
       text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
-      title: Website Development
+        Want to have a modern web application or just a website that is
+        lightning fast? React.js is a modern web application framework I love to
+        use and Gatsby is a static website builder using React.js.
+      title: React/Gatsby
   description: |
     Take a look at what kind of services I can offer.
   heading: 'Turn your [hl]ideas[/hl] into [hl]reality[/hl]!'
