@@ -31,8 +31,8 @@ export const IndexPageTemplate = ({
 }) => {
   const servicesRef = useRef(null)
   const technologiesRef = useRef(null)
-  const servicesOnView = useElementOnViewport(servicesRef)
-  const technologiesOnView = useElementOnViewport(technologiesRef)
+  const servicesOnView = useElementOnViewport(servicesRef, true)
+  const technologiesOnView = useElementOnViewport(technologiesRef, true)
 
   return (
     <div className="index-page">

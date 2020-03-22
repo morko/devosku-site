@@ -81,7 +81,7 @@ const Navbar = ({ transparent = false }) => {
           onClick={() => {
             setActive(!active)
           }}
-          onKeyDown={e => {
+          onKeyDown={(e) => {
             if (e.key === 'Enter') {
               setActive(!active)
             }

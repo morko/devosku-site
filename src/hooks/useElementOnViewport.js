@@ -19,25 +19,37 @@ function isElementOnViewport(el) {
   return false
 }
 
-export default function useElementOnViewport(element) {
+/**
+ *
+ * Checks if the element is on viewport.
+ *
+ * @param {React.Ref} element - Ref containing the element to check on.
+ * @param {boolean} [once=false] - If this is true the return value will be set
+ *    to true once and never touched again.
+ * @return {boolean} - Is the element on viewport.
+ */
+export default function useElementOnViewport(element, once = false) {
   const defaultState =
     !element || !element.current ? false : isElementOnViewport(element.current)
   const [isOnViewport, setIsOnViewport] = useState(defaultState)
 
   useEffect(() => {
+    const throttledCheckElement = throttle(checkElement, 200)
     function checkElement() {
       if (!element || !element.current) return
       if (isElementOnViewport(element.current)) {
         setIsOnViewport(true)
+        if (once) {
+          window.removeEventListener('scroll', throttledCheckElement)
+        }
       } else {
         setIsOnViewport(false)
       }
     }
-    const throttledCheckElement = throttle(checkElement, 200)
     window.addEventListener('scroll', throttledCheckElement)
     return () => {
       window.removeEventListener('scroll', throttledCheckElement)
     }
-  }, [element, setIsOnViewport])
+  }, [element, setIsOnViewport, once])
   return isOnViewport
 }
