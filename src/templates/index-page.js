@@ -85,7 +85,7 @@ export const IndexPageTemplate = ({
           className={`row featured-services ${servicesOnView ? 'on-view' : ''}`}
         >
           <div className="anim-wrap">
-            {featuredServices.map(i => (
+            {featuredServices.map((i) => (
               <h2>{i}</h2>
             ))}
           </div>
@@ -97,7 +97,7 @@ export const IndexPageTemplate = ({
           }`}
         >
           <div className="anim-wrap">
-            {featuredTechnologies.map(i => (
+            {featuredTechnologies.map((i) => (
               <h3>{i}</h3>
             ))}
           </div>
@@ -190,6 +190,7 @@ export const pageQuery = graphql`
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
           text
         }

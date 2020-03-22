@@ -4,7 +4,6 @@ import PreviewCompatibleImage from '../PreviewCompatibleImage'
 import './index.scss'
 
 const Features = ({ gridItems, className = '' }) => {
-  console.log(gridItems)
   return (
     <div className={`features ${className}`}>
       {gridItems.map((item, i) => {
