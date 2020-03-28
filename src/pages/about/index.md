@@ -15,12 +15,14 @@ I have studied computer science in University of Eastern Finland. The studies of
 
 I had always been interested about web applications and I was coding with PHP even before I went to the university. At that time JavaScript was a bit scary language for me and I tried to stay away from it. Now with Node.js and great frontend frameworks like React.js it has become my absolute favourite language.
 
-Check my GitHub page for my projects at [https://github.com/morko](https://github.com/morko).
+Check my GitHub page for my projects at <https://github.com/morko>.
 
-## Credits
+## About This Website
 
-Thank you for the photos.
+This site uses Gatsby on the frontend and Netlify CMS on the backend.
 
-- Jouni Tyrisevä
-- Kvistholt Photography on Unsplash (comp-cables.jpg)
-- Anas Alshanti on Unsplash (keyboard.jpg)
+The photos on the site have been kindly provided by
+
+* Jouni Tyrisevä
+* Kvistholt Photography on Unsplash (comp-cables.jpg)
+* Anas Alshanti on Unsplash (keyboard.jpg)
