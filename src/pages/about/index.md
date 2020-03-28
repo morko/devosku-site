@@ -1,27 +1,26 @@
 ---
-templateKey: 'about-page'
+templateKey: about-page
 path: /about
-jumbotronBackgroundImage: /img/jumbotron.jpg
-jumbotronImage: /img/myface2.png
 title: About Me
+jumbotronBackgroundImage: /img/jumbotron.jpg
+jumbotronImage: /img/photo_2020-03-28_08-42-24.jpg
 ---
+## Hello!
 
-### Shade-grown coffee
+I am not great at writing about myself, but I guess most of us are not. Here is my technology related "life" story.
 
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+My interest in computers started at very young age. Because my father was running an IT company I was lucky to have access to a PC. It had a 486 CPU chip and I was mainly using it to compose music with a program called Scream Tracker 3 and write small programs and games for MS-DOS.
 
-### Single origin
+I have studied computer science in University of Eastern Finland. The studies offered me a good basis to understand computation and algorithms. I learned the Java programming language there too, which I think is a good programming language to learn about concepts in programming.
 
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+I had always been interested about web applications and I was coding with PHP even before I went to the university. At that time JavaScript was a bit scary language for me and I tried to stay away from it. Now with Node.js and great frontend frameworks like React.js it has become my absolute favourite language.
 
-### Sustainable farming
+Check my GitHub page for my projects at [https://github.com/morko](https://github.com/morko).
 
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+## Credits
 
-### Direct sourcing
+Thank you for the photos.
 
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+- Jouni Tyrisevä
+- Kvistholt Photography on Unsplash (comp-cables.jpg)
+- Anas Alshanti on Unsplash (keyboard.jpg)
