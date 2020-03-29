@@ -13,6 +13,22 @@
   line-height: 0.7;
   background-color: $dark-color;
 
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $light-color;
+    transition: color 0.5s;
+  }
+
+  a:hover {
+    color: $dark-color;
+  }
+
   .container {
     margin: 0 1rem 0 1rem;
     transition: height 1s, transform 0.5s, background-color 1s;

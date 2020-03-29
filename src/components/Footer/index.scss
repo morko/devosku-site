@@ -1,4 +1,4 @@
-@import "../../scss/variables.module";
+@import '../../scss/variables.module';
 
 footer {
   padding: 3rem 0rem 0rem;
@@ -8,6 +8,14 @@ footer {
   align-items: center;
   justify-content: space-around;
   font-size: 1.5em;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
 
   .Logo {
     max-height: 64px;
@@ -23,12 +31,13 @@ footer {
   }
 
   .menu1 {
-    text-align: left;
     margin-right: 1rem;
     padding-bottom: 0;
   }
   .menu2 {
-    text-align: right;
+    ul {
+      text-align: right;
+    }
     margin-left: 1rem;
     padding-bottom: 0;
   }

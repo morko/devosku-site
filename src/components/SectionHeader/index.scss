@@ -1,5 +1,5 @@
-@import "./../../scss/variables.module";
-@import "./../../scss/variables.module";
+@import './../../scss/variables.module';
+@import './../../scss/mixins';
 
 .section-header {
   background-color: $color3;
@@ -23,7 +23,21 @@
   &.sh-big {
     height: 300px;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-align: center;
     margin: 0;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  @include breakpoint(sm) {
+    h2 {
+      font-size: 2.5rem;
+    }
   }
 }

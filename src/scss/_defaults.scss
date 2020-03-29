@@ -1,6 +1,6 @@
-@import "./mixins";
-@import "./variables.module";
-@import url("https://fonts.googleapis.com/css?family=Rubik|Karla&display=swap");
+@import './mixins';
+@import './variables.module';
+@import url('https://fonts.googleapis.com/css?family=Rubik|Karla&display=swap');
 
 html {
   font-size: 16px;
@@ -65,6 +65,23 @@ hr {
   border-color: $light-color;
   border-style: solid;
   border-width: 2px;
+}
+
+a {
+  color: $color2;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: $color1;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 30px;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 section {

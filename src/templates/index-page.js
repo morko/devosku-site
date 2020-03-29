@@ -68,7 +68,7 @@ export const IndexPageTemplate = ({
         </div>
       </Jumbotron>
       <SectionHeader className="intro-heading">
-        <img alt="light bulb" src={lightBulb}></img>
+        <img alt="light bulb" className="light-bulb" src={lightBulb}></img>
         <h2
           dangerouslySetInnerHTML={{
             __html: textHighlight(intro.heading, darkHlColor),

@@ -21,7 +21,7 @@ export const AboutPageTemplate = ({
   return (
     <div className="about-page">
       <Jumbotron
-        type="huge"
+        type="full"
         image={jumbotronBackgroundImage}
         backgroundOverlay="0.6"
       >
