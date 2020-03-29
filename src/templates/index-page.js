@@ -85,8 +85,8 @@ export const IndexPageTemplate = ({
           className={`row featured-services ${servicesOnView ? 'on-view' : ''}`}
         >
           <div className="anim-wrap">
-            {featuredServices.map((i) => (
-              <h2>{i}</h2>
+            {featuredServices.map((service, i) => (
+              <h2 key={i}>{service}</h2>
             ))}
           </div>
         </div>
@@ -97,8 +97,8 @@ export const IndexPageTemplate = ({
           }`}
         >
           <div className="anim-wrap">
-            {featuredTechnologies.map((i) => (
-              <h3>{i}</h3>
+            {featuredTechnologies.map((technology, i) => (
+              <h3 key={i}>{technology}</h3>
             ))}
           </div>
         </div>
