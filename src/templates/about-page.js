@@ -21,7 +21,7 @@ export const AboutPageTemplate = ({
   return (
     <div className="about-page">
       <Jumbotron
-        type="medium"
+        type="huge"
         image={jumbotronBackgroundImage}
         backgroundOverlay="0.6"
       >
@@ -31,14 +31,10 @@ export const AboutPageTemplate = ({
             alt: 'Photo of Oskari Pöntinen by Jouni Tyrisevä',
             image: jumbotronImage,
           }}
+          className="my-face"
         />
       </Jumbotron>
-      <section className="me-section">
-        <Container>
-          <PageContent className="content" content={content} />
-        </Container>
-      </section>
-      <section className="credit-section">
+      <section className="content-section">
         <Container>
           <PageContent className="content" content={content} />
         </Container>
