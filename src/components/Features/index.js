@@ -10,19 +10,18 @@ const Features = ({ gridItems, className = '' }) => {
         return (
           <div key={item.text} className="feature">
             <div className="overlay" />
-
-            <div className="title">
-              <h1>{item.title}</h1>
-            </div>
-
             <div className="image">
               <PreviewCompatibleImage imageInfo={item} />
             </div>
-
-            <div
-              className="text"
-              dangerouslySetInnerHTML={{ __html: item.text }}
-            />
+            <div className="feature-content">
+              <div className="title">
+                <h2>{item.title}</h2>
+              </div>
+              <div
+                className="text"
+                dangerouslySetInnerHTML={{ __html: item.text }}
+              />
+            </div>
           </div>
         )
       })}
