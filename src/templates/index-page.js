@@ -55,72 +55,12 @@ export const IndexPageTemplate = ({
           <div className="anim-wrap">
             <h2
               className="subtitle"
-              dangerouslySetInnerHTML={{
-                __html: textHighlight(headline.subtitle, hlColor),
-              }}
-            />
-          </div>
-        </div>
-        <div className="contact">
-          <Link className="btn" to="/contact">
-            Contact
-          </Link>
-        </div>
-      </Jumbotron>
-      <SectionHeader className="intro-heading">
-        <img alt="light bulb" className="light-bulb" src={lightBulb}></img>
-        <h2
-          dangerouslySetInnerHTML={{
-            __html: textHighlight(intro.heading, darkHlColor),
-          }}
-        />
-      </SectionHeader>
-      <Jumbotron
-        className="teaser-section"
-        image={compCables}
-        backgroundOverlay="0.7"
-      >
-        <div
-          ref={servicesRef}
-          className={`row featured-services ${servicesOnView ? 'on-view' : ''}`}
-        >
-          <div className="anim-wrap">
-            {featuredServices.map((service, i) => (
-              <h2 key={i}>{service}</h2>
-            ))}
-          </div>
-        </div>
-        <div
-          ref={technologiesRef}
-          className={`row featured-technologies ${
-            technologiesOnView ? 'on-view' : ''
-          }`}
-        >
-          <div className="anim-wrap">
-            {featuredTechnologies.map((technology, i) => (
-              <h3 key={i}>{technology}</h3>
-            ))}
+            >
+              Hold on... This site is still under construction.
+            </h2>
           </div>
         </div>
       </Jumbotron>
-
-      <section className="features-section">
-        <Container>
-          <Features gridItems={blurbs} />
-        </Container>
-      </section>
-      <section className="latest-posts-section">
-        <SectionHeader type="small">
-          <h3
-            dangerouslySetInnerHTML={{
-              __html: textHighlight('Latest [hl]Posts[/hl]', darkHlColor),
-            }}
-          />
-        </SectionHeader>
-        <Container>
-          <BlogRoll />
-        </Container>
-      </section>
     </div>
   )
 }

@@ -42,13 +42,13 @@ const Navbar = ({ transparent = false }) => {
     return (
       <>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/">About</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/">Contact</Link>
         </li>
         <li>
-          <Link to="/blog">Blog</Link>
+          <Link to="/">Blog</Link>
         </li>
       </>
     )

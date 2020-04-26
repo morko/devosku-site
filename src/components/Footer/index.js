@@ -21,7 +21,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link className="navbar-item" to="/about">
+              <Link className="navbar-item" to="/">
                 About
               </Link>
             </li>
@@ -30,12 +30,12 @@ export default function Footer() {
         <section className="menu2">
           <ul className="menu-list">
             <li>
-              <Link className="navbar-item" to="/blog">
+              <Link className="navbar-item" to="/">
                 Blog
               </Link>
             </li>
             <li>
-              <Link className="navbar-item" to="/contact">
+              <Link className="navbar-item" to="/">
                 Contact
               </Link>
             </li>
