@@ -12,8 +12,6 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         title={data.title}
         description={data.description}
         headline={data.headline}
-        featuredServices={data.featuredServices}
-        featuredTechnologies={data.featuredTechnologies}
         intro={data.intro}
       />
     )

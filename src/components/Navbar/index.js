@@ -3,87 +3,70 @@ import { Link } from 'gatsby'
 import Logo from '../Logo'
 import useScroll from '../../hooks/useScroll'
 import Container from '../Container'
-import './index.scss'
+import useStyles from './index.styles'
+import { useTheme } from 'react-jss'
 
 const Navbar = ({ transparent = false }) => {
-  const [active, setActive] = useState(false)
-  const [activeCls, setActiveCls] = useState('')
-  const [shrinkCls, setShrinkCls] = useState('')
-  const [topCls, setTopCls] = useState(transparent ? 'is-transparent' : '')
-  const [minCls, setMinCls] = useState('')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrollTresholds, scrollingDown] = useScroll({
     shrink: 120,
-    min: 700,
+    minimize: 700,
   })
 
-  useEffect(() => {
-    active ? setActiveCls('is-active') : setActiveCls('')
-  }, [active])
-
-  useEffect(() => {
-    if (transparent) {
-      if (!scrollTresholds.shrink && !scrollTresholds.min) {
-        setTopCls('is-transparent')
-      } else {
-        setTopCls('')
-      }
-    }
-    if (scrollTresholds.shrink) {
-      setShrinkCls('is-shrinked')
-    } else {
-      setShrinkCls('')
-    }
-    scrollTresholds.min && scrollingDown
-      ? setMinCls('is-minimized')
-      : setMinCls('')
-  }, [scrollTresholds, scrollingDown, transparent])
+  const theme = useTheme()
+  const classes = useStyles({
+    theme,
+    scrollingDown,
+    scrollTresholds,
+    mobileMenuOpen,
+  })
 
   function createMenuLinks() {
     return (
       <>
         <li>
-          <Link to="/">About</Link>
+          <Link to="/">Projects</Link>
+        </li>
+        <li>
+          <Link to="/">Technologies</Link>
         </li>
         <li>
           <Link to="/">Contact</Link>
-        </li>
-        <li>
-          <Link to="/">Blog</Link>
         </li>
       </>
     )
   }
 
   return (
-    <nav
-      className={`navbar ${topCls} ${shrinkCls} ${minCls}`}
-      role="navigation"
-      aria-label="Main"
-    >
-      <ul className={`mobile-menu ${activeCls}`}>{createMenuLinks()}</ul>
+    <header className={`${classes.root}`} role="navigation" aria-label="Main">
+      <nav className={classes.mobileMenu}>
+        <ul>{createMenuLinks()}</ul>
+      </nav>
 
-      <Container>
-        <Link className="brand" to="/" title="Home">
-          <Logo className="logo" />
-          <h1 className="title">
-            <span className="left">Dev</span>
-            <span className="right">Osku</span>
+      <Container className={classes.container}>
+        <Link className={classes.brand} to="/" title="Home">
+          <Logo className={classes.logo} />
+          <h1 className={classes.title}>
+            <span>Dev</span>
+            <span>Osku</span>
           </h1>
         </Link>
 
-        <ul className={`menu ${activeCls}`}>{createMenuLinks()}</ul>
+        <nav className={classes.menu}>
+          <ul>{createMenuLinks()}</ul>
+        </nav>
 
         <div
-          className={`menu-button ${activeCls}`}
+          className={classes.mobileMenuButton}
           role="button"
           aria-label="Open menu"
           tabIndex={0}
           onClick={() => {
-            setActive(!active)
+            setMobileMenuOpen(!mobileMenuOpen)
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              setActive(!active)
+              setMobileMenuOpen(!mobileMenuOpen)
             }
           }}
         >
@@ -92,7 +75,7 @@ const Navbar = ({ transparent = false }) => {
           <span />
         </div>
       </Container>
-    </nav>
+    </header>
   )
 }
 

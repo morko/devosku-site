@@ -1,14 +1,12 @@
-var { createProxyMiddleware } = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
     title: 'devosku',
-    description:
-      'Professional and customer friendly full stack web development.',
+    description: 'Professional full stack web development.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -62,18 +60,22 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Catamaran',
+          'Martel Sans',
+          'Roboto',
+        ],
+        display: 'swap',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-      options: {
-        develop: true, // Activates purging in npm run develop
-        //purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally

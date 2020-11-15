@@ -1,6 +1,9 @@
 import React from 'react'
-import './index.scss'
+import { useTheme } from 'react-jss';
+import useStyles from './index.styles';
 
 export default function Container({ children, className = '' }) {
-  return <div className={`container ${className}`}>{children}</div>
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+  return <div className={`${classes.container} ${className}`}>{children}</div>
 }

@@ -1,12 +1,13 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import '../scss/index.scss'
-
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteMetadata from '../hooks/useSiteMetaData'
 import { withPrefix } from 'gatsby'
+import useGlobalStyles from '../global.styles'
+import { useTheme } from 'react-jss'
+import 'normalize.css'
 
 const TemplateWrapper = ({
   children,
@@ -14,6 +15,10 @@ const TemplateWrapper = ({
   transparentNavbar = false,
 }) => {
   const { title, description } = useSiteMetadata()
+
+  const theme = useTheme()
+  useGlobalStyles({ theme })
+
   return (
     <div id="page" className={className}>
       <Helmet>
