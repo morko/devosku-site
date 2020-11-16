@@ -12,6 +12,11 @@ export default function Project(props) {
   return (
     <article className={`${classes.project} ${className || ''}`}>
       <div className={classes.textbox}>
+        <div className={classes.dots}>
+          <span />
+          <span />
+          <span />
+        </div>
         <h2 className={classes.title}>{title}</h2>
         <div className={classes.text}>{children}</div>
       </div>

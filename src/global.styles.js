@@ -2,6 +2,9 @@ const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
   '@global': {
+    html: {
+      overflowX: 'hidden',
+    },
     body: {
       backgroundColor: theme.backgroundColor,
     },

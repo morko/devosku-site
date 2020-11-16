@@ -2,7 +2,7 @@ const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
   container: {
-    maxWidth: 960,
+    maxWidth: theme.maxPageWidth,
     marginLeft: 'auto',
     marginRight: 'auto',
     paddingLeft: '20px',

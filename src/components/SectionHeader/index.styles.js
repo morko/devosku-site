@@ -2,8 +2,10 @@ const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
   sectionHeader: {
-    borderBottom: `8px solid #1e1e1e`,
-    marginBottom: '20px',
+    borderBottom: `4px solid ${theme.textColor}`,
+    marginBottom: '40px',
+    marginRight: 'calc(50% - 50vw)',
+    paddingBottom: '8px',
   },
   icon: {
     color: theme.textColor,
@@ -15,7 +17,7 @@ const useStyles = createUseStyles((theme) => ({
   text: {
     color: theme.textColor,
     marginLeft: '16px',
-    fontFamily: theme.secondaryFont,
+    fontFamily: theme.primaryFont,
     fontSize: '1.75em',
     fontWeight: 600,
   },
