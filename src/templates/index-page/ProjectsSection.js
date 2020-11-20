@@ -18,7 +18,6 @@ export default function ProjectsSection(props) {
       </SectionHeader>
       {projects.map((el) => {
         const { id, frontmatter } = el.node
-        console.log(el.node)
         return (
           <Project
             key={id}
