@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
-import PreviewCompatibleImage from '../PreviewCompatibleImage'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Project(props) {
   const { children, className, title, featuredImage } = props
@@ -9,8 +11,30 @@ export default function Project(props) {
   const theme = useTheme()
   const classes = useStyles({ theme })
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const containerRef = useRef();
+  const imageRef = useRef();
+
+  useEffect(() => {
+    if (!imageLoaded) return;
+
+    const trigger = ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "top top+=40",
+      end: "bottom center",
+      pin: imageRef.current,
+      scrub: true,
+      toggleActions: "play pause resume reset",
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, [imageLoaded]);
+
   return (
-    <article className={`${classes.project} ${className || ''}`}>
+    <article ref={containerRef} className={`${classes.project} ${className || ''}`}>
       <div className={classes.textbox}>
         <div className={classes.dots}>
           <span />
@@ -21,9 +45,13 @@ export default function Project(props) {
         <div className={classes.text}>{children}</div>
       </div>
       <div className={classes.imagebox}>
-        <PreviewCompatibleImage
-          imageInfo={{ alt: title, image: featuredImage }}
-        ></PreviewCompatibleImage>
+        <img
+          ref={imageRef}
+          src={featuredImage.childImageSharp.fluid.src}
+          alt={title}
+          style={{maxWidth: '100%'}}
+          onLoad={() => setImageLoaded(true)}
+        ></img>
       </div>
     </article>
   )
