@@ -42,7 +42,7 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "run-p start:**",
-    "start:app": "npm run develop",
+    "start:app": "npm run dev",
     "start:lambda": "netlify-lambda serve --config ./.webpack-functions.js src/lambda",
     "build": "npm run clean && gatsby build && netlify-lambda build src/lambda",
     "dev": "npm run clean && gatsby develop",
