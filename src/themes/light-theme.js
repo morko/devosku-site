@@ -1,7 +1,6 @@
-import defaults from './defaults';
-
 const lightTheme = {
-  ...defaults,
+  headerHeight: '150px',
+  maxPageWidth: 960,
   backgroundColor: '#D7D7D7',
   primaryColor: '#C27500',
   secondaryColor: '#734F1A',
@@ -13,4 +12,4 @@ const lightTheme = {
   tertiaryFont: 'Roboto, sans-serif',
 }
 
-export default lightTheme;
+module.exports = lightTheme;

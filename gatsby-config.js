@@ -1,4 +1,5 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
+const theme = require('./src/themes/light-theme.js')
 
 module.exports = {
   siteMetadata: {
@@ -69,6 +70,10 @@ module.exports = {
         ],
         display: 'swap',
       },
+    },
+    {
+      resolve: 'gatsby-plugin-jss',
+      options: { theme },
     },
     {
       resolve: 'gatsby-plugin-netlify-cms',
