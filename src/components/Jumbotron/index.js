@@ -4,10 +4,10 @@ import Container from '../Container';
 import useStyles from './index.styles';
 
 export default function Jumbotron(props) {
-  const { className = '', variant = 'full', children, } = props
+  const { className = '', children, } = props
 
   const theme = useTheme();
-  const classes = useStyles({ theme, variant});
+  const classes = useStyles({ theme });
 
   return (
     <section className={`${classes.jumbotron} ${className}`}>

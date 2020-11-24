@@ -12,7 +12,7 @@ export const IndexPageTemplate = (props) => {
 
   return (
     <>
-      <Jumbotron>
+      <Jumbotron variant="500">
         <Hero title={headline.title} subtitle={headline.subtitle} />
       </Jumbotron>
       <ProjectsSection projects={projects} />

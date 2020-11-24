@@ -51,7 +51,7 @@ const useStyles = createUseStyles((theme) => ({
   },
   [`@media screen and (min-width: ${theme.maxPageWidth}px)`]: {
     project: {
-      backgroundColor: '#E6E6E6',
+      backgroundColor: theme.lightColor,
       marginLeft: 'calc(50% - 50vw)',
       marginRight: 'calc(50% - 50vw)',
       paddingLeft: 'calc(50vw - 50%)',

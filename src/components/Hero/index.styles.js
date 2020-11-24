@@ -4,6 +4,7 @@ const useStyles = createUseStyles((theme) => ({
   root: {
     display: 'flex',
     position: 'relative',
+    zIndex: 3,
   },
   title: {
     fontFamily: theme.primaryFont,
@@ -18,13 +19,24 @@ const useStyles = createUseStyles((theme) => ({
     maxWidth: '430px',
     alignSelf: 'flex-start',
     zIndex: 1,
-    marginTop: '30px',
+    marginTop: '80px',
+    animation: 'fadeIn 2s'
   },
   illustration: {
     position: 'absolute',
-    top: 0,
+    top: `-${theme.headerHeight}`,
     right: -40,
-    maxWidth: '80%'
+    width: theme.maxPageWidth + 40,
+  },
+  '@media (max-width: 900px)': {
+    illustration: {
+      opacity: 0.3,
+    }
+  },
+  '@media (max-width: 600px)': {
+    illustration: {
+      display: 'none',
+    }
   },
   callToAction: {
     marginBottom: '30px'

@@ -68,7 +68,7 @@ export default function MainIllustration(props) {
   return (
     <svg
       className={className}
-      viewBox="-300 0 1300 810"
+      viewBox="-600 -250 1600 1060"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
