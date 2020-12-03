@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { useTheme } from 'react-jss'
 import Container from '../Container';
 import useStyles from './index.styles';

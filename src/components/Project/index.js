@@ -35,20 +35,21 @@ export default function Project(props) {
 
   useEffect(() => {
     if (!imageRef.current) return
+    const image = imageRef.current;
 
     function handleImageLoaded() {
       setImageLoaded(true)
     }
 
-    if (imageRef.current.complete) {
+    if (image.complete) {
       handleImageLoaded()
     } else {
-      imageRef.current.addEventListener('load', handleImageLoaded)
+      image.addEventListener('load', handleImageLoaded)
     }
     
     return () => {
-      if (!imageRef.current) return
-      imageRef.current.removeEventListener('load', handleImageLoaded)
+      if (!image) return
+      image.removeEventListener('load', handleImageLoaded)
     }
   }, [])
 
