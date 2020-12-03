@@ -39,6 +39,7 @@ export default function MainIllustration(props) {
       let dist = getDistance(bbox, center)
       let delay = (dist / radius) * stagger
       let scalar = radius / dist
+
       tl.fromTo(
         el,
         {
@@ -60,6 +61,7 @@ export default function MainIllustration(props) {
         0
       )
     }
+
     return () => {
       tl.kill()
     }
@@ -68,7 +70,7 @@ export default function MainIllustration(props) {
   return (
     <svg
       className={className}
-      viewBox="-600 -250 1600 1060"
+      viewBox="-600 -150 1600 1060"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

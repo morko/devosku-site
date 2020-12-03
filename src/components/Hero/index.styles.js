@@ -1,11 +1,6 @@
 const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
-  root: {
-    display: 'flex',
-    position: 'relative',
-    zIndex: 3,
-  },
   title: {
     fontFamily: theme.primaryFont,
     fontSize: '3em',
@@ -20,23 +15,30 @@ const useStyles = createUseStyles((theme) => ({
     alignSelf: 'flex-start',
     zIndex: 1,
     marginTop: '80px',
-    animation: 'fadeIn 2s'
+    animation: 'fadeIn 2s',
+    color: theme.lightColor,
   },
   illustration: {
     position: 'absolute',
     top: `-${theme.headerHeight}`,
-    right: -40,
-    width: theme.maxPageWidth + 40,
+    right: -120,
+    width: theme.maxPageWidth,
   },
-  '@media (max-width: 900px)': {
+  '@media (max-width: 970px)': {
     illustration: {
-      opacity: 0.3,
+      width: 200,
+      right: 20,
+      top: 0,
+    },
+    textbox: {
+      alignSelf: 'center',
+      textAlign: 'center'
     }
   },
-  '@media (max-width: 600px)': {
+  '@media (max-width: 640px)': {
     illustration: {
-      display: 'none',
-    }
+      display: 'none !important'
+    },
   },
   callToAction: {
     marginBottom: '30px'

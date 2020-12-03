@@ -5,7 +5,7 @@ const useStyles = createUseStyles((theme) => ({
     minHeight: '500px',
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: theme.lightColor,
+    backgroundColor: theme.darkColor,
     marginBottom: '75px',
   },
   innerContainer: {
