@@ -3,7 +3,7 @@ import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Project(props) {
   const { children, className, title, featuredImage } = props
@@ -11,30 +11,52 @@ export default function Project(props) {
   const theme = useTheme()
   const classes = useStyles({ theme })
 
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false)
 
-  const containerRef = useRef();
-  const imageRef = useRef();
+  const containerRef = useRef()
+  const imageRef = useRef()
 
   useEffect(() => {
-    if (!imageLoaded) return;
+    if (!imageLoaded) return
 
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: "top top+=40",
-      end: "bottom center",
+      start: 'top top+=40',
+      end: 'bottom center',
       pin: imageRef.current,
       scrub: true,
-      toggleActions: "play pause resume reset",
-    });
+      toggleActions: 'play pause resume reset',
+    })
 
     return () => {
-      trigger.kill();
-    };
-  }, [imageLoaded]);
+      trigger.kill()
+    }
+  }, [imageLoaded])
+
+  useEffect(() => {
+    if (!imageRef.current) return
+
+    function handleImageLoaded() {
+      setImageLoaded(true)
+    }
+
+    if (imageRef.current.complete) {
+      handleImageLoaded()
+    } else {
+      imageRef.current.addEventListener('load', handleImageLoaded)
+    }
+    
+    return () => {
+      if (!imageRef.current) return
+      imageRef.current.removeEventListener('load', handleImageLoaded)
+    }
+  }, [])
 
   return (
-    <article ref={containerRef} className={`${classes.project} ${className || ''}`}>
+    <article
+      ref={containerRef}
+      className={`${classes.project} ${className || ''}`}
+    >
       <div className={classes.textbox}>
         <div className={classes.dots}>
           <span />
@@ -49,8 +71,7 @@ export default function Project(props) {
           ref={imageRef}
           src={featuredImage.childImageSharp.fluid.src}
           alt={title}
-          style={{maxWidth: '100%'}}
-          onLoad={() => setImageLoaded(true)}
+          style={{ maxWidth: '100%' }}
         ></img>
       </div>
     </article>
