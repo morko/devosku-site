@@ -61,14 +61,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
-        fonts: [
-          'Catamaran',
-          'Martel Sans',
-          'Roboto',
-        ],
-        display: 'swap',
+        google: {
+          families: ['Catamaran', 'Martel Sans', 'Roboto'],
+        },
       },
     },
     {

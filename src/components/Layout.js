@@ -5,11 +5,11 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteMetadata from '../hooks/useSiteMetaData'
 import { withPrefix } from 'gatsby'
-import useGlobalStyles from '../global.styles'
 import { useTheme } from 'react-jss'
 import 'normalize.css'
+import useStyles from './Layout.styles'
 
-const TemplateWrapper = ({
+const Layout = ({
   children,
   className = '',
   transparentNavbar = false,
@@ -17,10 +17,10 @@ const TemplateWrapper = ({
   const { title, description } = useSiteMetadata()
 
   const theme = useTheme()
-  useGlobalStyles({ theme })
+  const classes = useStyles({ theme })
 
   return (
-    <div id="page" className={className}>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -59,11 +59,14 @@ const TemplateWrapper = ({
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar transparent={transparentNavbar} />
-      <main>{children}</main>
-      <Footer />
-    </div>
+
+      <div id="page" className={classes.page + (className ? ' ' + className : '')}>
+        <Navbar transparent={transparentNavbar} />
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </>
   )
 }
 
-export default TemplateWrapper
+export default Layout

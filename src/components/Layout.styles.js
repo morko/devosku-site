@@ -1,6 +1,9 @@
 const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
+  page: {
+    animation: 'fadeIn 0.5s',
+  },
   '@global': {
     html: {
       overflowX: 'hidden',
@@ -27,7 +30,7 @@ const useStyles = createUseStyles((theme) => ({
         opacity: 1,
         transform: 'translateY(0)',
       }
-    }
+    },
   }
 }));
 
