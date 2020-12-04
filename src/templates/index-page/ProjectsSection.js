@@ -14,7 +14,7 @@ export default function ProjectsSection(props) {
   return (
     <Container className={classes.projects}>
       <SectionHeader className={classes.header} icon={<IoMdHammer />}>
-        Projects
+        My Projects
       </SectionHeader>
       {projects.map((el) => {
         const { id, frontmatter } = el.node

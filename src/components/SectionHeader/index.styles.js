@@ -10,8 +10,9 @@ const useStyles = createUseStyles((theme) => ({
   icon: {
     color: theme.textColor,
     '& svg': {
-      width: '2em',
-      height: '2em',
+      marginBottom: '-3px',
+      width: '3em',
+      height: '3em',
     }
   },
   text: {

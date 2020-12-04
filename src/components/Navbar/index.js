@@ -28,7 +28,7 @@ const Navbar = ({ transparent = false }) => {
           <Link to="/">Projects</Link>
         </li>
         <li>
-          <Link to="/">Technologies</Link>
+          <Link to="/">Skills</Link>
         </li>
         <li>
           <Link to="/">Contact</Link>

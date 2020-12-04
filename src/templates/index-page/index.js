@@ -6,6 +6,7 @@ import Layout from '../../components/Layout'
 import Jumbotron from '../../components/Jumbotron'
 import Hero from '../../components/Hero'
 import ProjectsSection from './ProjectsSection'
+import SkillsSection from './SkillsSection'
 
 export const IndexPageTemplate = (props) => {
   const { headline, projects } = props
@@ -16,6 +17,7 @@ export const IndexPageTemplate = (props) => {
         <Hero title={headline.title} subtitle={headline.subtitle} />
       </Jumbotron>
       <ProjectsSection projects={projects} />
+      <SkillsSection />
     </>
   )
 }
