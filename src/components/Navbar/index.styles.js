@@ -8,6 +8,11 @@ const useStyles = createUseStyles((theme) => ({
     alignItems: 'center',
   },
 
+  link: {
+    position: 'relative',
+    zIndex: 999,
+  },
+
   container: {
     display: 'flex',
     alignItems: 'center',

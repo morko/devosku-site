@@ -13,7 +13,7 @@ export default function SkillsSection(props) {
   const classes = useStyles({ theme })
 
   return (
-    <Container className={classes.projects}>
+    <Container id="my-skills" className={classes.projects}>
       <SectionHeader className={classes.header} icon={<SiSkillshare />}>
         My Skills
       </SectionHeader>

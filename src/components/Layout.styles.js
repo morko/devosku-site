@@ -7,6 +7,7 @@ const useStyles = createUseStyles((theme) => ({
   '@global': {
     html: {
       overflowX: 'hidden',
+      scrollBehavior: 'smooth',
     },
     body: {
       backgroundColor: theme.backgroundColor,

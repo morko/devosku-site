@@ -25,13 +25,10 @@ const Navbar = ({ transparent = false }) => {
     return (
       <>
         <li>
-          <Link to="/">Projects</Link>
+          <Link className={classes.link} to="/#my-projects">Projects</Link>
         </li>
         <li>
-          <Link to="/">Skills</Link>
-        </li>
-        <li>
-          <Link to="/">Contact</Link>
+          <Link className={classes.link} to="/#my-skills">Skills</Link>
         </li>
       </>
     )

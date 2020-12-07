@@ -12,7 +12,7 @@ export default function ProjectsSection(props) {
   const classes = useStyles({ theme })
 
   return (
-    <Container className={classes.projects}>
+    <Container id="my-projects" className={classes.projects}>
       <SectionHeader className={classes.header} icon={<IoMdHammer />}>
         My Projects
       </SectionHeader>
