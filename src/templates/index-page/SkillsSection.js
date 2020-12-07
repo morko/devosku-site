@@ -6,6 +6,7 @@ import { IoLogoJavascript, IoLogoNodejs } from 'react-icons/io'
 import { SiSkillshare, SiTypescript, SiReact, SiAnsible, SiWordpress, SiGatsby, SiPhp } from 'react-icons/si'
 import Container from '../../components/Container'
 import SkillCard from '../../components/SkillCard'
+import LittleAbstractPattern from '../../components/LittleAbstractPattern'
 
 export default function SkillsSection(props) {
   const theme = useTheme()
@@ -16,7 +17,10 @@ export default function SkillsSection(props) {
       <SectionHeader className={classes.header} icon={<SiSkillshare />}>
         My Skills
       </SectionHeader>
-      <p>My motto is to always pick the most suitable tool for the job but here are some I am comfortable using.</p>
+      <div className={classes.description}>
+        <LittleAbstractPattern />
+        <p>My motto is to always pick the most suitable tool for the job but here are some I am comfortable using.</p>
+      </div>
       <div className={classes.skillGrid}>
         <SkillCard icon={<IoLogoJavascript />} title="JavaScript" />
         <SkillCard icon={<SiPhp />} title="PHP" />
