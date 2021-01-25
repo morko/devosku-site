@@ -11,10 +11,15 @@ const useStyles = createUseStyles((theme) => ({
     },
     body: {
       backgroundColor: theme.backgroundColor,
+      letterSpacing: '1.4px',
+      lineHeight: '1.5'
     },
     h1: {
       fontSize: '4em',
       fontFamily: theme.primaryFont,
+    },
+    h2: {
+      fontSize: '2.75em',
     },
     'h2,h3,h4,h5,h6': {
       fontFamily: theme.secondaryFont,

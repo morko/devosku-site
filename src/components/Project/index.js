@@ -67,11 +67,7 @@ export default function Project(props) {
       className={`${classes.project} ${className || ''}`}
     >
       <div className={classes.textbox}>
-        <div className={classes.dots}>
-          <span />
-          <span />
-          <span />
-        </div>
+
         {links ? (
           <a href={links[0]} className={classes.title}>
             <h2>{title}</h2>
@@ -79,6 +75,13 @@ export default function Project(props) {
         ) : (
           <h2 className={classes.title}>{title}</h2>
         )}
+
+        {/* <div className={classes.dots}>
+          <span />
+          <span />
+          <span />
+        </div> */}
+
         <div className={classes.description}>{description}</div>
 
         <div

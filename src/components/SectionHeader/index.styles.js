@@ -19,7 +19,7 @@ const useStyles = createUseStyles((theme) => ({
     color: theme.textColor,
     marginLeft: '16px',
     fontFamily: theme.primaryFont,
-    fontSize: '1.75em',
+    fontSize: '2.75em',
     fontWeight: 600,
   },
 }))

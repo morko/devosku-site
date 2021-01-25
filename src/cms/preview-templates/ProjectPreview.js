@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import theme from '../../themes/light-theme'
 import { ThemeProvider, jss } from 'react-jss'
-import { IndexPageTemplate } from '../../templates/index-page'
+import Project from '../../components/Project'
 
-const IndexPagePreview = ({ entry }) => {
+const ProjectPreview = ({ entry }) => {
   const data = entry.getIn(['data']).toJS()
 
   // Set JSS to inject the CSS into the preview iframe.
@@ -13,13 +13,18 @@ const IndexPagePreview = ({ entry }) => {
     jss.setup({ insertionPoint: iframe.contentDocument.head.firstChild })
   }
 
+  console.log(data)
+
   if (data) {
     return (
       <ThemeProvider theme={theme}>
-        <IndexPageTemplate
+        <Project
           title={data.title}
           description={data.description}
-          headline={data.headline}
+          featuredImage={data.featuredImage}
+          technologies={data.technologies}
+          links={data.links}
+          html={data.body}
         />
       </ThemeProvider>
     )
@@ -28,10 +33,10 @@ const IndexPagePreview = ({ entry }) => {
   }
 }
 
-IndexPagePreview.propTypes = {
+ProjectPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
 }
 
-export default IndexPagePreview
+export default ProjectPreview

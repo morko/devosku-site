@@ -16,7 +16,7 @@ export const IndexPageTemplate = (props) => {
       <Jumbotron variant="500">
         <Hero title={headline.title} subtitle={headline.subtitle} />
       </Jumbotron>
-      <ProjectsSection projects={projects} />
+      {projects && <ProjectsSection projects={projects} />}
       <SkillsSection />
     </>
   )
@@ -56,9 +56,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query IndexPageTemplate {
     indexPage: markdownRemark(
-      frontmatter: {
-        templateKey: { eq: "index-page" }
-      }
+      frontmatter: { templateKey: { eq: "index-page" } }
     ) {
       frontmatter {
         title

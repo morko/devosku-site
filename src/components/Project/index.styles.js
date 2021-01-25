@@ -2,7 +2,7 @@ const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
   project: {
-    marginBottom: '20px',
+    marginTop: '70px',
     display: 'flex',
     alignItems: 'flex-start',
     borderRadius: '10px',
@@ -10,17 +10,25 @@ const useStyles = createUseStyles((theme) => ({
   },
   title: {
     marginTop: 0,
-    marginBottom: '20px',
+    marginBottom: 0,
     textDecoration: 'none',
     color: theme.primaryColor,
+    lineHeight: 0,
     '&:hover': {
       color: theme.secondaryColor,
+    },
+    '& > h2': {
+      lineHeight: 1,
+      marginTop: 0,
+      marginBottom: '20px',
     },
   },
   description: {
     paddingLeft: '20px',
     borderLeft: `3px solid ${theme.textColor}`,
     fontStyle: 'italic',
+    marginTop: '30px',
+    marginBottom: '30px',
   },
   text: {
     color: theme.textColor,
@@ -41,7 +49,8 @@ const useStyles = createUseStyles((theme) => ({
     }
   },
   dots: {
-    marginBottom: '20px',
+    marginBottom: '30px',
+    marginTop: '10px',
     lineHeight: 0,
 
     '& > span': {

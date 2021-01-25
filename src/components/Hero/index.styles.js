@@ -3,8 +3,10 @@ const { createUseStyles } = require("react-jss");
 const useStyles = createUseStyles((theme) => ({
   title: {
     fontFamily: theme.primaryFont,
-    fontSize: '3em',
+    fontSize: '3.5em',
     fontWeight: 400,
+    lineHeight: '1.2',
+    textTransform: 'uppercase'
   },
   subtitle: {
     fontWeight: 400,
@@ -14,7 +16,7 @@ const useStyles = createUseStyles((theme) => ({
     maxWidth: '430px',
     alignSelf: 'flex-start',
     zIndex: 1,
-    marginTop: '120px',
+    marginTop: '60px',
     animation: 'fadeIn 2s',
     color: theme.lightColor,
   },

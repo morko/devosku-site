@@ -3,6 +3,7 @@ import { useTheme } from 'react-jss'
 
 export default function LittleAbstractPattern() {
   const theme = useTheme()
+  console.log(useTheme)
 
   return (
     <svg
