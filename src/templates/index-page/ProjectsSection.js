@@ -23,8 +23,11 @@ export default function ProjectsSection(props) {
             key={id}
             title={frontmatter.title}
             featuredImage={frontmatter.featuredImage}
+            description={frontmatter.description}
+            html={el.node.html}
+            technologies={frontmatter.technologies}
+            links={frontmatter.links}
           >
-            {frontmatter.description}
           </Project>
         )
       })}

@@ -13,15 +13,15 @@ export default function LittleAbstractPattern() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M96 0L2.14577e-06 96V0L96 0Z"
         fill={theme.primaryColor}
       />
       <path d="M48 48V96H96V48H48Z" fill={theme.darkColor} />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M48 0L1.07288e-06 48V0L48 0Z"
         fill={theme.darkColor}
       />

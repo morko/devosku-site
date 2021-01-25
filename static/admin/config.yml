@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: revamp
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -41,24 +41,14 @@ collections:
                   { label: 'Subtitle', name: 'subtitle', widget: 'string' },
                 ],
             }
-          - {
-              label: 'Intro',
-              name: 'intro',
-              widget: 'object',
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: text },
-                  {
-                    label: Blurbs,
-                    name: blurbs,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Image, name: image, widget: image },
-                        { label: Text, name: text, widget: markdown },
-                      ],
-                  },
-                ],
-            }
+
+  - name: 'projects'
+    label: 'Projects'
+    folder: 'src/pages/projects'
+    fields:
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Description', name: 'description', widget: 'string'}
+      - {label: 'Featured Image', name: 'featuredImage', widget: 'image'}
+      - {label: 'Technologies Used', name: 'technologies', widget: 'list', min: 1}
+      - {label: 'Links', name: 'links', widget: 'list', min: 1}
+      - {label: 'Text', name: 'body', widget: 'markdown'}

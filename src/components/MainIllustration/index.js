@@ -70,7 +70,7 @@ export default function MainIllustration(props) {
   return (
     <svg
       className={className}
-      viewBox="-600 -150 1600 1060"
+      viewBox="-600 -220 1600 1060"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

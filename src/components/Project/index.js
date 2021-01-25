@@ -6,7 +6,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Project(props) {
-  const { children, className, title, featuredImage } = props
+  const {
+    className,
+    title,
+    featuredImage,
+    description,
+    html,
+    technologies,
+    links,
+  } = props
 
   const theme = useTheme()
   const classes = useStyles({ theme })
@@ -21,7 +29,7 @@ export default function Project(props) {
 
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top top+=40',
+      start: 'top top+=60',
       end: 'bottom center',
       pin: imageRef.current,
       scrub: true,
@@ -35,7 +43,7 @@ export default function Project(props) {
 
   useEffect(() => {
     if (!imageRef.current) return
-    const image = imageRef.current;
+    const image = imageRef.current
 
     function handleImageLoaded() {
       setImageLoaded(true)
@@ -46,7 +54,7 @@ export default function Project(props) {
     } else {
       image.addEventListener('load', handleImageLoaded)
     }
-    
+
     return () => {
       if (!image) return
       image.removeEventListener('load', handleImageLoaded)
@@ -64,8 +72,43 @@ export default function Project(props) {
           <span />
           <span />
         </div>
-        <h2 className={classes.title}>{title}</h2>
-        <div className={classes.text}>{children}</div>
+        {links ? (
+          <a href={links[0]} className={classes.title}>
+            <h2>{title}</h2>
+          </a>
+        ) : (
+          <h2 className={classes.title}>{title}</h2>
+        )}
+        <div className={classes.description}>{description}</div>
+
+        <div
+          className={classes.text}
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></div>
+
+        <div className={classes.technologies}>
+          <h3>Technologies Used</h3>
+          <ul>
+            {technologies.map((technology) => {
+              return <li key={technology}>{technology}</li>
+            })}
+          </ul>
+        </div>
+
+        {links && (
+          <div className={classes.links}>
+            <h3>Links</h3>
+            <ul>
+              {links.map((link) => {
+                return (
+                  <li key={link}>
+                    <a href={link}>{link}</a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        )}
       </div>
       <div className={classes.imagebox}>
         <img

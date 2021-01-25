@@ -14,7 +14,7 @@ const useStyles = createUseStyles((theme) => ({
     maxWidth: '430px',
     alignSelf: 'flex-start',
     zIndex: 1,
-    marginTop: '80px',
+    marginTop: '120px',
     animation: 'fadeIn 2s',
     color: theme.lightColor,
   },

@@ -6,17 +6,29 @@ const useStyles = createUseStyles((theme) => ({
     display: 'flex',
     alignItems: 'flex-start',
     borderRadius: '10px',
+    color: theme.textColor,
   },
   title: {
     marginTop: 0,
     marginBottom: '20px',
+    textDecoration: 'none',
     color: theme.primaryColor,
+    '&:hover': {
+      color: theme.secondaryColor,
+    },
+  },
+  description: {
+    paddingLeft: '20px',
+    borderLeft: `3px solid ${theme.textColor}`,
+    fontStyle: 'italic',
   },
   text: {
     color: theme.textColor,
   },
+  technologies: {},
   textbox: {
     padding: '0 20px 20px 20px',
+    flex: '1 1 100%',
   },
   imagebox: {
     padding: '0 40px 40px 40px',
@@ -30,6 +42,7 @@ const useStyles = createUseStyles((theme) => ({
   },
   dots: {
     marginBottom: '20px',
+    lineHeight: 0,
 
     '& > span': {
       display: 'inline-block',
@@ -51,16 +64,14 @@ const useStyles = createUseStyles((theme) => ({
   },
   [`@media screen and (min-width: ${theme.maxPageWidth}px)`]: {
     project: {
-      backgroundColor: theme.lightColor,
       marginLeft: 'calc(50% - 50vw)',
       marginRight: 'calc(50% - 50vw)',
       paddingLeft: 'calc(50vw - 50%)',
       paddingRight: 'calc(50vw - 50%)',
-      minHeight: '100vh',
       borderRadius: 0,
     },
     textbox: {
-      padding: '20px 20px 20px 0',
+      padding: '0 20px 20px 0',
     }
   },
 }))
