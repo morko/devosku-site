@@ -64,7 +64,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: ['Catamaran', 'Martel Sans', 'Roboto'],
+          families: ['Catamaran', 'Merriweather Sans'],
         },
       },
     },

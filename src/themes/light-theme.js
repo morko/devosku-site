@@ -9,8 +9,7 @@ const lightTheme = {
   lightColor: '#eeece7',
   darkColor: '#24211e',
   primaryFont: 'Catamaran, sans-serif',
-  secondaryFont: 'Martel Sans, sans-serif',
-  tertiaryFont: 'Roboto, sans-serif',
+  secondaryFont: 'Merriweather Sans, sans',
 }
 
 module.exports = lightTheme;

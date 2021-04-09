@@ -18,6 +18,7 @@ const useStyles = createUseStyles((theme) => ({
     backgroundImage: ({backgroundImg}) => `url(${backgroundImg})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
     opacity: 0.5,
   },
   innerContainer: {

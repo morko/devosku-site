@@ -31,7 +31,6 @@ const useStyles = createUseStyles((theme) => ({
   },
 
   title: {
-    textTransform: 'uppercase',
     fontSize: '2em',
     marginLeft: '20px',
     '& > span:first-child': {
@@ -39,6 +38,7 @@ const useStyles = createUseStyles((theme) => ({
     },
     '& > span:last-child': {
       color: theme.secondaryColor,
+      marginLeft: '1px',
     },
   },
 

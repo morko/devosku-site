@@ -22,6 +22,7 @@ export default function Project(props) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const containerRef = useRef()
+  const textRef = useRef()
   const imageRef = useRef()
 
   useEffect(() => {
@@ -41,6 +42,9 @@ export default function Project(props) {
     }
   }, [imageLoaded])
 
+  /**
+   * Attach listeners to set the imageLoaded state.
+   */
   useEffect(() => {
     if (!imageRef.current) return
     const image = imageRef.current
@@ -61,12 +65,31 @@ export default function Project(props) {
     }
   }, [])
 
+  /**
+   * Animate the textbox in.
+   */
+  useEffect(() => {
+    let tween = gsap.to(textRef.current, {
+      duration: 1,
+      opacity: 1,
+      y: 0,
+    })
+    const trigger = ScrollTrigger.create({
+      trigger: textRef.current,
+      start: 'top bottom-=200px',
+      animation: tween,
+    })
+    return () => {
+      trigger.kill()
+    }
+  }, [])
+
   return (
     <article
       ref={containerRef}
       className={`${classes.project} ${className || ''}`}
     >
-      <div className={classes.textbox}>
+      <div ref={textRef} className={classes.textbox}>
 
         {links ? (
           <a href={links[0]} className={classes.title}>

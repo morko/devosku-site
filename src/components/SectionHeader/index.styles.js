@@ -6,6 +6,8 @@ const useStyles = createUseStyles((theme) => ({
     marginBottom: '40px',
     marginRight: 'calc(50% - 50vw)',
     paddingBottom: '8px',
+    opacity: 0,
+    transform: 'translateX(200px)',
   },
   icon: {
     color: theme.textColor,

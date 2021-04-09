@@ -37,6 +37,8 @@ const useStyles = createUseStyles((theme) => ({
   textbox: {
     padding: '0 20px 20px 20px',
     flex: '1 1 100%',
+    opacity: 0,
+    transform: 'translateY(80px)',
   },
   imagebox: {
     padding: '0 40px 40px 40px',

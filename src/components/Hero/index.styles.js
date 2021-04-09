@@ -6,19 +6,24 @@ const useStyles = createUseStyles((theme) => ({
     fontSize: '3.5em',
     fontWeight: 400,
     lineHeight: '1.2',
-    textTransform: 'uppercase'
+    margin: 0,
   },
   subtitle: {
+    fontFamily: theme.secondaryFont,
     fontWeight: 400,
-    marginBottom: '50px',
+    marginTop: '50px',
   },
   textbox: {
-    maxWidth: '430px',
+    maxWidth: '460px',
+    height: '100%',
     alignSelf: 'flex-start',
     zIndex: 1,
-    marginTop: '60px',
-    animation: 'fadeIn 2s',
+    animation: 'fadeInUp 2s',
     color: theme.lightColor,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   illustration: {
     position: 'absolute',
@@ -26,24 +31,30 @@ const useStyles = createUseStyles((theme) => ({
     right: -120,
     width: theme.maxPageWidth,
   },
-  '@media (max-width: 970px)': {
+  '@media (max-width: 1032px)': {
     illustration: {
-      width: 200,
-      right: 20,
-      top: 0,
+      width: 900,
+      top: `calc(-${theme.headerHeight} + 70px)`,
     },
     textbox: {
-      alignSelf: 'center',
-      textAlign: 'center'
-    }
+      maxWidth: '440px',
+    },
+    title: {
+      fontSize: '3em',
+    },
   },
-  '@media (max-width: 640px)': {
+  '@media (max-width: 900px)': {
     illustration: {
       display: 'none !important'
     },
+    textbox: {
+      alignSelf: 'center',
+      textAlign: 'center',
+      alignItems: 'center',
+    }
   },
   callToAction: {
-    marginBottom: '30px'
+    marginTop: '50px'
   }
 }))
 

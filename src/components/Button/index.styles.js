@@ -4,11 +4,15 @@ const useStyles = createUseStyles((theme) => ({
   button: {
     backgroundColor: theme.primaryColor,
     color: theme.lightColor,
-    borderRadius: '5px',
-    fontFamily: theme.secondaryFont,
-    padding: '12px 10px 10px',
+    borderRadius: '4px',
+    fontFamily: theme.primaryFont,
+    padding: '16px 14px 14px',
     border: 'none',
     fontWeight: 600,
+    letterSpacing: 1.5,
+    '&:hover': {
+      cursor: 'pointer',
+    }
   }
 }))
 

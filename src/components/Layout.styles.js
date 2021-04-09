@@ -8,10 +8,11 @@ const useStyles = createUseStyles((theme) => ({
     html: {
       overflowX: 'hidden',
       scrollBehavior: 'smooth',
+      fontSize: '18px',
     },
     body: {
       backgroundColor: theme.backgroundColor,
-      letterSpacing: '1.4px',
+      letterSpacing: '1.5px',
       lineHeight: '1.5'
     },
     h1: {
@@ -19,20 +20,33 @@ const useStyles = createUseStyles((theme) => ({
       fontFamily: theme.primaryFont,
     },
     h2: {
+      fontFamily: theme.primaryFont,
       fontSize: '2.75em',
     },
-    'h2,h3,h4,h5,h6': {
+    'h3,h4,h5,h6': {
       fontFamily: theme.secondaryFont,
     },
     'body,ul,a,p,input': {
-      fontFamily: theme.tertiaryFont,
+      fontFamily: theme.secondaryFont,
     },
-    '@keyframes fadeIn': {
+    '@keyframes fadeInUp': {
       from: {
         opacity: 0,
+        transform: 'translateY(40px)',
       },
       to: {
         opacity: 1,
+        transform: 'translateY(0)',
+      }
+    },
+    '@keyframes fadeInLeft': {
+      from: {
+        opacity: 0,
+        transform: 'translateX(40px)',
+      },
+      to: {
+        opacity: 1,
+        transform: 'translateX(0)',
       }
     },
   }
