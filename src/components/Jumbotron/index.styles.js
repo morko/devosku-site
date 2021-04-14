@@ -7,7 +7,6 @@ const useStyles = createUseStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: 'rgb(53, 37, 21)',
-    marginBottom: '75px',
   },
   backgroundContainer: {
     position: 'absolute',

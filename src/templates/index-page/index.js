@@ -7,6 +7,7 @@ import Jumbotron from '../../components/Jumbotron'
 import Hero from '../../components/Hero'
 import ProjectsSection from './ProjectsSection'
 import SkillsSection from './SkillsSection'
+import SocialMediaSection from '../../components/SocialMediaSection'
 
 export const IndexPageTemplate = (props) => {
   const { headline, projects } = props
@@ -16,6 +17,7 @@ export const IndexPageTemplate = (props) => {
       <Jumbotron variant="500">
         <Hero title={headline.title} subtitle={headline.subtitle} />
       </Jumbotron>
+      <SocialMediaSection />
       {projects && <ProjectsSection projects={projects} />}
       <SkillsSection />
     </>
