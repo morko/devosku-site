@@ -2,6 +2,7 @@ const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => ({
   sectionHeader: {
+    position: 'relative',
     borderBottom: `4px solid ${theme.textColor}`,
     marginBottom: '40px',
     marginRight: 'calc(50% - 50vw)',
@@ -16,6 +17,16 @@ const useStyles = createUseStyles((theme) => ({
       width: '3em',
       height: '3em',
     }
+  },
+  background: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    display: 'block',
+    backgroundColor: theme.primaryColor,
+    width: '5rem',
+    height: '50%',
+    zIndex: -1,
   },
   text: {
     color: theme.textColor,

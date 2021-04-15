@@ -7,7 +7,7 @@ const useStyles = createUseStyles((theme) => ({
   description: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '40px',
+    margin: '70px 0',
     '& svg': {
       marginRight: '20px'
     }
