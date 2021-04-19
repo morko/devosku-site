@@ -3,10 +3,11 @@ import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SectionHeader(props) {
-  const { children, className, icon } = props
+  const { children, className } = props
 
   const theme = useTheme()
   const classes = useStyles({ theme })
@@ -21,8 +22,10 @@ export default function SectionHeader(props) {
 
     const trigger = ScrollTrigger.create({
       trigger: headerRef.current,
-      start: 'bottom bottom-=100px',
+      start: 'top bottom',
+      end: 'bottom top',
       animation: tween,
+      toggleActions: 'play reverse play reverse',
     })
 
     return () => {

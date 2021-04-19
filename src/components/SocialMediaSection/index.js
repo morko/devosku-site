@@ -26,7 +26,7 @@ function SocialMediaLink(props) {
 }
 
 export default function SocialMediaSection(props) {
-  const { className = '', children } = props
+  const { className = '' } = props
 
   const theme = useTheme()
   const classes = useStyles({ theme })

@@ -42,7 +42,7 @@ const useStyles = createUseStyles((theme) => ({
     transform: 'translateY(80px)',
   },
   imagebox: {
-    padding: '0 40px 40px 40px',
+    padding: '0 40px 0 40px',
     flex: '1 1 100%',
     marginLeft: '30px',
     alignSelf: 'stretch',

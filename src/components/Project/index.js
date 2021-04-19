@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Project(props) {
+const Project = React.forwardRef((props, ref) => {
   const {
     className,
     title,
@@ -29,12 +29,10 @@ export default function Project(props) {
     if (!imageLoaded) return
 
     const trigger = ScrollTrigger.create({
-      trigger: containerRef.current,
+      trigger: ref.current,
       start: 'top top+=60',
-      end: 'bottom center',
+      end: `bottom-=${imageRef.current.clientHeight} top+=60`,
       pin: imageRef.current,
-      scrub: true,
-      toggleActions: 'play pause resume reset',
     })
 
     return () => {
@@ -76,8 +74,10 @@ export default function Project(props) {
     })
     const trigger = ScrollTrigger.create({
       trigger: textRef.current,
-      start: 'top bottom-=200px',
+      start: 'top bottom-=100px',
+      end: 'bottom top+=100px',
       animation: tween,
+      toggleActions: 'play reverse play reverse',
     })
     return () => {
       trigger.kill()
@@ -86,7 +86,7 @@ export default function Project(props) {
 
   return (
     <article
-      ref={containerRef}
+      ref={ref}
       className={`${classes.project} ${className || ''}`}
     >
       <div ref={textRef} className={classes.textbox}>
@@ -98,12 +98,6 @@ export default function Project(props) {
         ) : (
           <h2 className={classes.title}>{title}</h2>
         )}
-
-        {/* <div className={classes.dots}>
-          <span />
-          <span />
-          <span />
-        </div> */}
 
         <div className={classes.description}>{description}</div>
 
@@ -146,4 +140,6 @@ export default function Project(props) {
       </div>
     </article>
   )
-}
+})
+
+export default Project
