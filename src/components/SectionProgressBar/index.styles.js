@@ -4,7 +4,7 @@ const { createUseStyles } = require("react-jss");
 const useStyles = createUseStyles((theme) => {
   return {
     sectionProgressBar: {
-      display: 'flex',
+      display: ({hide}) => hide ? 'none' : 'flex',
       flexDirection: 'column',
       backgroundColor: tinycolor(theme.primaryColor).lighten(40).toHexString(),
       width: 6,

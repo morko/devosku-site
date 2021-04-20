@@ -9,6 +9,8 @@ import SectionProgressBar from '../../components/SectionProgressBar'
 import throttle from 'lodash/throttle'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
+
 gsap.registerPlugin(ScrollTrigger)
 
 function getCurrentTopScrollPosition() {
@@ -28,7 +30,14 @@ export default function ProjectsSection(props) {
   const containerRef = useRef()
   const progressBarRef = useRef()
 
+  const windowDimensions = useWindowDimensions()
+
+  const showProgressBar = windowDimensions.width > 1600
+
   useEffect(() => {
+    if (!showProgressBar) {
+      return
+    }
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
       start: 'top top+=60',
@@ -39,7 +48,7 @@ export default function ProjectsSection(props) {
     return () => {
       trigger.kill()
     }
-  }, [])
+  }, [showProgressBar])
 
   /**
    * Percent of the Project section the viewport is scrolled to.
@@ -60,12 +69,15 @@ export default function ProjectsSection(props) {
   }, [setScrollPercent])
 
   useEffect(() => {
-    const throttledCheckElement = throttle(updateScrollPercent, 25)
-    window.addEventListener('scroll', throttledCheckElement)
-    return () => {
-      window.removeEventListener('scroll', throttledCheckElement)
+    if (!showProgressBar) {
+      return
     }
-  }, [updateScrollPercent])
+    const throttledUpdateScrollPercent = throttle(updateScrollPercent, 25)
+    window.addEventListener('scroll', throttledUpdateScrollPercent)
+    return () => {
+      window.removeEventListener('scroll', throttledUpdateScrollPercent)
+    }
+  }, [updateScrollPercent, showProgressBar])
 
   const projectRefs = useRef([])
 
@@ -119,6 +131,7 @@ export default function ProjectsSection(props) {
         height={progressBarHeight}
         percent={scrollPercent}
         dots={progressBarDots}
+        hide={!showProgressBar}
       />
 
       <SectionHeader className={classes.header} icon={<IoMdHammer />}>

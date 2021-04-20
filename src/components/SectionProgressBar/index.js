@@ -3,10 +3,10 @@ import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
 
 const SectionProgressBar = React.forwardRef((props, ref) => {
-  const { className, height = 200, percent = 0, dots } = props
+  const { className, height = 200, percent = 0, dots, hide = false } = props
 
   const theme = useTheme()
-  const classes = useStyles({ height, percent, theme })
+  const classes = useStyles({ height, percent, hide, theme })
 
   function createDots() {
     if (!dots) return ''
