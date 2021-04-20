@@ -3,7 +3,7 @@ const { createUseStyles } = require('react-jss')
 const useStyles = createUseStyles((theme) => ({
   jumbotron: {
     position: 'relative',
-    minHeight: '600px',
+    minHeight: theme.jumbotronHeight,
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: 'rgb(53, 37, 21)',

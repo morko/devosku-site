@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
 title: DevOsku - Professional Full Stack Web Development
-description: This is a description of the page.
+description: Professional full stack web development.
 
 headline:
-  title: 'Creating Solutions for The Web'
-  subtitle: 'Versatile Web Developer at Your Service!'
+  title: 'Solutions for the Web'
+  subtitle: 'Versatile developer at your service!'
 ---

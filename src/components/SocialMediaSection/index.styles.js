@@ -4,6 +4,7 @@ const useStyles = createUseStyles((theme) => ({
   socialMediaSection: {
     height: `calc(100vh - (${theme.headerHeight} + ${theme.jumbotronHeight}))`,
     minHeight: 100,
+    maxHeight: 200,
     marginBottom: 30,
   },
   container: {

@@ -1,6 +1,6 @@
 const lightTheme = {
-  headerHeight: '150px',
-  jumbotronHeight: '600px',
+  headerHeight: '120px',
+  jumbotronHeight: '550px',
   maxPageWidth: 1100,
   backgroundColor: '#FFFFFF',
   primaryColor: '#C27500',

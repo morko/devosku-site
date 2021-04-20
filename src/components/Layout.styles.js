@@ -9,6 +9,7 @@ const useStyles = createUseStyles((theme) => ({
       overflowX: 'hidden',
       scrollBehavior: 'smooth',
       fontSize: '18px',
+      color: theme.textColor,
     },
     body: {
       backgroundColor: theme.backgroundColor,
@@ -22,6 +23,9 @@ const useStyles = createUseStyles((theme) => ({
     h2: {
       fontFamily: theme.primaryFont,
       fontSize: '2.75em',
+    },
+    h3: {
+      fontSize: '2em',
     },
     'h3,h4,h5,h6': {
       fontFamily: theme.secondaryFont,

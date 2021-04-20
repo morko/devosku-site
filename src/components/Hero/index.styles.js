@@ -12,9 +12,10 @@ const useStyles = createUseStyles((theme) => ({
     fontFamily: theme.secondaryFont,
     fontWeight: 400,
     marginTop: '50px',
+    fontSize: '1.125em',
   },
   textbox: {
-    maxWidth: '460px',
+    maxWidth: '450px',
     height: '100%',
     alignSelf: 'flex-start',
     zIndex: 1,
@@ -37,7 +38,7 @@ const useStyles = createUseStyles((theme) => ({
       top: `calc(-${theme.headerHeight} + 70px)`,
     },
     textbox: {
-      maxWidth: '440px',
+      maxWidth: '390px',
     },
     title: {
       fontSize: '3em',
