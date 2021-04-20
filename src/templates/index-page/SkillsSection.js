@@ -14,7 +14,6 @@ import {
   SiLinux,
   SiUbuntu,
   SiGit,
-  SiGithub,
 } from 'react-icons/si'
 import Container from '../../components/Container'
 import SkillCard from '../../components/SkillCard'

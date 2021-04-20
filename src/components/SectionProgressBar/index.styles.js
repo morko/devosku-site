@@ -40,6 +40,12 @@ const useStyles = createUseStyles((theme) => {
       transform: 'translate(-50%, -50%)',
       transition: 'transform .25s',
 
+      '&:focus': {
+        outline: 'none',
+        transform: 'translate(-50%, -50%) scale(1.25)',
+        cursor: 'pointer',
+      },
+
       '&.passed:after': {
         backgroundColor: theme.primaryColor,
       },

@@ -1,4 +1,4 @@
-const { createUseStyles } = require("react-jss");
+import { createUseStyles } from 'react-jss'
 
 const useStyles = createUseStyles((theme) => ({
   skillCard: {
@@ -6,11 +6,12 @@ const useStyles = createUseStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginRight: '40px',
+    margin: '0 0 40px -20px',
     padding: '20px',
     borderRadius: '5px',
-    backgroundColor: theme.darkColor,
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+    backgroundColor: theme.lightColor,
+    boxShadow:
+      '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     minWidth: '120px',
     marginBottom: '20px',
   },
@@ -22,7 +23,7 @@ const useStyles = createUseStyles((theme) => ({
   },
   title: {
     fontSize: '1.125rem',
-    color: theme.lightColor,
+    color: theme.textColor,
   },
 }))
 

@@ -49,7 +49,7 @@ const useStyles = createUseStyles((theme) => ({
       listStyleType: 'none',
     },
     '& li': {
-      marginLeft: '16px',
+      marginLeft: '40px',
     },
     '& a': {
       textDecoration: 'none',

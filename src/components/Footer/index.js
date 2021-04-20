@@ -13,31 +13,26 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Container className={classes.footerInner}>
-        <section className={classes.column}>
-          <Logo />
+        <section className={`${classes.column} ${classes.columnLeft}`}>
+          <Logo className={classes.logo} />
         </section>
 
         <section className={classes.column}>
+          <p>This website is powered by Gatsby.js.</p>
+          <p>The design and implementation is courtesy of Oskari Pöntinen.</p>
+        </section>
+
+        <section className={`${classes.column} ${classes.columnRight}`}>
+          {/* <h3 className={classes.columnHeader}>Site Index</h3> */}
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/">Projects</Link>
+              <Link to="/">My Projects</Link>
             </li>
             <li>
-              <Link to="/">Technologies</Link>
-            </li>
-            <li>
-              <Link to="/">Contact</Link>
-            </li>
-          </ul>
-        </section>
-
-        <section className={classes.column}>
-          <ul>
-            <li>
-              <Link to="/">Contact</Link>
+              <Link to="/">My Skills</Link>
             </li>
           </ul>
         </section>

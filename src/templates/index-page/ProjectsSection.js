@@ -135,7 +135,7 @@ export default function ProjectsSection(props) {
       />
 
       <SectionHeader className={classes.header} icon={<IoMdHammer />}>
-        My Projects
+        My Project Highlights
       </SectionHeader>
 
       {projectComponents}

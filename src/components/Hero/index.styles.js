@@ -28,20 +28,24 @@ const useStyles = createUseStyles((theme) => ({
   },
   illustration: {
     position: 'absolute',
-    top: `-${theme.headerHeight}`,
+    top: `calc(-${theme.headerHeight} - 30px)`,
     right: -120,
     width: theme.maxPageWidth,
   },
   '@media (max-width: 1032px)': {
     illustration: {
       width: 900,
-      top: `calc(-${theme.headerHeight} + 70px)`,
+      top: `calc(-${theme.headerHeight} + 30px)`,
+      right: '-50px',
     },
     textbox: {
       maxWidth: '390px',
     },
     title: {
       fontSize: '3em',
+    },
+    subtitle: {
+      fontSize: '1em',
     },
   },
   '@media (max-width: 900px)': {
@@ -55,7 +59,20 @@ const useStyles = createUseStyles((theme) => ({
     }
   },
   callToAction: {
-    marginTop: '50px'
+    marginTop: '50px',
+    backgroundColor: theme.primaryColor,
+    color: theme.lightColor,
+    borderRadius: '4px',
+    fontFamily: theme.primaryFont,
+    padding: '16px 14px 14px',
+    border: 'none',
+    fontWeight: 600,
+    letterSpacing: 1.5,
+    lineHeight: 1,
+    textDecoration: 'none',
+    '&:hover': {
+      cursor: 'pointer',
+    }
   }
 }))
 

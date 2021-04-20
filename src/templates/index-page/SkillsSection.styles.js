@@ -9,6 +9,7 @@ const useStyles = createUseStyles((theme) => ({
   skillGrid: {
     display: 'flex',
     flexWrap: 'wrap',
+    marginLeft: '20px',
   },
 }))
 

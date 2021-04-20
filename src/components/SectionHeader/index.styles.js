@@ -3,12 +3,9 @@ const { createUseStyles } = require("react-jss");
 const useStyles = createUseStyles((theme) => ({
   sectionHeader: {
     position: 'relative',
-    borderBottom: `4px solid ${theme.textColor}`,
     marginBottom: '40px',
     marginRight: 'calc(50% - 50vw)',
     paddingBottom: '8px',
-    opacity: 0,
-    transform: 'translateX(200px)',
   },
   icon: {
     color: theme.textColor,
@@ -35,6 +32,16 @@ const useStyles = createUseStyles((theme) => ({
     fontSize: '2.75em',
     fontWeight: 600,
   },
+  underline: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: 4,
+    width: '100%',
+    backgroundColor: theme.textColor,
+    opacity: 0,
+    transform: 'translateX(200px)',
+  }
 }))
 
 export default useStyles

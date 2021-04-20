@@ -11,17 +11,17 @@ export default function SectionHeader(props) {
 
   const theme = useTheme()
   const classes = useStyles({ theme })
-  const headerRef = useRef()
+  const underlineRef = useRef()
 
   useEffect(() => {
-    let tween = gsap.to(headerRef.current, {
+    let tween = gsap.to(underlineRef.current, {
       duration: 1,
       opacity: 1,
       x: 0,
     })
 
     const trigger = ScrollTrigger.create({
-      trigger: headerRef.current,
+      trigger: underlineRef.current,
       start: 'top bottom',
       end: 'bottom top',
       animation: tween,
@@ -34,9 +34,10 @@ export default function SectionHeader(props) {
   }, [])
 
   return (
-    <header ref={headerRef} className={`${classes.sectionHeader} ${className || ''}`}>
-      <span className={classes.background}></span>
+    <header className={`${classes.sectionHeader} ${className || ''}`}>
+      <span className={classes.background}/>
       <span className={classes.text}>{children}</span>
+      <span className={classes.underline} ref={underlineRef}/>
     </header>
   )
 }

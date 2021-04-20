@@ -18,17 +18,16 @@ const useStyles = createUseStyles((theme) => ({
     },
     h1: {
       fontSize: '4em',
-      fontFamily: theme.primaryFont,
     },
     h2: {
-      fontFamily: theme.primaryFont,
       fontSize: '2.75em',
     },
     h3: {
       fontSize: '2em',
+      fontWeight: 300,
     },
-    'h3,h4,h5,h6': {
-      fontFamily: theme.secondaryFont,
+    'h1,h2,h3,h4,h5,h6': {
+      fontFamily: theme.primaryFont,
     },
     'body,ul,a,p,input': {
       fontFamily: theme.secondaryFont,
