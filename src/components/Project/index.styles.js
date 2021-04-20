@@ -45,29 +45,6 @@ const useStyles = createUseStyles((theme) => ({
       borderRadius: '2px',
     }
   },
-  dots: {
-    marginBottom: '30px',
-    marginTop: '10px',
-    lineHeight: 0,
-
-    '& > span': {
-      display: 'inline-block',
-      width: '12px',
-      height: '5px',
-      borderRadius: '2px',
-    },
-    '& > span:nth-child(1)': {
-      backgroundColor: theme.primaryColor,
-    },
-    '& > span:nth-child(2)': {
-      backgroundColor: theme.tertiaryColor,
-      marginLeft: '4px',
-    },
-    '& > span:nth-child(3)': {
-      backgroundColor: theme.primaryColor,
-      marginLeft: '4px',
-    },
-  },
   [`@media screen and (min-width: ${theme.maxPageWidth}px)`]: {
     project: {
       marginLeft: 'calc(50% - 50vw)',
