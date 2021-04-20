@@ -21,7 +21,6 @@ const Project = React.forwardRef((props, ref) => {
 
   const [imageLoaded, setImageLoaded] = useState(false)
 
-  const containerRef = useRef()
   const textRef = useRef()
   const imageRef = useRef()
 
@@ -38,7 +37,7 @@ const Project = React.forwardRef((props, ref) => {
     return () => {
       trigger.kill()
     }
-  }, [imageLoaded])
+  }, [imageLoaded, ref])
 
   /**
    * Attach listeners to set the imageLoaded state.

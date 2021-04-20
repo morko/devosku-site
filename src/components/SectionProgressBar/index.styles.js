@@ -2,14 +2,17 @@ import tinycolor from 'tinycolor2'
 const { createUseStyles } = require("react-jss");
 
 const useStyles = createUseStyles((theme) => {
+  const bgColor = tinycolor(theme.primaryColor).lighten(40).toHexString()
+
   return {
     sectionProgressBar: {
       display: ({hide}) => hide ? 'none' : 'flex',
       flexDirection: 'column',
-      backgroundColor: tinycolor(theme.primaryColor).lighten(40).toHexString(),
+      backgroundColor: bgColor,
       width: 6,
       height: (props) => props.height,
       borderRadius: '10px',
+
       '&:after': {
         content: '""',
         display: 'block',
@@ -22,12 +25,18 @@ const useStyles = createUseStyles((theme) => {
         height: (props) => props.percent * props.height,
       }
     },
+
     dot: {
       display: 'flex',
+      backgroundColor: bgColor,
+      border: 'none',
       position: 'absolute',
       left: 3,
       height: 10,
       width: 10,
+      borderRadius: '50%',
+      padding: 0,
+      margin: 0,
       transform: 'translate(-50%, -50%)',
       transition: 'transform .25s',
 

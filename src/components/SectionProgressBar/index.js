@@ -16,14 +16,14 @@ const SectionProgressBar = React.forwardRef((props, ref) => {
         Math.round(percent * 100) / 100 >= Math.round(data.percent * 100) / 100
       const cls = `${classes.dot}${isPassed ? ' passed' : ''}`
       return (
-        <span
+        <button
           key={data.percent}
           className={cls}
           style={{ top: offsetTop }}
           onClick={data.onClick}
         >
           <span className="dotLabel">{data.label}</span>
-        </span>
+        </button>
       )
     })
   }
