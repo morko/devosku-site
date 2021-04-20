@@ -13,17 +13,11 @@ const useStyles = createUseStyles((theme) => ({
     marginBottom: 0,
     textDecoration: 'none',
     color: theme.secondaryColor,
-    lineHeight: 0,
     transition: 'color .25s',
-    '&:hover': {
-      color: theme.tertiaryColor,
-    },
-    '& > h2': {
-      lineHeight: 1,
-      fontWeight: 100,
-      marginTop: 0,
-      marginBottom: '50px',
-    },
+    lineHeight: 1,
+    fontWeight: 100,
+    marginTop: 0,
+    marginBottom: '50px',
   },
   description: {
     paddingLeft: '20px',
@@ -39,7 +33,7 @@ const useStyles = createUseStyles((theme) => ({
     padding: '0 20px 20px 20px',
     flex: '1 1 100%',
     opacity: 0,
-    transform: 'translateY(80px)',
+    transform: 'translateY(40px)',
   },
   imagebox: {
     padding: '0 40px 0 40px',

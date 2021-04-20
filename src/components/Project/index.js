@@ -90,13 +90,7 @@ const Project = React.forwardRef((props, ref) => {
     >
       <div ref={textRef} className={classes.textbox}>
 
-        {links ? (
-          <a href={links[0]} className={classes.title}>
-            <h2>{title}</h2>
-          </a>
-        ) : (
-          <h2 className={classes.title}>{title}</h2>
-        )}
+        <h2 className={classes.title}>{title}</h2>
 
         <div className={classes.description}>{description}</div>
 
