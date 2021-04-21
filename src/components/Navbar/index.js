@@ -58,7 +58,7 @@ const Navbar = () => {
         <ul>{createMenuLinks()}</ul>
       </nav>
 
-      <Container className={`${classes.container} ${classes.fixedContainer}`}>
+      <Container className={`${classes.container}`}>
         <Link className={classes.brand} to="/" title="Home">
           <Logo className={classes.logo} />
           <h1 className={classes.title}>
