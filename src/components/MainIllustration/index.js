@@ -144,11 +144,13 @@ export default function MainIllustration(props) {
           style={initialPathStyle}
           d="M243.889 485.888C336.061 485.888 410.782 411.144 410.782 318.943C410.782 226.742 336.061 151.997 243.889 151.997C151.717 151.997 76.9969 226.742 76.9969 318.943C76.9969 411.144 151.717 485.888 243.889 485.888Z"
           fill="#BFCBBA"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M921.766 121.669L580.62 319.374L607.551 365.875L948.697 168.17L921.766 121.669Z"
           fill="#878787"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -156,6 +158,7 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M527.553 642.328L389.544 472.383L356.282 494.48L494.375 668.78L527.553 642.328Z"
           fill="#878787"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -163,11 +166,13 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M57.0404 700.633L220.039 581.511L205.066 559.958L39.8463 666.845L57.0404 700.633Z"
           fill="#EAE8E4"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M413.249 687.727L352.42 597.185L338.396 606.614L399.225 697.155L413.249 687.727Z"
           fill="#60BEBF"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -175,6 +180,7 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M496.308 505.332L432.907 428.103L405.912 443.649L467.693 528.062L496.308 505.332Z"
           fill="#3A8EAA"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -182,6 +188,7 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M942.652 -74.16L285.116 385.927L317.533 428.302L999.235 -3.86502L942.652 -74.16Z"
           fill="#385366"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -189,11 +196,13 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M326.582 436.53L554.115 312.059L570.502 341.582L345.684 464.831L326.582 436.53Z"
           fill="#E5AB17"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M213.836 619.978L18.6853 784.023L40.4032 809.876L235.554 645.831L213.836 619.978Z"
           fill="#EAE8E4"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -201,11 +210,13 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M153.974 651.152L235.334 586.156L250.799 603.181L169.439 668.177L153.974 651.152Z"
           fill="#E5AB17"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M690.504 344.834L916.177 220.896L924.85 237.866L699.177 361.802L690.504 344.834Z"
           fill="#B3B3B3"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -213,16 +224,19 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M709.733 203.012L927.752 71.5278L937.585 87.8501L719.566 219.335L709.733 203.012Z"
           fill="#BFCBBA"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M881.555 281.44L654.85 397.417L657.043 401.706L883.748 285.729L881.555 281.44Z"
           fill="#849C9B"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M497.542 687.92L102.38 190.214L91.1552 199.132L486.317 696.838L497.542 687.92Z"
           fill="#B3B3B3"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -230,36 +244,43 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M360.953 559.692L95.274 237.392L53.678 264.478L315.12 594.11L360.953 559.692Z"
           fill="#849C9B"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M451.506 127.821C465.637 124.43 474.36 110.283 470.989 96.2237C467.617 82.1638 453.428 73.5148 439.297 76.9055C425.166 80.2963 416.443 94.4427 419.814 108.502C423.186 122.562 437.374 131.211 451.506 127.821Z"
           fill="#849C9B"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M67.9843 546.397C93.4331 540.29 109.142 514.814 103.07 489.494C96.9988 464.175 71.4466 448.599 45.9977 454.705C20.5488 460.811 4.84032 486.287 10.9117 511.607C16.9832 536.927 42.5354 552.503 67.9843 546.397Z"
           fill="#EAE8E4"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M272.755 344.871C283.827 342.215 290.661 331.131 288.019 320.115C285.378 309.1 274.261 302.323 263.189 304.98C252.118 307.636 245.283 318.72 247.925 329.736C250.566 340.751 261.683 347.528 272.755 344.871Z"
           fill="#878787"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M160.78 545.464C171.798 542.821 178.599 531.791 175.97 520.829C173.341 509.866 162.279 503.123 151.261 505.767C140.243 508.41 133.442 519.44 136.07 530.402C138.699 541.364 149.762 548.108 160.78 545.464Z"
           fill="#BFCBBA"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M282.85 366.655L470.39 237.12L468.8 234.816L281.26 364.352L282.85 366.655Z"
           fill="#B3B3B3"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
           d="M52.4468 88.7148L149.495 209.942L151.679 208.192L54.6307 86.9653L52.4468 88.7148Z"
           fill="#B3B3B3"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -267,6 +288,7 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M751.979 551.991L725.98 522.069L723.655 524.091L749.654 554.014L719.74 580.025L721.764 582.351L751.678 556.34L777.683 586.263L780.009 584.241L754.003 554.318L783.917 528.306L781.893 525.98L751.979 551.991Z"
           fill="#878787"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
         <path
           style={initialPathStyle}
@@ -274,6 +296,7 @@ export default function MainIllustration(props) {
           clipRule="evenodd"
           d="M57.3907 496.59L44.0002 481.18L42.8027 482.222L56.1933 497.631L40.7892 511.025L41.8302 512.224L57.2342 498.829L70.625 514.238L71.8221 513.196L58.4317 497.787L73.8355 484.393L72.7946 483.194L57.3907 496.59Z"
           fill="#878787"
+          transform="matrix(1, 0, 0, 1, 0, 0)"
         />
       </g>
 
