@@ -7,6 +7,7 @@ const useStyles = createUseStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: 'rgb(53, 37, 21)',
+    marginTop: theme.headerHeight,
   },
   backgroundContainer: {
     position: 'absolute',

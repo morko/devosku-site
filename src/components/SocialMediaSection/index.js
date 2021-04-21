@@ -12,7 +12,7 @@ function SocialMediaLink(props) {
   const classes = useStyles({ theme })
   const { height } = useWindowDimensions()
 
-  let size = `calc(0.33 * (100vh - (${theme.headerHeight} + ${theme.jumbotronHeight})))`
+  let size = `calc(0.33 * (100vh - (${theme.headerHeight}px + ${theme.jumbotronHeight}px)))`
   if (height < 860) {
     size = '38px'
   }

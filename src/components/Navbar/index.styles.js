@@ -1,22 +1,55 @@
 import { createUseStyles } from 'react-jss'
+import tinycolor from 'tinycolor2'
 
 const useStyles = createUseStyles((theme) => ({
-  root: {
+  header: {
     backgroundColor: theme.backgroundColor,
     height: theme.headerHeight,
     display: 'flex',
     alignItems: 'center',
-  },
-
-  link: {
-    position: 'relative',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
     zIndex: 999,
+
+    '&.fixed': {
+      position: 'fixed',
+      height: theme.fixedHeaderHeight,
+      boxShadow: '0 8px 6px -6px rgba(0,0,0,0.4)',
+      top: -theme.fixedHeaderHeight,
+    },
+    '&.fixed.hide': {
+      transition: 'transform .5s',
+      transform: 'translateY(0)',
+    },
+    '&.fixed.show': {
+      transition: 'transform .5s',
+      transform: 'translateY(100%)',
+    }
   },
 
   container: {
     display: 'flex',
     alignItems: 'center',
     width: '100%',
+  },
+
+
+  link: {
+    textDecoration: 'none',
+    color: theme.primaryColor,
+    fontFamily: theme.secondaryFont,
+    background: 'none',
+    border: 'none',
+
+    '&:hover': {
+      cursor: 'pointer',
+      color: tinycolor(theme.primaryColor).brighten(20).toHexString(),
+    },
+    '&:focus': {
+      outline: 'none',
+    }
   },
 
   brand: {
@@ -28,18 +61,31 @@ const useStyles = createUseStyles((theme) => ({
   logo: {
     height: 60,
     width: 60,
+
+    '.fixed &': {
+      height: 40,
+      width: 40,
+    }
   },
 
   title: {
     fontSize: '2em',
-    marginLeft: '20px',
+    lineHeight: 1,
+    margin: '0 0 0 20px',
+
     '& > span:first-child': {
       color: theme.primaryColor,
     },
+
     '& > span:last-child': {
       color: theme.secondaryColor,
       marginLeft: '1px',
     },
+
+    '.fixed &': {
+      fontSize: '1.5em',
+    },
+
   },
 
   menu: {
@@ -50,11 +96,6 @@ const useStyles = createUseStyles((theme) => ({
     },
     '& li': {
       marginLeft: '40px',
-    },
-    '& a': {
-      textDecoration: 'none',
-      color: theme.primaryColor,
-      fontFamily: theme.secondaryFont,
     },
   },
 
@@ -84,7 +125,8 @@ const useStyles = createUseStyles((theme) => ({
     },
     /* Rotate first bar */
     '& span:nth-child(1)': {
-      transform: ({ mobileMenuOpen }) => mobileMenuOpen && 'rotate(-45deg) translate(-5.5px, 5.5px)',
+      transform: ({ mobileMenuOpen }) =>
+        mobileMenuOpen && 'rotate(-45deg) translate(-5.5px, 5.5px)',
     },
     /* Fade out the second bar */
     '& span:nth-child(2)': {
@@ -92,7 +134,8 @@ const useStyles = createUseStyles((theme) => ({
     },
     /* Rotate last bar */
     '& span:nth-child(3)': {
-      transform: ({ mobileMenuOpen }) => mobileMenuOpen && 'rotate(45deg) translate(-5.5px, -5.5px)',
+      transform: ({ mobileMenuOpen }) =>
+        mobileMenuOpen && 'rotate(45deg) translate(-5.5px, -5.5px)',
     },
   },
 }))

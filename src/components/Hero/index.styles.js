@@ -28,14 +28,15 @@ const useStyles = createUseStyles((theme) => ({
   },
   illustration: {
     position: 'absolute',
-    top: `calc(-${theme.headerHeight} - 30px)`,
+    top: `calc(-${theme.headerHeight}px - 30px)`,
     right: -120,
     width: theme.maxPageWidth,
+    zIndex: 1000,
   },
   '@media (max-width: 1032px)': {
     illustration: {
       width: 900,
-      top: `calc(-${theme.headerHeight} + 30px)`,
+      top: `calc(-${theme.headerHeight}px + 30px)`,
       right: '-50px',
     },
     textbox: {

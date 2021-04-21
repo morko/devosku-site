@@ -29,8 +29,8 @@ const Project = React.forwardRef((props, ref) => {
 
     const trigger = ScrollTrigger.create({
       trigger: ref.current,
-      start: 'top top+=60',
-      end: `bottom-=${imageRef.current.clientHeight} top+=60`,
+      start: 'top top+=100',
+      end: `bottom-=${imageRef.current.clientHeight} top+=100`,
       pin: imageRef.current,
     })
 

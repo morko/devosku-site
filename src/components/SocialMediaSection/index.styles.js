@@ -2,7 +2,7 @@ const { createUseStyles } = require('react-jss')
 
 const useStyles = createUseStyles((theme) => ({
   socialMediaSection: {
-    height: `calc(100vh - (${theme.headerHeight} + ${theme.jumbotronHeight}))`,
+    height: `calc(100vh - (${theme.headerHeight}px + ${theme.jumbotronHeight}px))`,
     minHeight: 100,
     maxHeight: 200,
     marginBottom: 30,
@@ -28,11 +28,6 @@ const useStyles = createUseStyles((theme) => ({
       transform: 'translateY(-5px)',
     },
   },
-  '@media screen and (max-height: 900px)': {
-    socialMediaSection: {
-      //marginTop: `calc(100vh - (${theme.headerHeight} + ${theme.jumbotronHeight}))`,
-    }
-  }
 }))
 
 export default useStyles

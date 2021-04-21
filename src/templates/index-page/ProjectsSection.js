@@ -40,8 +40,8 @@ export default function ProjectsSection(props) {
     }
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top top+=60',
-      end: `bottom-=${progressBarHeight} top+=60`,
+      start: 'top top+=100',
+      end: `bottom-=${progressBarHeight} top+=100`,
       pin: progressBarRef.current,
     })
 
@@ -116,7 +116,7 @@ export default function ProjectsSection(props) {
       const elRect = el.getBoundingClientRect()
       dots.push({
         percent: (elRect.y - containerRect.y) / containerRect.height,
-        onClick: () => window.scrollTo(0, elRect.y),
+        onClick: () => window.scrollTo(0, elRect.y - theme.fixedHeaderHeight - 20),
         label: projects[i].node.frontmatter.title
       })
     })

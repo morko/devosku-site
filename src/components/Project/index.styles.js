@@ -36,14 +36,11 @@ const useStyles = createUseStyles((theme) => ({
     transform: 'translateY(40px)',
   },
   imagebox: {
-    padding: '0 40px 0 40px',
+    padding: '0',
     flex: '1 1 100%',
     marginLeft: '30px',
     alignSelf: 'stretch',
     backgroundColor: theme.backgroundColor,
-    '& div': {
-      borderRadius: '2px',
-    }
   },
   [`@media screen and (min-width: ${theme.maxPageWidth}px)`]: {
     project: {
