@@ -10,9 +10,6 @@ const Navbar = () => {
   const theme = useTheme()
   const classes = useStyles({
     theme,
-    scrollingDown,
-    scrollTresholds,
-    mobileMenuOpen,
   })
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

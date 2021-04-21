@@ -1,5 +1,4 @@
 import { createUseStyles } from 'react-jss'
-import tinycolor from 'tinycolor2'
 
 const useStyles = createUseStyles((theme) => ({
   footer: {

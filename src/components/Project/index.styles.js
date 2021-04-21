@@ -10,14 +10,12 @@ const useStyles = createUseStyles((theme) => ({
   },
   title: {
     marginTop: 0,
-    marginBottom: 0,
+    marginBottom: '50px',
     textDecoration: 'none',
     color: theme.secondaryColor,
     transition: 'color .25s',
     lineHeight: 1,
     fontWeight: 100,
-    marginTop: 0,
-    marginBottom: '50px',
   },
   description: {
     paddingLeft: '20px',

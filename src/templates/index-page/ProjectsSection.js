@@ -121,7 +121,7 @@ export default function ProjectsSection(props) {
       })
     })
     setProgressBarDots(dots)
-  }, [projects])
+  }, [projects, theme.fixedHeaderHeight])
 
   return (
     <Container id="my-projects" className={classes.projects} ref={containerRef}>
