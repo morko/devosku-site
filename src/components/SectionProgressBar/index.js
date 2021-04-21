@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
 
@@ -8,19 +8,31 @@ const SectionProgressBar = React.forwardRef((props, ref) => {
   const theme = useTheme()
   const classes = useStyles({ height, percent, hide, theme })
 
+  const dotRefs = useRef([])
+
+  function handleDotClick(refIndex, dotClickHandler) {
+    dotRefs.current[refIndex].current.blur()
+    dotClickHandler()
+  }
+
   function createDots() {
     if (!dots) return ''
-    return dots.map((data) => {
+
+    return dots.map((data, i) => {
       const offsetTop = data.percent * height
       const isPassed =
         Math.round(percent * 100) / 100 >= Math.round(data.percent * 100) / 100
       const cls = `${classes.dot}${isPassed ? ' passed' : ''}`
+
+      dotRefs.current[i] = React.createRef()
+
       return (
         <button
           key={data.percent}
+          ref={dotRefs.current[i]}
           className={cls}
           style={{ top: offsetTop }}
-          onClick={data.onClick}
+          onClick={() => handleDotClick(i, data.onClick)}
         >
           <span className="dotLabel">{data.label}</span>
         </button>
