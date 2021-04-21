@@ -15,7 +15,6 @@ const useStyles = createUseStyles((theme) => ({
     fontSize: '1.125em',
   },
   textbox: {
-    maxWidth: '450px',
     height: '100%',
     alignSelf: 'flex-start',
     zIndex: 1,
@@ -27,33 +26,31 @@ const useStyles = createUseStyles((theme) => ({
     alignItems: 'flex-start',
   },
   illustration: {
-    position: 'absolute',
-    top: `calc(-${theme.headerHeight}px - 30px)`,
-    right: -120,
-    width: theme.maxPageWidth,
     zIndex: 1000,
+    height: '100%',
+    position: 'relative',
+    top: 0,
+    right: -100
   },
-  '@media (max-width: 1032px)': {
-    illustration: {
-      width: 900,
-      top: `calc(-${theme.headerHeight}px + 30px)`,
-      right: '-50px',
-    },
-    textbox: {
-      maxWidth: '390px',
-    },
+  '@media (max-width: 1060px)': {
     title: {
       fontSize: '3em',
     },
     subtitle: {
       fontSize: '1em',
     },
+    illustration: {
+      width: '60%',
+      height: 'auto',
+
+    }
   },
   '@media (max-width: 900px)': {
     illustration: {
       display: 'none !important'
     },
     textbox: {
+      maxWidth: '100%',
       alignSelf: 'center',
       textAlign: 'center',
       alignItems: 'center',
