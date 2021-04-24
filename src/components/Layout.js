@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
+import Logo from '../components/Logo'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteMetadata from '../hooks/useSiteMetaData'
@@ -9,15 +10,39 @@ import { useTheme } from 'react-jss'
 import 'normalize.css'
 import useStyles from './Layout.styles'
 
-const Layout = ({
-  children,
-  className = '',
-  transparentNavbar = false,
-}) => {
+const Layout = ({ children, className = '', transparentNavbar = false }) => {
   const { title, description } = useSiteMetadata()
 
   const theme = useTheme()
   const classes = useStyles({ theme })
+
+  const [loading, setLoading] = useState(true)
+  const [removeLoader, setRemoveLoader] = useState(false)
+
+  useEffect(() => {
+    const htmlEl = document.querySelector('html')
+
+    const interval = setInterval(() => {
+      if (
+        typeof htmlEl.className === 'string' &&
+        htmlEl.className.includes('wf-active')
+      ) {
+        setRemoveLoader(true)
+        clearInterval(interval)
+      }
+    }, 500)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!removeLoader) return
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
+  }, [removeLoader])
 
   return (
     <>
@@ -60,11 +85,20 @@ const Layout = ({
         />
       </Helmet>
 
-      <div id="page" className={classes.page + (className ? ' ' + className : '')}>
-        <Navbar transparent={transparentNavbar} />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      {loading ? (
+        <div id="loading" className={classes.loader}>
+          <Logo className={removeLoader ? classes.fadeOut : classes.fadeIn} />
+        </div>
+      ) : (
+        <div
+          id="page"
+          className={classes.page + (className ? ' ' + className : '')}
+        >
+          <Navbar transparent={transparentNavbar} />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      )}
     </>
   )
 }
