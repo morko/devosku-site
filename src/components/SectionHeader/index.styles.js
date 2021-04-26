@@ -22,7 +22,7 @@ const useStyles = createUseStyles((theme) => ({
     display: 'block',
     backgroundColor: theme.primaryColor,
     width: '5rem',
-    height: '50%',
+    height: '2rem',
     zIndex: -1,
   },
   text: {
