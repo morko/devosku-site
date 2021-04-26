@@ -110,13 +110,14 @@ export default function ProjectsSection(props) {
 
   useEffect(() => {
     const containerRect = containerRef.current.getBoundingClientRect()
+    const offset = theme.fixedHeaderHeight - 20
 
     const dots = []
     projectRefs.current.forEach(({ current: el }, i) => {
       const elRect = el.getBoundingClientRect()
       dots.push({
-        percent: (elRect.y - containerRect.y) / containerRect.height,
-        onClick: () => window.scrollTo(0, elRect.y - theme.fixedHeaderHeight - 20),
+        percent: (elRect.y - containerRect.y - offset) / containerRect.height,
+        onClick: () => window.scrollTo(0, elRect.y - offset),
         label: projects[i].node.frontmatter.title
       })
     })
