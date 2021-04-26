@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 gsap.registerPlugin(ScrollTrigger)
 
 const Project = React.forwardRef((props, ref) => {
@@ -16,53 +17,16 @@ const Project = React.forwardRef((props, ref) => {
     links,
   } = props
 
-  const theme = useTheme()
-  const classes = useStyles({ theme })
+  const maxMobileWidth = 750
 
-  const [imageLoaded, setImageLoaded] = useState(false)
+  const theme = useTheme()
+  const classes = useStyles({ maxMobileWidth, theme })
 
   const textRef = useRef()
-  const imageRef = useRef()
 
   if (!ref) ref = React.createRef()
 
-  useEffect(() => {
-    if (!imageLoaded) return
-
-    const trigger = ScrollTrigger.create({
-      trigger: ref.current,
-      start: 'top top+=100',
-      end: `bottom-=${imageRef.current.clientHeight} top+=100`,
-      pin: imageRef.current,
-    })
-
-    return () => {
-      trigger.kill()
-    }
-  }, [imageLoaded, ref])
-
-  /**
-   * Attach listeners to set the imageLoaded state.
-   */
-  useEffect(() => {
-    if (!imageRef.current) return
-    const image = imageRef.current
-
-    function handleImageLoaded() {
-      setImageLoaded(true)
-    }
-
-    if (image.complete) {
-      handleImageLoaded()
-    } else {
-      image.addEventListener('load', handleImageLoaded)
-    }
-
-    return () => {
-      if (!image) return
-      image.removeEventListener('load', handleImageLoaded)
-    }
-  }, [])
+  const windowDimensions = useWindowDimensions()
 
   /**
    * Animate the textbox in.
@@ -90,6 +54,17 @@ const Project = React.forwardRef((props, ref) => {
       <div ref={textRef} className={classes.textbox}>
         <h2 className={classes.title}>{title}</h2>
 
+        {windowDimensions.width < maxMobileWidth &&
+          <img
+            className={classes.mobileImage}
+            src={
+              typeof featuredImage === 'string'
+                ? featuredImage
+                : featuredImage.childImageSharp.fluid.src
+            }
+            alt={title}
+          ></img>
+        }
         <div className={classes.description}>{description}</div>
 
         <div
@@ -121,18 +96,19 @@ const Project = React.forwardRef((props, ref) => {
           </div>
         )}
       </div>
-      <div className={classes.imagebox}>
-        <img
-          ref={imageRef}
-          src={
-            typeof featuredImage === 'string'
-              ? featuredImage
-              : featuredImage.childImageSharp.fluid.src
-          }
-          alt={title}
-          style={{ maxWidth: '100%' }}
-        ></img>
-      </div>
+      {windowDimensions.width >= maxMobileWidth &&
+        <div className={classes.imagebox}>
+          <img
+            className={classes.desktopImage}
+            src={
+              typeof featuredImage === 'string'
+                ? featuredImage
+                : featuredImage.childImageSharp.fluid.src
+            }
+            alt={title}
+          ></img>
+        </div>
+      }
     </article>
   )
 })

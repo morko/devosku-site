@@ -28,7 +28,7 @@ const useStyles = createUseStyles((theme) => ({
   },
   technologies: {},
   textbox: {
-    padding: '0 20px 20px 20px',
+    padding: 0,
     flex: '1 1 100%',
     opacity: 0,
     transform: 'translateY(40px)',
@@ -40,6 +40,14 @@ const useStyles = createUseStyles((theme) => ({
     alignSelf: 'stretch',
     backgroundColor: theme.backgroundColor,
   },
+  mobileImage: {
+    width: '100%',
+  },
+  desktopImage: {
+    width: '100%',
+    position: 'sticky',
+    top: 100,
+  },
   [`@media screen and (min-width: ${theme.maxPageWidth}px)`]: {
     project: {
       marginLeft: 'calc(50% - 50vw)',
@@ -49,7 +57,7 @@ const useStyles = createUseStyles((theme) => ({
       borderRadius: 0,
     },
     textbox: {
-      padding: '0 20px 20px 0',
+      paddingRight: 20,
     }
   },
 }))
