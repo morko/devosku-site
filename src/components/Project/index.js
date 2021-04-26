@@ -24,6 +24,8 @@ const Project = React.forwardRef((props, ref) => {
   const textRef = useRef()
   const imageRef = useRef()
 
+  if (!ref) ref = React.createRef()
+
   useEffect(() => {
     if (!imageLoaded) return
 
@@ -84,12 +86,8 @@ const Project = React.forwardRef((props, ref) => {
   }, [])
 
   return (
-    <article
-      ref={ref}
-      className={`${classes.project} ${className || ''}`}
-    >
+    <article ref={ref} className={`${classes.project} ${className || ''}`}>
       <div ref={textRef} className={classes.textbox}>
-
         <h2 className={classes.title}>{title}</h2>
 
         <div className={classes.description}>{description}</div>
@@ -126,7 +124,11 @@ const Project = React.forwardRef((props, ref) => {
       <div className={classes.imagebox}>
         <img
           ref={imageRef}
-          src={featuredImage.childImageSharp.fluid.src}
+          src={
+            typeof featuredImage === 'string'
+              ? featuredImage
+              : featuredImage.childImageSharp.fluid.src
+          }
           alt={title}
           style={{ maxWidth: '100%' }}
         ></img>

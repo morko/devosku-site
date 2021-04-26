@@ -13,8 +13,6 @@ const ProjectPreview = ({ entry }) => {
     jss.setup({ insertionPoint: iframe.contentDocument.head.firstChild })
   }
 
-  console.log(data)
-
   if (data) {
     return (
       <ThemeProvider theme={theme}>
