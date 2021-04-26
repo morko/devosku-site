@@ -1,4 +1,5 @@
-const { createUseStyles } = require("react-jss");
+import { createUseStyles } from 'react-jss'
+import tinycolor from 'tinycolor2'
 
 const useStyles = createUseStyles((theme) => ({
   textbox: {
@@ -47,16 +48,18 @@ const useStyles = createUseStyles((theme) => ({
     animation: 'fadeInUp 2s',
     animationFillMode: 'forwards',
     animationDelay: '1s',
+    transition: 'background-color 250ms',
     '&:hover': {
       cursor: 'pointer',
-    }
+      backgroundColor: tinycolor(theme.primaryColor).lighten(10).toHexString(),
+    },
   },
   illustration: {
     zIndex: 1000,
     height: '100%',
     position: 'relative',
     top: 0,
-    right: -100
+    right: -100,
   },
   '@media (max-width: 1060px)': {
     title: {
@@ -68,19 +71,18 @@ const useStyles = createUseStyles((theme) => ({
     illustration: {
       width: '60%',
       height: 'auto',
-
-    }
+    },
   },
   '@media (max-width: 900px)': {
     illustration: {
-      display: 'none !important'
+      display: 'none !important',
     },
     textbox: {
       maxWidth: '100%',
       alignSelf: 'center',
       textAlign: 'center',
       alignItems: 'center',
-    }
+    },
   },
 }))
 

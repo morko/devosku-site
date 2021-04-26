@@ -5,6 +5,7 @@ import useScroll from '../../hooks/useScroll'
 import Container from '../Container'
 import useStyles from './index.styles'
 import { useTheme } from 'react-jss'
+import { scrollToId } from '../../utils'
 
 const Navbar = () => {
   const theme = useTheme()
@@ -16,15 +17,6 @@ const Navbar = () => {
   const [scrollTresholds, scrollingDown] = useScroll({
     fixToTop: theme.headerHeight + theme.jumbotronHeight,
   })
-
-  function scrollToId(id) {
-    const el = document.getElementById(id)
-    if (!el) {
-      return
-    }
-    const rect = el.getBoundingClientRect()
-    window.scrollTo(0, rect.top + window.scrollY - theme.fixedHeaderHeight - 10)
-  }
 
   function createMenuLinks() {
     return (

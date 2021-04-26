@@ -42,6 +42,7 @@ const useStyles = createUseStyles((theme) => ({
     fontFamily: theme.secondaryFont,
     background: 'none',
     border: 'none',
+    transition: 'color 250ms',
 
     '&:hover': {
       cursor: 'pointer',
