@@ -57,6 +57,11 @@ const useStyles = createUseStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'none',
+    background: 'none',
+    border: 0,
+    '&:hover': {
+      cursor: 'pointer',
+    }
   },
 
   logo: {

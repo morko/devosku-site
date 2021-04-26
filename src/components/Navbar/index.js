@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'gatsby'
 import Logo from '../Logo'
 import useScroll from '../../hooks/useScroll'
 import Container from '../Container'
 import useStyles from './index.styles'
 import { useTheme } from 'react-jss'
-import { scrollToId } from '../../utils'
+import Navlinks from '../Navlinks'
 
 const Navbar = () => {
   const theme = useTheme()
@@ -18,23 +17,6 @@ const Navbar = () => {
     fixToTop: theme.headerHeight + theme.jumbotronHeight,
   })
 
-  function createMenuLinks() {
-    return (
-      <>
-        <li>
-          <button className={classes.link} onClick={() => scrollToId('my-projects')}>
-            Projects
-          </button>
-        </li>
-        <li>
-          <button className={classes.link} onClick={() => scrollToId('my-skills')}>
-            Skills
-          </button>
-        </li>
-      </>
-    )
-  }
-
   return (
     <header
       className={`${classes.header} ${
@@ -44,20 +26,24 @@ const Navbar = () => {
       aria-label="Main"
     >
       <nav className={classes.mobileMenu}>
-        <ul>{createMenuLinks()}</ul>
+        <ul>
+          <Navlinks />
+        </ul>
       </nav>
 
       <Container className={`${classes.container}`}>
-        <Link className={classes.brand} to="/" title="Home">
+        <button className={classes.brand} onClick={() => window.scrollTo(0, 0)}>
           <Logo className={classes.logo} />
           <h1 className={classes.title}>
             <span>Dev</span>
             <span>Osku</span>
           </h1>
-        </Link>
+        </button>
 
         <nav className={classes.menu}>
-          <ul>{createMenuLinks()}</ul>
+          <ul>
+            <Navlinks/>
+          </ul>
         </nav>
 
         <div

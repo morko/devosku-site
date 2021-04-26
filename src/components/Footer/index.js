@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Container from '../Container'
 
 import Logo from '../Logo'
 import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
+import Navlinks from '../Navlinks'
 
 export default function Footer() {
   const theme = useTheme()
@@ -25,15 +25,7 @@ export default function Footer() {
         <section className={`${classes.column} ${classes.columnRight}`}>
           {/* <h3 className={classes.columnHeader}>Site Index</h3> */}
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/">My Projects</Link>
-            </li>
-            <li>
-              <Link to="/">My Skills</Link>
-            </li>
+            <Navlinks addHomeLink/>
           </ul>
         </section>
       </Container>
