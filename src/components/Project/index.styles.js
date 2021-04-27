@@ -48,6 +48,9 @@ const useStyles = createUseStyles((theme) => ({
     position: 'sticky',
     top: 100,
   },
+  link: {
+    wordBreak: 'break-all',
+  },
   [`@media screen and (min-width: ${theme.maxPageWidth}px)`]: {
     project: {
       marginLeft: 'calc(50% - 50vw)',

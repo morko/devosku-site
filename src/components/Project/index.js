@@ -87,7 +87,7 @@ const Project = React.forwardRef((props, ref) => {
             <ul>
               {links.map((link) => {
                 return (
-                  <li key={link}>
+                  <li className={classes.link} key={link}>
                     <a href={link}>{link}</a>
                   </li>
                 )
