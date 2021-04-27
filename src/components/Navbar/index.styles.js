@@ -106,7 +106,26 @@ const useStyles = createUseStyles((theme) => ({
   },
 
   mobileMenu: {
-    display: 'none',
+    position: 'absolute',
+    right: 0,
+    top: theme.headerHeight,
+    width: '50%',
+    backgroundColor: theme.backgroundColor,
+    transform: 'translateX(100%)',
+    transition: 'transform 250ms',
+    boxShadow: 'none',
+    '.fixed &': {
+      position: 'fixed',
+      top: theme.fixedHeaderHeight,
+    },
+    '.hide &': {
+      transform: 'translateX(100%) !important',
+      boxShadow: 'none !important',
+    },
+    '&.mobileMenuOpen': {
+      transform: 'translateX(0)',
+      boxShadow: '-3px 6px 6px 0px rgba(0,0,0,0.4)',
+    }
   },
 
   mobileMenuButton: {
@@ -129,20 +148,35 @@ const useStyles = createUseStyles((theme) => ({
       margin: '3px 0',
       transition: 'all 0.2s',
     },
-    /* Rotate first bar */
-    '& span:nth-child(1)': {
-      transform: ({ mobileMenuOpen }) =>
-        mobileMenuOpen && 'rotate(-45deg) translate(-5.5px, 5.5px)',
+
+    '&.mobileMenuOpen': {
+      /* Rotate first bar */
+      '& span:nth-child(1)': {
+        transform: 'rotate(-45deg) translate(-3.5px, 3.5px)',
+      },
+      /* Fade out the second bar */
+      '& span:nth-child(2)': {
+        opacity: 0,
+      },
+      /* Rotate last bar */
+      '& span:nth-child(3)': {
+        transform: 'rotate(45deg) translate(-3.5px, -3.5px)',
+      },
     },
-    /* Fade out the second bar */
-    '& span:nth-child(2)': {
-      opacity: ({ mobileMenuOpen }) => mobileMenuOpen && 0,
+  },
+
+  '@media (max-width: 900px)': {
+    menu: {
+      display: 'none',
     },
-    /* Rotate last bar */
-    '& span:nth-child(3)': {
-      transform: ({ mobileMenuOpen }) =>
-        mobileMenuOpen && 'rotate(45deg) translate(-5.5px, -5.5px)',
+    mobileMenuButton: {
+      display: 'block',
     },
+    mobileMenu: {
+      '&.mobileMenuOpen': {
+        display: 'block',
+      }
+    }
   },
 }))
 

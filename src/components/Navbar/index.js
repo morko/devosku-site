@@ -19,13 +19,17 @@ const Navbar = () => {
 
   return (
     <header
-      className={`${classes.header} ${
-        scrollTresholds.fixToTop ? 'fixed' : ''
+      className={`${classes.header}${
+        scrollTresholds.fixToTop ? ' fixed' : ''
       } ${scrollingDown ? 'hide' : 'show'}`}
       role="navigation"
       aria-label="Main"
     >
-      <nav className={classes.mobileMenu}>
+      <nav
+        className={`${classes.mobileMenu}${
+          mobileMenuOpen ? ' mobileMenuOpen' : ''
+        }`}
+      >
         <ul>
           <Navlinks />
         </ul>
@@ -42,12 +46,14 @@ const Navbar = () => {
 
         <nav className={classes.menu}>
           <ul>
-            <Navlinks/>
+            <Navlinks />
           </ul>
         </nav>
 
         <div
-          className={classes.mobileMenuButton}
+          className={`${classes.mobileMenuButton}${
+            mobileMenuOpen ? ' mobileMenuOpen' : ''
+          }`}
           role="button"
           aria-label="Open menu"
           tabIndex={0}
