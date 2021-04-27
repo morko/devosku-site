@@ -50,7 +50,7 @@ const Layout = ({ children, className = '', transparentNavbar = false }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-
+        <link rel="manifest" href={`${withPrefix('/')}/site.webmanifest`} />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -68,14 +68,12 @@ const Layout = ({ children, className = '', transparentNavbar = false }) => {
           href={`${withPrefix('/')}img/favicon-16x16.png`}
           sizes="16x16"
         />
-
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
+        <meta
+          name="msapplication-config"
+          content={`${withPrefix('/')}browserconfig.xml`}
         />
-        <meta name="theme-color" content="#fff" />
-
+        <meta name="msapplication-TileColor" content="#C27500" />
+        <meta name="theme-color" content="#C27500" />
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
