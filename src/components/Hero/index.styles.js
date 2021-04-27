@@ -19,7 +19,7 @@ const useStyles = createUseStyles((theme) => ({
     lineHeight: '1.2',
     margin: 0,
     opacity: 0,
-    animation: 'fadeInUp 2s',
+    animation: '$heroText 2s',
     animationFillMode: 'forwards',
   },
   subtitle: {
@@ -28,7 +28,7 @@ const useStyles = createUseStyles((theme) => ({
     marginTop: '50px',
     fontSize: '1.125em',
     opacity: 0,
-    animation: 'fadeInUp 2s',
+    animation: '$heroText 2s',
     animationFillMode: 'forwards',
     animationDelay: '0.5s',
   },
@@ -45,7 +45,7 @@ const useStyles = createUseStyles((theme) => ({
     lineHeight: 1,
     textDecoration: 'none',
     opacity: 0,
-    animation: 'fadeInUp 2s',
+    animation: '$heroText 2s',
     animationFillMode: 'forwards',
     animationDelay: '1s',
     transition: 'background-color 250ms',
@@ -83,6 +83,16 @@ const useStyles = createUseStyles((theme) => ({
       textAlign: 'center',
       alignItems: 'center',
     },
+  },
+  '@keyframes heroText': {
+    from: {
+      opacity: 0,
+      transform: 'translateY(-20px)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateY(0)',
+    }
   },
 }))
 
