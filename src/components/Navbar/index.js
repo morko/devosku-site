@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Logo from '../Logo'
-import useScroll from '../../hooks/useScroll'
+import useScrollTresholds from '../../hooks/useScrollTresholds'
+import useScrollDirection from '../../hooks/useScrollDirection'
 import Container from '../Container'
 import useStyles from './index.styles'
 import { useTheme } from 'react-jss'
@@ -13,9 +14,10 @@ const Navbar = () => {
   })
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrollTresholds, scrollingDown] = useScroll({
+  const scrollTresholds = useScrollTresholds({
     fixToTop: theme.headerHeight + theme.jumbotronHeight,
   })
+  const scrollingDown = useScrollDirection()
 
   return (
     <header
