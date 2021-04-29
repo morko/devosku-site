@@ -9,13 +9,14 @@ const Navlinks = (props) => {
   const classes = useStyles({
     theme,
   })
+
   return (
     <>
       {addHomeLink &&
       <li>
         <button
           className={classes.link}
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={(event) => window.scrollTo(0, 0)}
         >
           Home
         </button>
@@ -26,7 +27,7 @@ const Navlinks = (props) => {
           className={classes.link}
           onClick={() => scrollToId('my-projects')}
         >
-          Projects
+          My Projects
         </button>
       </li>
       <li>
@@ -34,7 +35,7 @@ const Navlinks = (props) => {
           className={classes.link}
           onClick={() => scrollToId('my-skills')}
         >
-          Skills
+          My Skills
         </button>
       </li>
     </>

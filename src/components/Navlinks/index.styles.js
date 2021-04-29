@@ -9,6 +9,7 @@ const useStyles = createUseStyles((theme) => ({
     background: 'none',
     border: 'none',
     transition: 'color 250ms',
+    padding: 0,
 
     '&:hover': {
       cursor: 'pointer',

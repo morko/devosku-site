@@ -109,11 +109,21 @@ const useStyles = createUseStyles((theme) => ({
     position: 'absolute',
     right: 0,
     top: theme.headerHeight,
-    width: '50%',
     backgroundColor: theme.backgroundColor,
     transform: 'translateX(100%)',
     transition: 'transform 250ms',
     boxShadow: 'none',
+    textAlign: 'right',
+    padding: '0 20px 0 20px',
+
+    '& ul': {
+      listStyle: 'none',
+      margin: 0,
+      padding: '0 0 10px 0',
+    },
+    '& li': {
+      paddingTop: '10px',
+    },
     '.fixed &': {
       position: 'fixed',
       top: theme.fixedHeaderHeight,
@@ -132,7 +142,7 @@ const useStyles = createUseStyles((theme) => ({
     display: 'none',
     marginLeft: 'auto',
     height: '100%',
-    width: '40px',
+    width: '20px',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -142,7 +152,7 @@ const useStyles = createUseStyles((theme) => ({
 
     '& span': {
       display: 'block',
-      width: '60%',
+      width: '100%',
       height: '2px',
       backgroundColor: theme.primaryColor,
       margin: '3px 0',
