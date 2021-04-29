@@ -6,6 +6,7 @@ const useStyles = createUseStyles((theme) => ({
     marginBottom: '40px',
     marginRight: 'calc(50% - 50vw)',
     paddingBottom: '8px',
+    overflow: 'hidden',
   },
   icon: {
     color: theme.textColor,
