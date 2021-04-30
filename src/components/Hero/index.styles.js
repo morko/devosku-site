@@ -69,8 +69,7 @@ const useStyles = createUseStyles((theme) => ({
       fontSize: '1em',
     },
     illustration: {
-      width: '60%',
-      height: 'auto',
+      height: '84%',
     },
   },
   '@media (max-width: 900px)': {
