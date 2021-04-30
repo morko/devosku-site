@@ -1,10 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
-gsap.registerPlugin(ScrollTrigger)
 
 const Project = React.forwardRef((props, ref) => {
   const {
@@ -17,41 +14,18 @@ const Project = React.forwardRef((props, ref) => {
     links,
   } = props
 
-  const maxMobileWidth = 750
+  const maxMobileWidth = 900
 
   const theme = useTheme()
   const classes = useStyles({ maxMobileWidth, theme })
-
-  const textRef = useRef()
 
   if (!ref) ref = React.createRef()
 
   const windowDimensions = useWindowDimensions()
 
-  /**
-   * Animate the textbox in.
-   */
-  useEffect(() => {
-    let tween = gsap.to(textRef.current, {
-      duration: 1,
-      opacity: 1,
-      y: 0,
-    })
-    const trigger = ScrollTrigger.create({
-      trigger: textRef.current,
-      start: 'top bottom-=100px',
-      end: 'bottom top+=100px',
-      animation: tween,
-      toggleActions: 'play reverse play reverse',
-    })
-    return () => {
-      trigger.kill()
-    }
-  }, [])
-
   return (
     <article ref={ref} className={`${classes.project} ${className || ''}`}>
-      <div ref={textRef} className={classes.textbox}>
+      <div className={classes.textbox}>
         <h2 className={classes.title}>{title}</h2>
 
         {windowDimensions.width < maxMobileWidth &&
