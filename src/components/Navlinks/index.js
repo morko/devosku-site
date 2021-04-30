@@ -1,42 +1,27 @@
 import React from 'react'
-import { scrollToId } from '../../utils'
-import useStyles from './index.styles'
-import { useTheme } from 'react-jss'
+import Navlink from './Navlink'
 
 const Navlinks = (props) => {
-  const { addHomeLink = false } = props
-  const theme = useTheme()
-  const classes = useStyles({
-    theme,
-  })
+  const { addHomeLink = false, onClick } = props
 
   return (
     <>
-      {addHomeLink &&
+      {addHomeLink && (
+        <li>
+          <Navlink scrollToPosition={0} onClick={onClick}>
+            Home
+          </Navlink>
+        </li>
+      )}
       <li>
-        <button
-          className={classes.link}
-          onClick={(event) => window.scrollTo(0, 0)}
-        >
-          Home
-        </button>
-      </li>
-      }
-      <li>
-        <button
-          className={classes.link}
-          onClick={() => scrollToId('my-projects')}
-        >
+        <Navlink scrollToPosition="my-projects" onClick={onClick}>
           My Projects
-        </button>
+        </Navlink>
       </li>
       <li>
-        <button
-          className={classes.link}
-          onClick={() => scrollToId('my-skills')}
-        >
+        <Navlink scrollToPosition="my-skills" onClick={onClick}>
           My Skills
-        </button>
+        </Navlink>
       </li>
     </>
   )

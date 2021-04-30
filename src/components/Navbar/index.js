@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Logo from '../Logo'
 import useScrollTresholds from '../../hooks/useScrollTresholds'
 import useScrollDirection from '../../hooks/useScrollDirection'
@@ -19,6 +19,10 @@ const Navbar = () => {
   })
   const scrollingDown = useScrollDirection()
 
+  const handleMobileMenuLinkClick = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
+
   return (
     <header
       className={`${classes.header}${
@@ -33,7 +37,7 @@ const Navbar = () => {
         }`}
       >
         <ul>
-          <Navlinks />
+          <Navlinks onClick={handleMobileMenuLinkClick}/>
         </ul>
       </nav>
 
