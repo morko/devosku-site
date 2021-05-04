@@ -18,7 +18,9 @@ export default function Navlink(props) {
       } else if (typeof scrollToPosition === 'number') {
         window.scrollTo(0, scrollToPosition)
       }
-      onClick(event)
+      if (onClick) {
+        onClick(event)
+      }
     },
     [scrollToPosition, onClick]
   )
