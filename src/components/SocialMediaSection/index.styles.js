@@ -28,6 +28,16 @@ const useStyles = createUseStyles((theme) => ({
       transform: 'translateY(-5px)',
     },
   },
+  '@media (max-width: 500px)': {
+    container: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
+    link: {
+      margin: 0,
+    }
+  }
 }))
 
 export default useStyles
