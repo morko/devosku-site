@@ -61,6 +61,16 @@ const useStyles = createUseStyles((theme) => ({
       paddingRight: 20,
     }
   },
+  '@media screen and (max-width: 900px)': {
+    project: {
+      marginTop: '40px',
+    },
+  },
+  '@media screen and (max-width: 550px)': {
+    title: {
+      fontSize: '2.25em',
+    },
+  },
 }))
 
 export default useStyles

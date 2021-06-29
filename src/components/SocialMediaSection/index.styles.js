@@ -17,10 +17,10 @@ const useStyles = createUseStyles((theme) => ({
     textDecoration: 'none',
     display: 'flex',
     alignItems: 'center',
-    marginRight: 60,
+    margin: '10px 60px 10px 0',
     transition: 'color .25s, transform .25s',
     '& svg': {
-      marginRight: 10,
+      marginRight: 20,
       width: '50px !important',
     },
     '&:hover': {
@@ -29,13 +29,19 @@ const useStyles = createUseStyles((theme) => ({
     },
   },
   '@media (max-width: 500px)': {
+    socialMediaSection: {
+      padding: '20px 0 20px 0',
+    },
     container: {
       flexDirection: 'column',
       alignItems: 'flex-start',
       justifyContent: 'center',
     },
     link: {
-      margin: 0,
+      margin: '10px 0 10px 0',
+      '& svg': {
+        width: '40px !important',
+      },
     }
   }
 }))

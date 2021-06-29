@@ -42,6 +42,14 @@ const useStyles = createUseStyles((theme) => ({
     backgroundColor: theme.textColor,
     opacity: 0,
     transform: 'translateX(200px)',
+  },
+  '@media screen and (max-width: 550px)': {
+    text: {
+      fontSize: '2em',
+    },
+    background: {
+      width: '4rem',
+    }
   }
 }))
 
