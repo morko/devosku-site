@@ -85,8 +85,14 @@ export const pageQuery = graphql`
                 }
               }
             }
-            technologies
-            links
+            technologies {
+              text
+              href
+            }
+            links {
+              text
+              href
+            }
           }
           html
         }

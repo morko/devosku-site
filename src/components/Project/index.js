@@ -50,7 +50,11 @@ const Project = React.forwardRef((props, ref) => {
           <h3>Technologies Used</h3>
           <ul>
             {technologies.map((technology) => {
-              return <li key={technology}>{technology}</li>
+              return (
+                <li key={technology.text}>
+                  <a href={technology.href} rel="noreferrer noopener" target="_blank">{technology.text}</a>
+                </li>
+              )
             })}
           </ul>
         </div>
@@ -62,7 +66,7 @@ const Project = React.forwardRef((props, ref) => {
               {links.map((link) => {
                 return (
                   <li className={classes.link} key={link}>
-                    <a href={link}>{link}</a>
+                    <a href={link.href} rel="noreferrer noopener" target="_blank">{link.text}</a>
                   </li>
                 )
               })}

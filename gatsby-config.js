@@ -3,7 +3,7 @@ const theme = require('./src/themes/light-theme.js')
 
 module.exports = {
   siteMetadata: {
-    title: 'devosku',
+    title: 'DevOsku',
     description: 'Professional full stack web development.',
   },
   plugins: [
@@ -54,6 +54,13 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }
+          },
           {
             resolve: 'gatsby-remark-relative-images',
             options: {
