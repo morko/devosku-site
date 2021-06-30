@@ -15,9 +15,18 @@ links:
   - text: Official HaxBall website
     href: https://www.haxball.com/
 ---
+
+### Problem
+
 HaxBall is pretty old but still popular browser game using WebRTC. The game does not support hosting without graphical user interface out of the box. I wanted to provide the Haxroomie community a way to host game rooms cheaper without the burden of running them on a system with full blown desktop environment.
 
-Making Haxroomie was not a simple process and required implementing communication between several layers like browsers JavaScript runtime and Node.js JavaScript runtime. Several workarounds were also required like [overriding the browsers LocalStorage and IndexedDB](https://github.com/morko/haxroomie/blob/master/packages/haxroomie-core/src/browser/shared-storage.js) to prevent multiple rooms overwriting each others data and using Proxy to [support attaching multiple event listeners to HaxBalls JavaScript API](https://github.com/morko/haxball-room-trapper).
+### Solution
+
+Haxroomie was implemented mainly in Node.js but also required parts of it running in the browser. It can be used programmatically or with the CLI and it could be expanded to also support controlling it through REST/GraphQL API.
+
+Making Haxroomie was not a simple process and required implementing communication between several layers like browsers and Node.js. Several workarounds were also required like [overriding the browsers LocalStorage and IndexedDB](https://github.com/morko/haxroomie/blob/master/packages/haxroomie-core/src/browser/shared-storage.js) to prevent multiple rooms overwriting each others data and using Proxy to [support attaching multiple event listeners to HaxBalls JavaScript API](https://github.com/morko/haxball-room-trapper).
+
+### Thoughts and Credits
 
 This project taught me great deal about Node.js and browser JavaScript runtimes. It works and is used by large amount of people but still would need a bit more love when I have the time for it.
 
