@@ -109,8 +109,12 @@ export default function ProjectsSection(props) {
   const [progressBarDots, setProgressBarDots] = useState([])
 
   useEffect(() => {
+    /*
+     * TODO: Implement this using CSS so external websites can link to a project.
+     * See: https://stackoverflow.com/questions/4086107/fixed-page-header-overlaps-in-page-anchors
+     */
     const containerRect = containerRef.current.getBoundingClientRect()
-    const offset = theme.fixedHeaderHeight - 20
+    const offset = theme.fixedHeaderHeight + 20
 
     const dots = []
     projectRefs.current.forEach(({ current: el }, i) => {
