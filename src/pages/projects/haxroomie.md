@@ -3,7 +3,7 @@ templateKey: project-page
 title: Haxroomie
 date: 2020-11-14T15:04:10.000Z
 description: Enables hosting HaxBall servers in systems without graphical environment.
-featuredImage: /img/haxroomie-mockup.jpg
+featuredImage: /img/haxroomie-mockup.png
 technologies:
   - text: Node.js
     href: https://nodejs.org
