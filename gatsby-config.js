@@ -89,7 +89,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: ['Catamaran', 'Merriweather Sans'],
+          families: ['Catamaran', 'Merriweather Sans:300,400'],
         },
       },
     },

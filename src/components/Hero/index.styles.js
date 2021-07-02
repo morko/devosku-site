@@ -24,13 +24,13 @@ const useStyles = createUseStyles((theme) => ({
   },
   subtitle: {
     fontFamily: theme.secondaryFont,
-    fontWeight: 400,
-    marginTop: '50px',
+    fontWeight: 300,
+    marginTop: '25px',
     fontSize: '1.125em',
     opacity: 0,
     animation: '$heroText 2s',
     animationFillMode: 'forwards',
-    animationDelay: '0.5s',
+    animationDelay: '0.25s',
   },
   callToAction: {
     marginTop: '50px',
@@ -47,7 +47,7 @@ const useStyles = createUseStyles((theme) => ({
     opacity: 0,
     animation: '$heroText 2s',
     animationFillMode: 'forwards',
-    animationDelay: '1s',
+    animationDelay: '0.5s',
     transition: 'background-color 250ms',
     '&:hover': {
       cursor: 'pointer',
@@ -86,11 +86,11 @@ const useStyles = createUseStyles((theme) => ({
   '@keyframes heroText': {
     from: {
       opacity: 0,
-      transform: 'translateY(-20px)',
+      transform: 'translateX(-20px)',
     },
     to: {
       opacity: 1,
-      transform: 'translateY(0)',
+      transform: 'translateX(0)',
     }
   },
 }))
