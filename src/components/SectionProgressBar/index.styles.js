@@ -73,6 +73,7 @@ const useStyles = createUseStyles((theme) => {
         fontSize: '.75rem',
         color: tinycolor(theme.darkColor).lighten(20).toHexString(),
         paddingRight: '10px',
+        minWidth: '100px',
       },
 
     },
