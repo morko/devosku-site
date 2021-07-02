@@ -3,6 +3,7 @@ const { createUseStyles } = require("react-jss");
 const useStyles = createUseStyles((theme) => ({
   project: {
     marginTop: '70px',
+    marginBottom: '140px',
     display: 'flex',
     alignItems: 'flex-start',
     borderRadius: '10px',
@@ -71,6 +72,7 @@ const useStyles = createUseStyles((theme) => ({
   '@media screen and (max-width: 900px)': {
     project: {
       marginTop: '40px',
+      marginBottom: '80px',
     },
   },
   '@media screen and (max-width: 550px)': {

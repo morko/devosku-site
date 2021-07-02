@@ -175,7 +175,7 @@ const useStyles = createUseStyles((theme) => ({
     },
   },
 
-  '@media (max-width: 900px)': {
+  '@media screen and (max-width: 900px)': {
     menu: {
       display: 'none',
     },

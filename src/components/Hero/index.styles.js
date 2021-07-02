@@ -72,7 +72,7 @@ const useStyles = createUseStyles((theme) => ({
       height: '84%',
     },
   },
-  '@media (max-width: 900px)': {
+  '@media screen and (max-width: 900px)': {
     illustration: {
       display: 'none !important',
     },
