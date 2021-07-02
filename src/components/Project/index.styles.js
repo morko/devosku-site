@@ -3,7 +3,7 @@ const { createUseStyles } = require("react-jss");
 const useStyles = createUseStyles((theme) => ({
   project: {
     marginTop: '70px',
-    marginBottom: '140px',
+    marginBottom: '130px',
     display: 'flex',
     alignItems: 'flex-start',
     borderRadius: '10px',
@@ -45,6 +45,9 @@ const useStyles = createUseStyles((theme) => ({
     marginLeft: '30px',
     alignSelf: 'stretch',
     backgroundColor: theme.backgroundColor,
+    '& img': {
+      borderRadius: '5px',
+    }
   },
   mobileImage: {
     width: '100%',
