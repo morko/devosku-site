@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
+import { useLocation } from '@reach/router'
 
 import Logo from '../components/Logo'
 import Footer from '../components/Footer'
@@ -43,6 +44,22 @@ const Layout = ({ children, className = '', transparentNavbar = false }) => {
       setLoading(false)
     }, 500)
   }, [removeLoader])
+
+  /*
+   * Scroll into the element programmatically if there is a hash in the URL.
+   * Browser does not automatically do that because of the "loader screen".
+   */
+  const location = useLocation()
+  const [initialScrollDone, setInitialScrollDone] = useState(false)
+  useEffect(() => {
+    if (!initialScrollDone && !loading && location.hash) {
+      const target = document.querySelector(location.hash)
+      if (target) {
+        target.scrollIntoView()
+      }
+      setInitialScrollDone(true);
+    }
+  }, [initialScrollDone, loading, location.hash])
 
   return (
     <>

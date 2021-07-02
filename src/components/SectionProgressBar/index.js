@@ -12,7 +12,9 @@ const SectionProgressBar = React.forwardRef((props, ref) => {
 
   function handleDotClick(refIndex, dotClickHandler) {
     dotRefs.current[refIndex].current.blur()
-    dotClickHandler()
+    if (dotClickHandler) {
+      dotClickHandler()
+    }
   }
 
   function createDots() {

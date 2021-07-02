@@ -5,6 +5,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 const Project = React.forwardRef((props, ref) => {
   const {
+    slug,
     className,
     title,
     featuredImage,
@@ -26,9 +27,14 @@ const Project = React.forwardRef((props, ref) => {
   return (
     <article ref={ref} className={`${classes.project} ${className || ''}`}>
       <div className={classes.textbox}>
-        <h2 className={classes.title}>{title}</h2>
+        <h2
+          className={`anchor ${classes.title}`}
+          id={slug.substr(1, slug.length - 2).replace(/\//g, '_')}
+        >
+          {title}
+        </h2>
 
-        {windowDimensions.width < maxMobileWidth &&
+        {windowDimensions.width < maxMobileWidth && (
           <img
             className={classes.mobileImage}
             src={
@@ -38,7 +44,7 @@ const Project = React.forwardRef((props, ref) => {
             }
             alt={title}
           ></img>
-        }
+        )}
         <div className={classes.description}>{description}</div>
 
         <div
@@ -52,7 +58,13 @@ const Project = React.forwardRef((props, ref) => {
             {technologies.map((technology) => {
               return (
                 <li key={technology.text}>
-                  <a href={technology.href} rel="noreferrer noopener" target="_blank">{technology.text}</a>
+                  <a
+                    href={technology.href}
+                    rel="noreferrer noopener"
+                    target="_blank"
+                  >
+                    {technology.text}
+                  </a>
                 </li>
               )
             })}
@@ -65,8 +77,14 @@ const Project = React.forwardRef((props, ref) => {
             <ul>
               {links.map((link) => {
                 return (
-                  <li className={classes.link} key={link}>
-                    <a href={link.href} rel="noreferrer noopener" target="_blank">{link.text}</a>
+                  <li className={classes.link} key={link.text}>
+                    <a
+                      href={link.href}
+                      rel="noreferrer noopener"
+                      target="_blank"
+                    >
+                      {link.text}
+                    </a>
                   </li>
                 )
               })}
@@ -74,7 +92,7 @@ const Project = React.forwardRef((props, ref) => {
           </div>
         )}
       </div>
-      {windowDimensions.width >= maxMobileWidth &&
+      {windowDimensions.width >= maxMobileWidth && (
         <div className={classes.imagebox}>
           <img
             className={classes.desktopImage}
@@ -86,7 +104,7 @@ const Project = React.forwardRef((props, ref) => {
             alt={title}
           ></img>
         </div>
-      }
+      )}
     </article>
   )
 })

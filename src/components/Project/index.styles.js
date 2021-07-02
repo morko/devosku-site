@@ -16,6 +16,13 @@ const useStyles = createUseStyles((theme) => ({
     transition: 'color .25s',
     lineHeight: 1,
     fontWeight: 100,
+    '&::before': {
+      content: '""',
+      display: 'block',
+      height: theme.fixedHeaderHeight + 20,
+      margin: `-${theme.fixedHeaderHeight + 20}px 0 0`,
+      visibility: 'hidden',
+    },
   },
   description: {
     paddingLeft: '20px',

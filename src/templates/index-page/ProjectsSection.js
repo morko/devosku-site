@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { navigate } from '@reach/router';
 import { useTheme } from 'react-jss'
 import SectionHeader from '../../components/SectionHeader'
 import useStyles from './ProjectsSection.styles'
@@ -25,7 +26,7 @@ export default function ProjectsSection(props) {
   const theme = useTheme()
   const classes = useStyles({ theme })
 
-  const progressBarHeight = 200
+  const progressBarHeight = 300
 
   const containerRef = useRef()
   const progressBarRef = useRef()
@@ -85,7 +86,7 @@ export default function ProjectsSection(props) {
     const projectComponents = []
 
     projects.forEach((el, i) => {
-      const { id, frontmatter } = el.node
+      const { id, frontmatter, fields: { slug } } = el.node
       if (!projectRefs.current[i]) {
         projectRefs.current[i] = React.createRef()
       }
@@ -93,6 +94,7 @@ export default function ProjectsSection(props) {
       projectComponents.push(
         <Project
           key={id}
+          slug={slug}
           title={frontmatter.title}
           featuredImage={frontmatter.featuredImage}
           description={frontmatter.description}
@@ -119,9 +121,11 @@ export default function ProjectsSection(props) {
     const dots = []
     projectRefs.current.forEach(({ current: el }, i) => {
       const elRect = el.getBoundingClientRect()
+      const anchor = el.querySelector('.anchor').id;
+
       dots.push({
         percent: (elRect.y - containerRect.y - offset) / containerRect.height,
-        onClick: () => window.scrollTo(0, elRect.y - offset),
+        onClick: () => navigate('#' + anchor),
         label: projects[i].node.frontmatter.title
       })
     })
