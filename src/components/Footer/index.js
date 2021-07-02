@@ -1,62 +1,34 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import Container from '../Container'
 
-import './index.scss'
-
 import Logo from '../Logo'
-import facebook from '../../img/social/facebook.svg'
-import twitter from '../../img/social/twitter.svg'
+import { useTheme } from 'react-jss'
+import useStyles from './index.styles'
+import Navlinks from '../Navlinks'
 
 export default function Footer() {
+  const theme = useTheme()
+  const classes = useStyles({ theme })
+
   return (
-    <footer>
-      <Logo />
-      <Container>
-        <section className="menu1">
-          <ul className="menu-list">
-            <li>
-              <Link to="/" className="navbar-item">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="navbar-item" to="/">
-                About
-              </Link>
-            </li>
-          </ul>
+    <footer className={classes.footer}>
+      <Container className={classes.footerInner}>
+        <section className={`${classes.column} ${classes.columnLeft}`}>
+          <Logo className={classes.logo} />
         </section>
-        <section className="menu2">
-          <ul className="menu-list">
-            <li>
-              <Link className="navbar-item" to="/">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link className="navbar-item" to="/">
-                Contact
-              </Link>
-            </li>
+
+        <section className={classes.column}>
+          <p>This website is powered by Gatsby.js.</p>
+          <p>The design and implementation is courtesy of Oskari Pöntinen.</p>
+        </section>
+
+        <section className={`${classes.column} ${classes.columnRight}`}>
+          {/* <h3 className={classes.columnHeader}>Site Index</h3> */}
+          <ul>
+            <Navlinks addHomeLink/>
           </ul>
         </section>
       </Container>
-      <section className="social">
-        <a title="facebook" href="https://facebook.com">
-          <img
-            src={facebook}
-            alt="Facebook"
-          />
-        </a>
-        <a title="twitter" href="https://twitter.com">
-          <img
-            className="fas fa-lg"
-            src={twitter}
-            alt="Twitter"
-          />
-        </a>
-      </section>
     </footer>
   )
 }

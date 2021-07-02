@@ -1,6 +1,12 @@
 import React from 'react'
-import './index.scss'
+import { useTheme } from 'react-jss';
+import useStyles from './index.styles';
 
-export default function Container({ children, className = '' }) {
-  return <div className={`container ${className}`}>{children}</div>
-}
+const Container = React.forwardRef((props, ref) => {
+  const { children, className, id } = props
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+  return <div id={id} className={`${classes.container} ${className}`} ref={ref}>{children}</div>
+})
+
+export default Container;

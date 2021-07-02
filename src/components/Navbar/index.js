@@ -1,89 +1,74 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
+import React, { useCallback, useState } from 'react'
 import Logo from '../Logo'
-import useScroll from '../../hooks/useScroll'
+import useScrollTresholds from '../../hooks/useScrollTresholds'
+import useScrollDirection from '../../hooks/useScrollDirection'
 import Container from '../Container'
-import './index.scss'
+import useStyles from './index.styles'
+import { useTheme } from 'react-jss'
+import Navlinks from '../Navlinks'
 
-const Navbar = ({ transparent = false }) => {
-  const [active, setActive] = useState(false)
-  const [activeCls, setActiveCls] = useState('')
-  const [shrinkCls, setShrinkCls] = useState('')
-  const [topCls, setTopCls] = useState(transparent ? 'is-transparent' : '')
-  const [minCls, setMinCls] = useState('')
-  const [scrollTresholds, scrollingDown] = useScroll({
-    shrink: 120,
-    min: 700,
+const Navbar = () => {
+  const theme = useTheme()
+  const classes = useStyles({
+    theme,
   })
 
-  useEffect(() => {
-    active ? setActiveCls('is-active') : setActiveCls('')
-  }, [active])
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const scrollTresholds = useScrollTresholds({
+    fixToTop: theme.headerHeight + theme.jumbotronHeight,
+  })
+  const scrollingDown = useScrollDirection()
 
-  useEffect(() => {
-    if (transparent) {
-      if (!scrollTresholds.shrink && !scrollTresholds.min) {
-        setTopCls('is-transparent')
-      } else {
-        setTopCls('')
-      }
-    }
-    if (scrollTresholds.shrink) {
-      setShrinkCls('is-shrinked')
-    } else {
-      setShrinkCls('')
-    }
-    scrollTresholds.min && scrollingDown
-      ? setMinCls('is-minimized')
-      : setMinCls('')
-  }, [scrollTresholds, scrollingDown, transparent])
-
-  function createMenuLinks() {
-    return (
-      <>
-        <li>
-          <Link to="/">About</Link>
-        </li>
-        <li>
-          <Link to="/">Contact</Link>
-        </li>
-        <li>
-          <Link to="/">Blog</Link>
-        </li>
-      </>
-    )
-  }
+  const handleMobileMenuLinkClick = useCallback(() => {
+    setMobileMenuOpen(false)
+  }, [])
 
   return (
-    <nav
-      className={`navbar ${topCls} ${shrinkCls} ${minCls}`}
+    <header
+      className={`${classes.header}${
+        scrollTresholds.fixToTop ? ' fixed' : ''
+      } ${scrollingDown ? 'hide' : 'show'}`}
       role="navigation"
       aria-label="Main"
     >
-      <ul className={`mobile-menu ${activeCls}`}>{createMenuLinks()}</ul>
+      <nav
+        className={`${classes.mobileMenu}${
+          mobileMenuOpen ? ' mobileMenuOpen' : ''
+        }`}
+      >
+        <ul>
+          <Navlinks onClick={handleMobileMenuLinkClick}/>
+        </ul>
+      </nav>
 
-      <Container>
-        <Link className="brand" to="/" title="Home">
-          <Logo className="logo" />
-          <h1 className="title">
-            <span className="left">Dev</span>
-            <span className="right">Osku</span>
+      <Container className={`${classes.container}`}>
+        <button className={classes.brand} onClick={() => window.scrollTo(0, 0)}>
+          <Logo className={classes.logo} />
+          <h1 className={classes.title}>
+            <span>Dev</span>
+            <span>Osku</span>
           </h1>
-        </Link>
+        </button>
 
-        <ul className={`menu ${activeCls}`}>{createMenuLinks()}</ul>
+        <nav className={classes.menu}>
+          <ul>
+            <Navlinks />
+          </ul>
+        </nav>
 
         <div
-          className={`menu-button ${activeCls}`}
+          className={`${classes.mobileMenuButton}${
+            mobileMenuOpen ? ' mobileMenuOpen' : ''
+          }`}
           role="button"
           aria-label="Open menu"
           tabIndex={0}
           onClick={() => {
-            setActive(!active)
+            setMobileMenuOpen(!mobileMenuOpen)
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              setActive(!active)
+              setMobileMenuOpen(!mobileMenuOpen)
             }
           }}
         >
@@ -92,7 +77,7 @@ const Navbar = ({ transparent = false }) => {
           <span />
         </div>
       </Container>
-    </nav>
+    </header>
   )
 }
 

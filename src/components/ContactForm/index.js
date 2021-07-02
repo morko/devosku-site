@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import { navigate } from 'gatsby-link'
-
-import './index.scss'
 
 function encode(data) {
   return Object.keys(data)

@@ -1,14 +1,31 @@
-var { createProxyMiddleware } = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
+const theme = require('./src/themes/light-theme.js')
 
 module.exports = {
   siteMetadata: {
-    title: 'devosku',
-    description:
-      'Professional and customer friendly full stack web development.',
+    title: 'DevOsku',
+    description: 'Professional full stack web development.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "DevOsku",
+        short_name: "DevOsku",
+        start_url: "/",
+        theme_color: "#C27500",
+        background_color: "#C27500",
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        icon: "src/img/icon.png", // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -38,6 +55,13 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: "_blank",
+              rel: "noopener noreferrer"
+            }
+          },
+          {
             resolve: 'gatsby-remark-relative-images',
             options: {
               name: 'uploads',
@@ -62,18 +86,23 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        google: {
+          families: ['Catamaran', 'Merriweather Sans:300,400'],
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-jss',
+      options: { theme },
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-      options: {
-        develop: true, // Activates purging in npm run develop
-        //purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally

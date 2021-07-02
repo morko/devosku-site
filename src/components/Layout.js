@@ -1,26 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
+import { useLocation } from '@reach/router'
 
-import '../scss/index.scss'
-
+import Logo from '../components/Logo'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import useSiteMetadata from '../hooks/useSiteMetaData'
 import { withPrefix } from 'gatsby'
+import { useTheme } from 'react-jss'
+import 'normalize.css'
+import useStyles from './Layout.styles'
 
-const TemplateWrapper = ({
-  children,
-  className = '',
-  transparentNavbar = false,
-}) => {
+const Layout = ({ children, className = '', transparentNavbar = false }) => {
   const { title, description } = useSiteMetadata()
+
+  const theme = useTheme()
+  const classes = useStyles({ theme })
+
+  const [loading, setLoading] = useState(true)
+  const [removeLoader, setRemoveLoader] = useState(false)
+
+  useEffect(() => {
+    const htmlEl = document.querySelector('html')
+
+    const interval = setInterval(() => {
+      if (
+        typeof htmlEl.className === 'string' &&
+        htmlEl.className.includes('wf-active')
+      ) {
+        setRemoveLoader(true)
+        clearInterval(interval)
+      }
+    }, 500)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!removeLoader) return
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
+  }, [removeLoader])
+
+  /*
+   * Scroll into the element programmatically if there is a hash in the URL.
+   * Browser does not automatically do that because of the "loader screen".
+   */
+  const location = useLocation()
+  const [initialScrollDone, setInitialScrollDone] = useState(false)
+  useEffect(() => {
+    if (!initialScrollDone && !loading && location.hash) {
+      const target = document.querySelector(location.hash)
+      if (target) {
+        target.scrollIntoView()
+      }
+      setInitialScrollDone(true);
+    }
+  }, [initialScrollDone, loading, location.hash])
+
   return (
-    <div id="page" className={className}>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-
+        <link rel="manifest" href={`${withPrefix('/')}/site.webmanifest`} />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -38,14 +85,12 @@ const TemplateWrapper = ({
           href={`${withPrefix('/')}img/favicon-16x16.png`}
           sizes="16x16"
         />
-
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
+        <meta
+          name="msapplication-config"
+          content={`${withPrefix('/')}browserconfig.xml`}
         />
-        <meta name="theme-color" content="#fff" />
-
+        <meta name="msapplication-TileColor" content="#C27500" />
+        <meta name="theme-color" content="#C27500" />
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
@@ -54,11 +99,23 @@ const TemplateWrapper = ({
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar transparent={transparentNavbar} />
-      <main>{children}</main>
-      <Footer />
-    </div>
+
+      {loading ? (
+        <div id="loading" className={classes.loader}>
+          <Logo className={removeLoader ? classes.fadeOut : classes.fadeIn} />
+        </div>
+      ) : (
+        <div
+          id="page"
+          className={classes.page + (className ? ' ' + className : '')}
+        >
+          <Navbar transparent={transparentNavbar} />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      )}
+    </>
   )
 }
 
-export default TemplateWrapper
+export default Layout
