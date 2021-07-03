@@ -28,6 +28,11 @@ const useStyles = createUseStyles((theme) => ({
     width: '100%',
     height: '100%',
   },
+  '@media screen and (max-width: 900px)': {
+    backgroundContainer: {
+      backgroundAttachment: 'scroll',
+    },
+  }
 }))
 
 export default useStyles
