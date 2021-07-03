@@ -1,9 +1,9 @@
 ---
 templateKey: project-page
 title: Kaisla Admin Panel
-date: 2020-11-14T15:04:10.000Z
+date: 2021-02-14T15:04:10.000Z
 featuredImage: /img/kaisla-admin-panel-mockup.png
-description: Administrator panel for web hosts
+description: Administrator panel for web hosts.
 technologies:
   - text: Ansible
     href: https://www.ansible.com
@@ -23,6 +23,6 @@ technologies:
 
 Kaisla Admin Panel is built with Ansible handling the bootstrapping and making changes to the hosts, Feathers providing a REST API and React.js front-end controlling Ansible through the REST API.
 
-### Thoughts
+### Thoughts and Credits
 
 This was probably the most ambitious project I have ever done and it is still not finished. The app is currently only used internally by [Kuohu & Kaisla Creative](https://kuohukaisla.com) and at hosts I manage.
