@@ -188,6 +188,15 @@ const useStyles = createUseStyles((theme) => ({
       }
     }
   },
+  '@media screen and (max-width: 550px)': {
+    logo: {
+      height: 50,
+      width: 50,
+    },
+    title: {
+      fontSize: '1.75em',
+    },
+  }
 }))
 
 export default useStyles
