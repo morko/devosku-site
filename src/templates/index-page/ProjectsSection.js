@@ -133,7 +133,7 @@ export default function ProjectsSection(props) {
   }, [projects, theme.fixedHeaderHeight])
 
   return (
-    <Container id="my-projects" className={classes.projects} ref={containerRef}>
+    <Container id="my-projects" el="section" className={classes.projects} ref={containerRef}>
       <SectionProgressBar
         className={classes.progressBar}
         ref={progressBarRef}

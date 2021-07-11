@@ -28,9 +28,8 @@ const useStyles = createUseStyles((theme) => ({
   },
   text: {
     color: theme.textColor,
-    marginLeft: '16px',
+    margin: '0 0 0 16px',
     fontFamily: theme.primaryFont,
-    fontSize: '2.75em',
     fontWeight: 600,
   },
   underline: {
@@ -44,9 +43,6 @@ const useStyles = createUseStyles((theme) => ({
     transform: 'translateX(200px)',
   },
   '@media screen and (max-width: 550px)': {
-    text: {
-      fontSize: '2em',
-    },
     background: {
       width: '4rem',
     }

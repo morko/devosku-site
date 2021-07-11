@@ -16,11 +16,11 @@ links:
     href: https://www.luppi.fi/tapahtumat
 ---
 
-### Problem
+#### Problem
 
 LUP (Luonto-Liiton Uudenmaan piiri ry) needed a way to display events from their parent organizations website on their WordPress site. Previously they had to keep add same events to two different websites.
 
-### Solution
+#### Solution
 
 The front-end was easy to implement as Gutenberg block for WordPress. The real difficulty was how to fetch the data from the source website. I had no access to the parent organizations back-end and only way to get the data was to investigate the websites network requests if it had any exposed API enpoint to access the events from. Unfortunately that was not the case so the only solution was to get the event using a technique called "web crawling".
 
@@ -28,6 +28,6 @@ Web crawling is usually last resort because it requires more amount of work for 
 
 The plugins back-end exposes a GET route for the front-end to get the events with an AJAX request. When the route is hit the events are either fetched and parsed from the parent organizations website or returned from a cache if they were recently processed. This makes the subsequent requests a bit faster, but it does not eliminate the slowness of web crawling completely.
 
-### Credits
+#### Credits
 
 The website was created by [Kuohu & Kaisla Creative](https://kuohukaisla.com).

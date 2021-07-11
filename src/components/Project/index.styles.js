@@ -78,11 +78,6 @@ const useStyles = createUseStyles((theme) => ({
       marginBottom: '80px',
     },
   },
-  '@media screen and (max-width: 550px)': {
-    title: {
-      fontSize: '2.25em',
-    },
-  },
 }))
 
 export default useStyles

@@ -36,7 +36,7 @@ export default function SectionHeader(props) {
   return (
     <header className={`${classes.sectionHeader} ${className || ''}`}>
       <span className={classes.background}/>
-      <span className={classes.text}>{children}</span>
+      <h2 className={classes.text}>{children}</h2>
       <span className={classes.underline} ref={underlineRef}/>
     </header>
   )

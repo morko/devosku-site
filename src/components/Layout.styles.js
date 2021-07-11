@@ -55,7 +55,11 @@ const useStyles = createUseStyles((theme) => ({
       fontSize: '2.75em',
     },
     h3: {
-      fontSize: '2em',
+      fontSize: '2.25em',
+      fontWeight: 300,
+    },
+    h4: {
+      fontSize: '1.75em',
       fontWeight: 300,
     },
     'h1,h2,h3,h4,h5,h6': {
@@ -64,6 +68,22 @@ const useStyles = createUseStyles((theme) => ({
     'body,ul,a,p,input': {
       fontFamily: theme.secondaryFont,
     },
+    '@media screen and (max-width: 550px)': {
+      h1: {
+        fontSize: '2.75em',
+      },
+      h2: {
+        fontSize: '2.25em',
+      },
+      h3: {
+        fontSize: '1.75em',
+        fontWeight: 300,
+      },
+      h4: {
+        fontSize: '1.5em',
+        fontWeight: 300,
+      },
+    }
   }
 }));
 
