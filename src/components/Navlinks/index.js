@@ -23,6 +23,11 @@ const Navlinks = (props) => {
           My Skills
         </Navlink>
       </li>
+      <li>
+        <Navlink scrollToPosition="contact-me" onClick={onClick}>
+          Contact Me
+        </Navlink>
+      </li>
     </>
   )
 }
