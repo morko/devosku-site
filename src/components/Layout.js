@@ -96,7 +96,7 @@ const Layout = ({ children, className = '', transparentNavbar = false }) => {
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
+          content={`${withPrefix('/')}img/logo.png`}
         />
       </Helmet>
 
