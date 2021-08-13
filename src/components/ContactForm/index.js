@@ -170,7 +170,7 @@ export default function ContactForm() {
           </div>
         }
 
-        <Button type="submit" disabled={submitted || submitting} loading={submitting}>Send</Button>
+        <Button type="submit" disabled={submitting} loading={submitting}>Send</Button>
       </form>
     </>
   )
