@@ -83,7 +83,20 @@ const useStyles = createUseStyles((theme) => ({
         fontSize: '1.5em',
         fontWeight: 300,
       },
-    }
+    },
+    label: {
+      fontFamily: theme.secondaryFont,
+    },
+    'input,textarea,fieldset': {
+      fontFamily: theme.secondaryFont,
+      borderRadius: 3,
+      border: `1px ${theme.secondaryColor} solid`,
+      padding: 10,
+      boxSizing: 'border-box',
+    },
+    'input:focus,textarea:focus': {
+      outline: `1px ${theme.primaryColor} solid`,
+    },
   }
 }));
 

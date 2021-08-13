@@ -1,5 +1,4 @@
 import { createUseStyles } from 'react-jss'
-import tinycolor from 'tinycolor2'
 
 const useStyles = createUseStyles((theme) => ({
   textbox: {
@@ -49,10 +48,6 @@ const useStyles = createUseStyles((theme) => ({
     animationFillMode: 'forwards',
     animationDelay: '0.5s',
     transition: 'background-color 250ms',
-    '&:hover': {
-      cursor: 'pointer',
-      backgroundColor: tinycolor(theme.primaryColor).lighten(10).toHexString(),
-    },
   },
   illustration: {
     zIndex: 1000,
