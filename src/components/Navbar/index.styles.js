@@ -18,15 +18,9 @@ const useStyles = createUseStyles((theme) => ({
       height: theme.fixedHeaderHeight,
       boxShadow: '0 8px 6px -6px rgba(0,0,0,0.4)',
       top: -theme.fixedHeaderHeight,
-    },
-    '&.fixed.hide': {
-      transition: 'transform .5s',
-      transform: 'translateY(0)',
-    },
-    '&.fixed.show': {
       transition: 'transform .5s',
       transform: 'translateY(100%)',
-    }
+    },
   },
 
   container: {
@@ -185,6 +179,14 @@ const useStyles = createUseStyles((theme) => ({
     mobileMenu: {
       '&.mobileMenuOpen': {
         display: 'block',
+      }
+    },
+    header: {
+      '&.fixed.hide': {
+        transform: 'translateY(0)',
+      },
+      '&.fixed.show': {
+        transform: 'translateY(100%)',
       }
     }
   },
