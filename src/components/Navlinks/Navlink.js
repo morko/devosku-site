@@ -1,36 +1,27 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import useStyles from './Navlink.styles'
 import { useTheme } from 'react-jss'
+import { Link } from 'gatsby'
 import { scrollToId } from '../../utils'
 
 export default function Navlink(props) {
-  const { children, className, scrollToPosition, onClick } = props
+  const { children, className, to, elementId, onClick } = props
 
   const theme = useTheme()
   const classes = useStyles({
     theme,
   })
 
-  const handleClick = useCallback(
-    (event) => {
-      if (typeof scrollToPosition === 'string') {
-        scrollToId(scrollToPosition)
-      } else if (typeof scrollToPosition === 'number') {
-        window.scrollTo(0, scrollToPosition)
-      }
-      if (onClick) {
-        onClick(event)
-      }
-    },
-    [scrollToPosition, onClick]
-  )
-
   return (
-    <button
+    <Link
       className={`${classes.link}${className ? ' ' + className : ''}`}
-      onClick={handleClick}
+      to={to}
+      onClick={(e) => {
+        elementId && scrollToId(elementId)
+        onClick && onClick(e)
+      }}
     >
       {children}
-    </button>
+    </Link>
   )
 }

@@ -42,6 +42,7 @@ const useStyles = createUseStyles((theme) => ({
       scrollBehavior: 'smooth',
       fontSize: '18px',
       color: theme.textColor,
+      scrollPaddingTop: theme.fixedHeaderHeight + 10 + 'px',
     },
     body: {
       backgroundColor: theme.backgroundColor,

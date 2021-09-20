@@ -6,6 +6,7 @@ import Container from '../Container'
 import useStyles from './index.styles'
 import { useTheme } from 'react-jss'
 import Navlinks from '../Navlinks'
+import { Link } from 'gatsby'
 
 const Navbar = () => {
   const theme = useTheme()
@@ -37,18 +38,22 @@ const Navbar = () => {
         }`}
       >
         <ul>
-          <Navlinks onClick={handleMobileMenuLinkClick}/>
+          <Navlinks onClick={handleMobileMenuLinkClick} />
         </ul>
       </nav>
 
       <Container className={`${classes.container}`}>
-        <button className={classes.brand} onClick={() => window.scrollTo(0, 0)}>
+        <Link
+          className={classes.brand}
+          to="/"
+          onClick={() => window.scrollTo(0, 0)}
+        >
           <Logo className={classes.logo} />
           <h1 className={classes.title}>
             <span>Dev</span>
             <span>Osku</span>
           </h1>
-        </button>
+        </Link>
 
         <nav className={classes.menu}>
           <ul>

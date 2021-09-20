@@ -8,23 +8,29 @@ const Navlinks = (props) => {
     <>
       {addHomeLink && (
         <li>
-          <Navlink scrollToPosition={0} onClick={onClick}>
+          <Navlink
+            to="/"
+            onClick={(e) => {
+              window.scrollTo(0, 0)
+              onClick(e)
+            }}
+          >
             Home
           </Navlink>
         </li>
       )}
       <li>
-        <Navlink scrollToPosition="my-projects" onClick={onClick}>
+        <Navlink to="/#my-projects" elementId="my-projects" onClick={onClick}>
           My Projects
         </Navlink>
       </li>
       <li>
-        <Navlink scrollToPosition="my-skills" onClick={onClick}>
+        <Navlink to="/#my-skills" elementId="my-skills" onClick={onClick}>
           My Skills
         </Navlink>
       </li>
       <li>
-        <Navlink scrollToPosition="contact-me" onClick={onClick}>
+        <Navlink to="/#contact-me" elementId="contact-me" onClick={onClick}>
           Contact Me
         </Navlink>
       </li>
