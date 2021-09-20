@@ -12,7 +12,7 @@ const Navlinks = (props) => {
             to="/"
             onClick={(e) => {
               window.scrollTo(0, 0)
-              onClick(e)
+              onClick && onClick(e)
             }}
           >
             Home
