@@ -2,6 +2,7 @@ import React from 'react'
 import { useTheme } from 'react-jss'
 import useStyles from './index.styles'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Project = React.forwardRef((props, ref) => {
   const {
@@ -35,15 +36,11 @@ const Project = React.forwardRef((props, ref) => {
         </h3>
 
         {windowDimensions.width < maxMobileWidth && (
-          <img
+          <GatsbyImage
             className={classes.mobileImage}
-            src={
-              typeof featuredImage === 'string'
-                ? featuredImage
-                : featuredImage.childImageSharp.fluid.src
-            }
+            image={featuredImage.childImageSharp.gatsbyImageData}
             alt={title}
-          ></img>
+          />
         )}
         <div className={classes.description}>{description}</div>
 
@@ -94,15 +91,20 @@ const Project = React.forwardRef((props, ref) => {
       </div>
       {windowDimensions.width >= maxMobileWidth && (
         <div className={classes.imagebox}>
-          <img
+          {/* <img
             className={classes.desktopImage}
             src={
               typeof featuredImage === 'string'
                 ? featuredImage
-                : featuredImage.childImageSharp.fluid.src
+                : featuredImage.childImageSharp.gatsbyImageData.src
             }
             alt={title}
-          ></img>
+          ></img> */}
+          <GatsbyImage
+            className={classes.desktopImage}
+            image={featuredImage.childImageSharp.gatsbyImageData}
+            alt={title}
+          />
         </div>
       )}
     </article>

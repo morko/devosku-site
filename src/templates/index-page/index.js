@@ -10,7 +10,7 @@ import SkillsSection from './SkillsSection'
 import SocialMediaSection from '../../components/SocialMediaSection'
 import ContactSection from './ContactSection'
 
-export const IndexPageTemplate = (props) => {
+const IndexPageTemplate = (props) => {
   const { headline, projects } = props
 
   return (
@@ -87,9 +87,7 @@ export const pageQuery = graphql`
             description
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
             technologies {
